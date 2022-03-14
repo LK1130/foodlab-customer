@@ -910,5 +910,17 @@ form div .cancels {
     margin-bottom: 0 !important;
 }
 
+/*start modal*/
+.confirms {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    border: 2px groove transparent;
+    border-radius: 0.3em;
+}
 
+.no_delete{
+    border: 1px solid var(--primary-color);
+}
+/*end modal*/
 /*End Cart Section*/
+

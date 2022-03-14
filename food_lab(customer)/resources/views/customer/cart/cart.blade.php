@@ -59,12 +59,12 @@
                 @php
                     $i = 1;
                 @endphp
-                
+
                 @foreach ($products as $product)
-                
+
                     <div class="row justify-content-center align-items-center mt-3 products">
                         <div class="col-1 text-center">
-                            <ion-icon name="close-sharp" class="fs-1 delete" id="{{ $i++ }}"></ion-icon>
+                            <ion-icon name="close-sharp" class="fs-1 delete" data-bs-toggle="modal" data-bs-target="#modal1" id="{{ $i++ }}"></ion-icon>
                         </div>
                         <div class="col-3 mb-3 product-img">
                             <img src="/storage/{{ $product['path'] }}" alt = "{{ $product['product_name'] }}"/>
@@ -136,6 +136,24 @@
             </div>
         </div>
         @endif
+        {{-- start modal --}}
+        <div class="modal" id="modal1" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <h5 class="modal-title"> <span><i class="fas fa-check-circle text-success mx-2"></i></span>{{ __('messageMK.confirm') }}</h5>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn no_delete" data-bs-dismiss="modal">{{ __('messageMK.no') }}</button>
+                        <button type="button" class="btn confirms delete-confirms">{{ __('messageMK.yes') }}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{-- end modal --}}
     </section>
     {{--  End Cart Session   --}}
 @endsection
