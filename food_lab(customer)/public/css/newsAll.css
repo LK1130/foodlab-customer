@@ -1,0 +1,187 @@
+body {
+    height: auto;
+    background-image: url("/img/Home.png");
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: auto;
+    position: relative;
+}
+.news-container {
+    margin: auto;
+    margin-top: 9%;
+    width: 90%;
+    height: 65vh;
+    background-color: rgba(101, 102, 102, 0.199);
+}
+.news-container .title {
+    color: var(--secondary-color);
+}
+.newsA {
+    position: relative;
+    height: 15vh !important;
+    width: 60%;
+    margin: auto;
+    cursor: pointer;
+    border-radius: 1vw;
+    background-color: rgb(216, 211, 193);
+}
+.dateDiv {
+    color: var(--secondary-color);
+    margin-top: 2rem;
+}
+.newsAll {
+    position: relative;
+    margin-top: 5vh !important;
+    width: 90%;
+    background-color: rgb(216, 211, 193);
+    /* max-height: 15vh; */
+    height: fit-content;
+    margin: auto;
+    cursor: pointer;
+    border-radius: 1vw;
+}
+.tracks {
+    position: relative;
+    margin-top: 5vh !important;
+    width: 90%;
+    background-color: rgb(216, 211, 193);
+    /* max-height: 15vh; */
+    height: fit-content !important;
+    margin: auto;
+    border-radius: 1vw;
+}
+.productname {
+    width: 40vw !important;
+    white-space: wrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* height: fit-content !important; */
+}
+.newsLogoAll {
+    position: absolute;
+    width: 6.5% !important;
+    top: -15% !important;
+    right: -3% !important;
+    filter: none;
+    /* filter: blur(0.7px);
+    image-rendering: pixelated; */
+    clear: both;
+}
+.newsLogoMessage {
+    position: absolute;
+    top: -15% !important;
+    right: -1.8% !important;
+}
+.newsImg {
+    width: 10vw !important;
+
+    margin-top: 3vh !important;
+    margin-bottom: 3vh !important;
+}
+.trackImg {
+    max-width: 8% !important;
+}
+.mobile {
+    display: flex;
+    flex-direction: row;
+    gap: 10vw;
+}
+.back {
+    color: var(--primary-color);
+}
+
+.arrows {
+    font-size: 2rem;
+}
+.heading {
+    color: var(--primary-color);
+    font-size: xx-large;
+}
+.allNews {
+    height: 80%;
+    /* overflow-y: scroll; */
+}
+.Wtruncate {
+    min-width: 28vw;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.Mtruncate {
+    min-width: 12vw;
+    text-overflow: ellipsis;
+}
+.titleDateBox {
+    display: flex;
+    flex-direction: row;
+}
+
+@media (max-width: 720px) {
+    /* body {
+        height: 100vh;
+    } */
+    .newsA {
+        height: 18vh !important;
+        width: 90% !important;
+    }
+    .newsImg {
+        min-width: 30%;
+    }
+    .titleDateBox {
+        display: flex;
+        flex-direction: column;
+        width: 70%;
+    }
+    .newsAll p {
+        font-size: 1rem !important;
+        margin-left: auto !important;
+        margin-left: 1vw !important;
+    }
+    .tracks p {
+        font-size: 1.1rem !important;
+        margin-left: auto !important;
+        margin-left: 1vw !important;
+    }
+    .mobile {
+        display: flex;
+        flex-direction: column;
+        gap: 0.1vw;
+        margin-left: 4vw !important;
+    }
+    .nome {
+        margin-right: auto !important;
+        margin-left: 2vw !important;
+    }
+    .Wtruncate,
+    .Mtruncate {
+        min-width: 100% !important;
+        font-size: 1rem !important;
+        text-overflow: ellipsis;
+    }
+    .dateDiv {
+        margin-top: 0rem !important;
+    }
+    .pagination {
+        display: inline-block;
+        width: 50%;
+        display: flex;
+        flex-direction: row;
+    }
+}
+@media (max-width: 680px) {
+    .newsLogoAll {
+        width: 10vw !important;
+        right: -5% !important;
+        top: -10% !important;
+    }
+}
+@media (max-width: 450px) {
+    .Wtruncate,
+    .Mtruncate {
+        font-size: 0.9rem !important;
+        text-overflow: ellipsis;
+    }
+}
