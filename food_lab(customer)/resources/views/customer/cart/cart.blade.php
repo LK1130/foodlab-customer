@@ -144,7 +144,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <h5 class="modal-title"> <span><i class="fas fa-check-circle text-success mx-2"></i></span>{{ __('messageMK.confirm') }}</h5>
+                        <h5 class="modal-title"> <span><i class="fas fa-check-circle text-success mx-2"></i></span>{{ __('messageMK.cancels') }}</h5>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn no_delete" data-bs-dismiss="modal">{{ __('messageMK.no') }}</button>

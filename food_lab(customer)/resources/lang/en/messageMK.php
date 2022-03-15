@@ -77,5 +77,6 @@ return [
     'no' => 'NO',
     'yes' => 'Yes',
     'notEnough' => 'Doesn\'t enuogh Coin .',
-    'moreCoin' => 'Please Buy more Coin.'
+    'moreCoin' => 'Please Buy more Coin.',
+    'cancels' => 'Are you sure want to cancel it ?',
 ];
