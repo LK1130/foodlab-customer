@@ -238,6 +238,7 @@ class M_Product extends Model
 
         return $result;
     }
+
     /*
       * Create :zayar(15/2/2022)
       * Update :

@@ -32,7 +32,7 @@
     {{-- Start Marquee --}}
     <marquee class="mt-3">
         @foreach ($news as $new)
-            <p class="d-inline mx-5 importantnews p-3 fs-5" id="{{ $new->category }}"><img src="/storage/siteLogo/{{ $name->site_logo }}" class="me-2" width="50px" alt="photo"/>{{ $new->title }}</p>
+            <p class="d-inline mx-5 importantnews p-3 fs-5" id="{{ $new->category }}"><img src="/storage/siteLogo/{{ $new->source }}" class="me-2" width="50px" alt="{{ $new->source }}"/>{{ $new->title }}</p>
         @endforeach
     </marquee>
     {{-- End Marquee --}}
