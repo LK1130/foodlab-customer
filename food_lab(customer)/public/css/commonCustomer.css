@@ -33,6 +33,7 @@ body {
     background-color: #000000;
 }
 
+
 /*Start Header*/
 
 .headers {
@@ -57,6 +58,7 @@ marquee {
 .coinCalInform {
     color: var(--coin-color);
 }
+
 
 /*start navbar*/
 
@@ -153,7 +155,6 @@ marquee {
     }
     #informAlert {
         width: 91.5%;
-
         margin-top: 45vh;
         margin-left: auto;
         margin-left: 1vw;
@@ -178,7 +179,6 @@ marquee {
     .alertButton {
         background-color: rgb(167, 175, 166);
         text-align: center;
-
         color: white;
     }
     .headerInform {
@@ -189,12 +189,15 @@ marquee {
     }
 }
 
+
 /*end navbar*/
+
 
 /*
     * Create:zayar(2022/01/17)
     * Update:
     */
+
 
 /*start Profile Alert box*/
 
@@ -308,12 +311,15 @@ marquee {
     } */
 }
 
+
 /*end profile alert */
+
 
 /*
     * Create:zayar(2022/01/22)
     * Update:
     */
+
 
 /*start inform Alert box*/
 
@@ -334,20 +340,24 @@ marquee {
 #informButton {
     cursor: pointer;
 }
+
 .btnCart {
     border-style: solid;
     background: var(--btn-color);
     color: var(--text-color);
     border-color: transparent;
 }
+
 .informText {
     max-width: 8vw;
 }
+
 .btnShopping {
     border-style: solid;
     background-color: transparent;
     border-color: var(--btn-color);
 }
+
 .hiddenAlert {
     display: none;
 }
@@ -389,29 +399,34 @@ marquee {
 .red {
     background-color: red;
 }
+
 .gray {
     background-color: gray;
 }
+
 .visible {
     display: block !important;
 }
+
 .btnlogout {
     background-color: var(--primary-color);
     color: wheat;
 }
+
 .forNews,
 .forMessages,
 .forTracks {
     height: fit-content;
-
     background-color: rgb(255, 255, 255);
     margin: auto;
     /* gap: 2.5vh; */
     border-radius: 1.4vh;
 }
+
 .fc {
     height: fit-content;
 }
+
 #forNews {
     display: none !important;
 }
@@ -436,6 +451,7 @@ marquee {
     background-color: rgb(189, 173, 158);
 }
 
+
 /* .tracks {
     height: 18vh !important;
 } */
@@ -450,16 +466,18 @@ marquee {
     /* margin-bottom: 13vh; */
     /* margin-left: 100% !important; */
     top: -1vh;
-
     /* margin-bottom: 20% !important; */
 }
+
 .gleft {
     margin-left: 98% !important;
 }
+
 .aleft {
     margin-left: 100% !important;
     /* margin-bottom: 40% !important; */
 }
+
 .news img {
     max-width: 22%;
     /* margin-right: auto; */
@@ -528,9 +546,12 @@ marquee {
 }
 
 .texts {
-    color: var(--primary-color);
-    margin-bottom: 0;
+    color: var(--text-color);
     cursor: pointer;
+}
+
+p.texts {
+    margin-bottom: 0;
 }
 
 .texts:hover {
@@ -538,14 +559,18 @@ marquee {
 }
 
 .actives {
-    border-bottom: 1px solid var(--primary-color);
+    background: var(--primary-color);
+    color: white;
+    border-radius: 1vw;
 }
 
 .comapanynames {
     color: var(--text-color);
 }
 
+
 /*end navbar*/
+
 
 /*start carousel*/
 
@@ -591,6 +616,7 @@ marquee {
     width: 100%;
 }
 
+
 /*end carousel*/
 
 @media (max-width: 720px) {
@@ -602,13 +628,18 @@ marquee {
     }
 }
 
-/*End Header*/
 
 /*End Header*/
 
-/*End Header*/
 
 /*End Header*/
+
+
+/*End Header*/
+
+
+/*End Header*/
+
 
 /*End Header*/
 

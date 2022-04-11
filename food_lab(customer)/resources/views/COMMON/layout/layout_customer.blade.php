@@ -97,8 +97,8 @@
             <div class="collapse navbar-collapse text-uppercase fw-bolder" id="navbarNav">
                 <ul class="navbar-nav w-100 justify-content-around align-items-center border-0 rounded py-3 navs">
                     @if ($nav == 'home')
-                        <li class="nav-item">
-                            <a class="nav-link texts actives" href="/home">{{ __('messageMK.home') }}</a>
+                        <li class="nav-item actives">
+                            <a class="nav-link texts" href="/home">{{ __('messageMK.home') }}</a>
                         </li>
                     @else
                         <li class="nav-item">
@@ -106,8 +106,8 @@
                         </li>
                     @endif
                     @if ($nav == 'product')
-                        <li class="nav-item">
-                            <a class="nav-link texts actives" href="/">{{ __('messageMK.Food') }}</a>
+                        <li class="nav-item actives">
+                            <a class="nav-link texts" href="/">{{ __('messageMK.Food') }}</a>
                         </li>
                     @else
                         <li class="nav-item">
@@ -116,8 +116,8 @@
                     @endif
                     @if (session()->has('customerId'))
                         @if ($nav == 'coin')
-                            <li class="nav-item">
-                                <a class="nav-link texts actives" href="/buycoin">{{ __('messageMK.buy coin') }}</a>
+                            <li class="nav-item actives">
+                                <a class="nav-link texts " href="/buycoin">{{ __('messageMK.buy coin') }}</a>
                             </li>
                         @else
                             <li class="nav-item">

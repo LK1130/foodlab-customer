@@ -99,9 +99,11 @@
 
     {{-- Start Best Seller Item Section --}}
     <section class="best-items">
-        <fieldset class="d-flex flex-wrap justify-content-around align-items-center border border-3 text-light sellers">
-            <legend class="seller-headers">{{ __('messageMK.bestselleritems') }}</legend>
+        <div class="seller-headers">
+            <img src="{{ url("img/Best_Seller_Item1.png") }}"/>
+        </div>
 
+        <div class="d-flex flex-wrap justify-content-around align-items-center border border-3 text-light sellers">
             {{-- start items --}}
             @forelse ($sellProducts as $sellProduct)
                 <div class="d-flex flex-column justify-content-center align-items-center fw-bold my-3 py-5"
@@ -125,16 +127,18 @@
             @endforelse
             {{-- end items --}}
 
-        </fieldset>
+        </div>
     </section>
     {{-- End Best Seller Item Section --}}
 
     {{-- Start Recommand Item Section --}}
     @if (session()->has('customerId'))
         <section class="recommand-items">
+            <div class="seller-headers">
+                <img src="{{ url("img/reommand_item.png.png") }}"/>
+            </div>
             <fieldset
                 class="d-flex flex-wrap justify-content-around align-items-center border border-3 text-light recommands">
-                <legend class="seller-headers">{{ __('messageMK.recommanditems') }}</legend>
                 {{-- start items --}}
                 @foreach ($recomProducts as $recomProduct)
                     @foreach ($recomProduct as $product)
@@ -154,35 +158,6 @@
         </section>
     @endif
     {{-- End Recommand Item Section --}}
-
-    {{-- Start Delivery Section --}}
-    <section class="deliverys">
-        <p class="fw-bolder text-center pt-5 pb-3 del-infos">{{ __('messageMK.Delivery Information') }}</p>
-        <div class="row">
-            {{-- start delivery Informaiton --}}
-            <div class="col-12 township-infos">
-                <div class="row justify-content-center align-items-center text-center text-white">
-                    <p class="col-5 fw-bolder del-headers">{{ __('messageMK.townships') }}</p>
-                    <p class="col-2 pt-2"><i class="fas fa-arrow-right"></i></p>
-                    <p class="col-5 fw-bolder del-headers">{{ __('messageMK.prices') }}</p>
-                </div>
-                @foreach ($townships as $township)
-                    <div class="row justify-content-center align-items-center text-center text-white">
-                        <p class="col-5 townships">{{ $township->township_name }}</p>
-                        <p class="col-2 pt-2"><i class="fas fa-arrow-right"></i></p>
-                        @if ($township->delivery_price == 0)
-                            <p class="col-5"><span class="prices">Free</span></p>
-                        @else
-                            <p class="col-5"><span class="prices">{{ $township->delivery_price }}</span>
-                                Ks</p>
-                        @endif
-                    </div>
-                @endforeach
-            </div>
-            {{-- end delivery Informaiton --}}
-        </div>
-    </section>
-    {{-- End Delivery Section --}}
 
     {{-- Start Contact Section --}}
     <section>
@@ -229,7 +204,36 @@
             </div>
         </div>
     </section>
-    {{-- End Contact Section --}}
+    {{-- End Contact Section --}}    
+
+    {{-- Start Delivery Section --}}
+    <section class="deliverys">
+        <p class="fw-bolder text-center pt-5 pb-3 del-infos">{{ __('messageMK.Delivery Information') }}</p>
+        <div class="row">
+            {{-- start delivery Informaiton --}}
+            <div class="col-12 township-infos">
+                <div class="row justify-content-center align-items-center text-center text-white">
+                    <p class="col-5 fw-bolder del-headers">{{ __('messageMK.townships') }}</p>
+                    <p class="col-2 pt-2"><i class="fas fa-arrow-right"></i></p>
+                    <p class="col-5 fw-bolder del-headers">{{ __('messageMK.prices') }}</p>
+                </div>
+                @foreach ($townships as $township)
+                    <div class="row justify-content-center align-items-center text-center text-white">
+                        <p class="col-5 townships">{{ $township->township_name }}</p>
+                        <p class="col-2 pt-2"><i class="fas fa-arrow-right"></i></p>
+                        @if ($township->delivery_price == 0)
+                            <p class="col-5"><span class="prices">Free</span></p>
+                        @else
+                            <p class="col-5"><span class="prices">{{ $township->delivery_price }}</span>
+                                Ks</p>
+                        @endif
+                    </div>
+                @endforeach
+            </div>
+            {{-- end delivery Informaiton --}}
+        </div>
+    </section>
+    {{-- End Delivery Section --}}
 
     {{-- Start Footer Section --}}
     <footer>
