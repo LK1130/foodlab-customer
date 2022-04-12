@@ -136,8 +136,9 @@
     background-repeat: no-repeat;
     background-position: center;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
+    flex-direction: column;
 }
 
 .close {
@@ -156,17 +157,12 @@
 }
 
 .seller-headers {
-    width: auto;
-    background-color: var(--bg2-color);
-    color: var(--primary-color);
-    font-size: 1.5rem;
-    font-weight: bold;
-    letter-spacing: 2px;
-    border-radius: 10px;
-    display: inline;
-    float: none !important;
-    margin-left: 10%;
-    padding: 0 10px 0 10px;
+    width: 30%;
+    margin: 30px 0;
+}
+
+.seller-headers img {
+    width: 100%;
 }
 
 .product-imgs {
@@ -247,6 +243,9 @@
     .townships,
     .prices {
         font-size: 0.9rem;
+    }
+    .seller-headers {
+        width: 40%;
     }
 }
 
@@ -835,10 +834,6 @@ form div .cancels {
 /*Start Footer Section*/
 
 .footer-infos {
-    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url("/img/bg5.png");
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
     color: var(--text-color);
     font-weight: bold;
     font-size: 1.1rem;
@@ -871,7 +866,6 @@ form div .cancels {
 }
 
 .copys {
-    background: url("/img/bg2.png");
     min-height: 10vh;
     background-size: cover;
     color: var(--primary-color);
@@ -910,7 +904,9 @@ form div .cancels {
     margin-bottom: 0 !important;
 }
 
+
 /*start modal*/
+
 .confirms {
     background-color: var(--primary-color);
     color: var(--text-color);
@@ -918,9 +914,12 @@ form div .cancels {
     border-radius: 0.3em;
 }
 
-.no_delete{
+.no_delete {
     border: 1px solid var(--primary-color);
 }
-/*end modal*/
-/*End Cart Section*/
 
+
+/*end modal*/
+
+
+/*End Cart Section*/
