@@ -29,7 +29,7 @@ class CustomerProfileController extends Controller
 
 
         $sessionCustomerId = session()->get('customerId');
-
+        
         $user = new T_CU_Customer();
         $userinfo = $user->loginUser($sessionCustomerId);
 

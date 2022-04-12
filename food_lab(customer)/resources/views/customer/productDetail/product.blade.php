@@ -5,16 +5,18 @@
 @endsection
 
 @section('css')
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+    {{--  <meta name="csrf-token" content="{{ csrf_token() }}">  --}}
     <link href="{{ url('css/customerProduct.css') }}" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    {{--  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
         integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+        crossorigin="anonymous" referrerpolicy="no-referrer" />  --}}
     <link href="{{ url('css/commonCustomer.css') }}" rel="stylesheet" type="text/css" />
 @endsection
 
 @section('script')
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="{{ url('js/productSearch.js') }}" type="text/javascript"></script>
+    
 
 @endsection
 
@@ -31,8 +33,23 @@
         </div>
 
         <div class="container-fluid p-3">
-        <div class="row">
-            <div class="col-sm-3">
+        <div class="row d-flex">
+            
+            <div class="col-md-6 m-4 p-3">
+                <div class="input-group">
+                    <button type="button" class="btn  custombtn">
+                        <i class="fas fa-search"></i>
+                      </button>
+                    <div class="form-outline">
+                      <input type="search" list="datalistOptions" id="form1" class="form-control" />
+                      <datalist id="datalistOptions" class="searchEngine">
+                        
+                      </datalist>
+                    </div>
+                    
+                  </div>
+            </div>
+            <div class="col-md-3 mt-3">
                 <div class="form-group">
                     <select class="selectpicker p-3 mx-3 m-5 mt-0 "  data-size="5" name="type" id="selectpicker1">
                         <option class="selectpicker1" value="" selected disabled>Lists By Category</option>

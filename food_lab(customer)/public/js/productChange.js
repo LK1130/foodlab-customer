@@ -43,6 +43,7 @@ $(document).ready(function () {
                         </div>
                     `);
                 }
+                console.log(count);
 
                 for (const list of data) {
                     if(count < 4){
