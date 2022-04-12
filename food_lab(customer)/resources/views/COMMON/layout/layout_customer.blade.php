@@ -144,6 +144,7 @@
                                     <span class="visually-hidden">unread messages</span>
                                 </span>
                             </p>
+
                         </li>
                     @else
                         <li class="nav-item">
@@ -155,6 +156,50 @@
                                     <span class="visually-hidden">unread messages</span>
                                 </span>
                             </p>
+                            <div id="informAlert" class="informAlert">
+                                @if (session()->has('customerId'))
+                                    <div
+                                        class="headerInform d-flex flex-row justify-content-center align-items-center  ">
+                                        <div class="topNotch "></div>
+                                        <div>
+                                            <p class="   infromTitle" id="clickNews">
+                                                {{ __('messageZY.new') }}</p>
+                                        </div>
+                                        <div>
+                                            <p class="  infromTitle" id="clickMessages">
+                                                {{ __('messageZY.message') }}
+                                            </p>
+                                        </div>
+                                        <div>
+                                            <p class=" infromTitle" id="clickTracks">
+                                                {{ __('messageZY.track') }}
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="forNews d-flex flex-column" id="forNews">
+                                        {{-- <a href="/customerNews" class="ms-auto me-2"><button class="btn mb-2 alertButton">
+                                                {{ __('messageZY.more') }}</button></a> --}}
+                                    </div>
+                                    <div class="forMessages d-flex flex-column" id="forMessages">
+                                        {{-- <a href="/messages" class="ms-auto me-2"><button class="btn mb-2 alertButton">
+                                                {{ __('messageZY.more') }}</button></a> --}}
+                                    </div>
+                                    <div class="forTracks d-flex flex-column" id="forTracks">
+                                        {{-- <a href="/tracks" class="ms-auto me-2"><button class="btn mb-2 alertButton">
+                                                {{ __('messageZY.more') }}</button></a> --}}
+                                    </div>
+                                @else
+                                    <div
+                                        class="headerInform d-flex flex-row justify-content-center align-items-center ">
+                                        <div class="topNotch"></div>
+                                        <p class="fw-bolder fs-5 text-center  infromTitle" id="clickNews">
+                                            {{ __('messageZY.new') }}
+                                        </p>
+                                    </div>
+                                    <div class="forNews d-flex flex-column" id="forNews">
+                                    </div>
+                                @endif
+                            </div>
                         </li>
                     @endif
 
@@ -237,8 +282,7 @@
                 </div>
             </div>
             {{-- End model --}}
-            <div id="informAlert" class="informAlert">
-
+            {{-- <div id="informAlert" class="informAlert">
                 @if (session()->has('customerId'))
                     <div class="headerInform d-flex flex-row justify-content-center align-items-center  ">
                         <div class="topNotch "></div>
@@ -256,19 +300,13 @@
                         </div>
                     </div>
                     <div class="forNews d-flex flex-column" id="forNews">
-
-                        {{-- <a href="/customerNews" class="ms-auto me-2"><button class="btn mb-2 alertButton">
-                                {{ __('messageZY.more') }}</button></a> --}}
+                        
                     </div>
                     <div class="forMessages d-flex flex-column" id="forMessages">
-
-                        {{-- <a href="/messages" class="ms-auto me-2"><button class="btn mb-2 alertButton">
-                                {{ __('messageZY.more') }}</button></a> --}}
+                        
                     </div>
                     <div class="forTracks d-flex flex-column" id="forTracks">
-
-                        {{-- <a href="/tracks" class="ms-auto me-2"><button class="btn mb-2 alertButton">
-                                {{ __('messageZY.more') }}</button></a> --}}
+                        
                     </div>
                 @else
                     <div class="headerInform d-flex flex-row justify-content-center align-items-center ">
@@ -276,14 +314,11 @@
                         <p class="fw-bolder fs-5 text-center  infromTitle" id="clickNews">
                             {{ __('messageZY.new') }}
                         </p>
-
                     </div>
                     <div class="forNews d-flex flex-column" id="forNews">
-
-
                     </div>
                 @endif
-            </div>
+            </div> --}}
             {{-- End Inform Alert --}}
         </nav>
         {{-- end navbar --}}

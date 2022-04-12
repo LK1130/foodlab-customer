@@ -88,11 +88,11 @@ $(document).ready(function () {
                             $(".forNews").append(
                                 `
                             <div class="news nocursor d-flex flex-row justify-content-center align-items-center mb-3">
-                                    <img src="/storage/newsImage/${news.source}" class="my-3 ms-2 rounded" width="20px" alt="">
+                                    <img src="/storage/newsImage/${news.source}" class="my-3 ms-2 imageNews rounded" width="20px" alt="">
                                     <div class=" d-flex flex-column  me-auto ms-3 text-truncate w-75">
-                                    <p class="fs-4 fw-bolder mt-2 me-auto ms-3 text-truncate "  style="max-width: 80%; min-width:12vw;">${news.title}
+                                    <p class=" mt-2 me-auto ms-3 text-truncate "  style="max-width: 80%; min-width:12vw;">${news.title}
                                         </p>
-                                        <p class=" fw-bolder mt-2 me-auto ms-3 text-truncate "   style="max-width: 80%; min-width:12vw;">
+                                        <p class="  mt-2 me-auto ms-3 text-truncate fontSizeForInform"   style="max-width: 80%; min-width:12vw;">
                                         (${news.detail})</p>
                                         </div>
                                         <img src="img/new.png" alt="" class="newsLogo gleft" width="49px">
@@ -107,9 +107,9 @@ $(document).ready(function () {
                             
                                     <img src="/storage/newsImage/${news.source}" class="my-3 ms-2 imageNews rounded"  alt="">
                                     <div class=" d-flex flex-column  me-auto ms-3 text-truncate w-75">
-                                    <p class="fs-4 fw-bolder mt-2 me-auto ms-3 text-truncate "  style="max-width: 80%; min-width:12vw;">${news.title}
+                                    <p class="  mt-2 me-auto ms-3 text-truncate "  style="max-width: 80%; min-width:12vw;">${news.title}
                                         </p>
-                                        <p class=" fw-bolder mt-2 me-auto ms-3 text-truncate "   style="max-width: 80%; min-width:12vw;">
+                                        <p class="  mt-2 me-auto ms-3 text-truncate fontSizeForInform"   style="max-width: 80%; min-width:12vw;">
                                         (${news.detail})</p>
                                         </div>
                                         <img src="" alt="" class="newsLogo" >
@@ -152,12 +152,12 @@ $(document).ready(function () {
                                 `
         <div class="messages d-flex flex-row justify-content-center align-items-center mb-3" id="${messages.chargeid}">
         
-                <p class="fs-6 fw-bolder me-auto w-50 ms-3 mt-3">${messages.detail}</p>
+                <p class="fontSizeForMessage me-auto w-50 ms-3 mt-3">${messages.detail}</p>
                 <div class="d-flex flex-column me-4">
-                    <p class="fs-5 fw-bolder  ms-auto mt-2 w-100 rounded ${$messagecolor} text-center">
+                    <p class=" ms-auto mt-2 w-100 rounded ${$messagecolor} text-center">
                     ${messages.title}
                     </p>
-                    <p class=" fw-bold  mb-1 ">${messages.messagecreated}</p>
+                    <p class=" fontSizeForMessage  mb-1 ">${messages.messagecreated}</p>
                 </div>
                 <img src="img/new.png" alt="" class="newsLogo gleft" width="49px">
             </div>
@@ -169,12 +169,12 @@ $(document).ready(function () {
                                 `
                                 <div class="messages d-flex flex-row justify-content-center align-items-center mb-3" id="${messages.chargeid}">
         
-                                <p class="fs-6 fw-bolder me-auto w-50 ms-3 mt-3">${messages.detail}</p>
+                                <p class="fontSizeForMessage me-auto w-50 ms-3 mt-3">${messages.detail}</p>
                                 <div class="d-flex flex-column me-4">
-                                    <p class="fs-5 fw-bolder  ms-auto mt-2 w-100 rounded ${$messagecolor} text-center">
+                                    <p class=" ms-auto mt-2 w-100 rounded ${$messagecolor} text-center">
                                     ${messages.title}
                                     </p>
-                                    <p class=" fw-bold  mb-1 ">${messages.messagecreated}</p>
+                                    <p class=" fontSizeForMessage  mb-1 ">${messages.messagecreated}</p>
                                 </div>
                                 
                             </div>
@@ -235,18 +235,18 @@ $(document).ready(function () {
                                         <div class="tracks mt-2 d-flex flex-row justify-content-center align-items-center h-auto d-inline-block mb-3" id="${tracks.tid}">
                                         
                                         <div class="d-flex flex-column w-100 ms-3  ">
-                                        <div class="d-flex flex-row gap-1 ms-2">
-                                        <p class="text-truncate fw-bolder  informText" >${product.product_name}</p> ${$howmuchtext}
+                                        <div class="d-flex flex-row gap-1 ms-2 fontSizeForMessage">
+                                        <p class="text-truncate   informText " >${product.product_name}</p> ${$howmuchtext}
                                             </div>
                                             
                                             
-                                        <p class=" fw-bold mb-1 ms-2"><i class="coinCalInform fas fa-coins"></i> ${tracks.coin} </p>
-                                        <p class=" fw-bold mb-1 ms-2">${tracks.amount} MMK</p>
+                                        <p class="  mb-1 ms-2 fontSizeForMessage"><i class="coinCalInform fas fa-coins"></i> ${tracks.coin} </p>
+                                        <p class="  mb-1 ms-2 fontSizeForMessage">${tracks.amount} MMK</p>
                                         </div>
                                         <div class="d-flex flex-column  w-100 mt-3">
-                                            <p class="fs-5 w-75 fw-bolder rounded ${$messagecolor} text-center">
+                                            <p class=" w-75 fw-bolder rounded ${$messagecolor} text-center">
                                             ${tracks.status} </p>
-                                            <p class=" fw-bold mt-4">${tracks.trackscreated} </p>
+                                            <p class="fontSizeForMessage fw-bold mt-4">${tracks.trackscreated} </p>
                                         </div>
                                         <img src="img/new.png" alt="" class="newsLogo aleft" >
                                     </div>
@@ -259,17 +259,17 @@ $(document).ready(function () {
                                         <div class="tracks mt-2 d-flex flex-row justify-content-center align-items-center h-auto d-inline-block mb-3" id="${tracks.tid}">
                                         
                                         <div class="d-flex flex-column w-100 ms-3 ">
-                                        <div class="d-flex flex-row gap-1 ms-2 fs-5">
-                                        <p class="text-truncate fw-bolder  informText" >${product.product_name}</p> ${$howmuchtext}
+                                        <div class="d-flex flex-row gap-1 ms-2  fontSizeForMessage">
+                                        <p class="text-truncate  informText " >${product.product_name}</p> ${$howmuchtext}
                                             </div>
                                             
-                                        <p class=" fw-bold mb-1 ms-2 fs-5"><i class="coinCalInform fas fa-coins"></i> ${tracks.coin} </p>
-                                        <p class=" fw-bold mb-1 ms-2 fs-5">${tracks.amount} MMK</p>
+                                        <p class="  mb-1 ms-2  fontSizeForMessage"><i class="coinCalInform fas fa-coins"></i> ${tracks.coin} </p>
+                                        <p class=" mb-1 ms-2  fontSizeForMessage">${tracks.amount} MMK</p>
                                         </div>
                                         <div class="d-flex flex-column  w-100 mt-3">
-                                            <p class="fs-5 fw-bolder w-75 text-center rounded ${$messagecolor} text-center">
+                                            <p class=" fw-bolder w-75 text-center rounded ${$messagecolor} text-center">
                                             ${tracks.status} </p>
-                                            <p class=" fw-bold mt-4 ">${tracks.trackscreated} </p>
+                                            <p class="fontSizeForMessage fw-bold mt-4 ">${tracks.trackscreated} </p>
                                         </div>
                                         
                                     </div>
@@ -435,13 +435,13 @@ $(document).ready(function () {
                             $(".forNews").append(
                                 `
                             <div class="news nocursor d-flex flex-row justify-content-center align-items-center mb-3">
-                                    <img src="/storage/newsImage/${news.source}" class="my-3 ms-2 rounded" alt="">
-                                    <div class=" d-flex flex-column  me-auto ms-3 text-truncate  w-75">
-                                    <p class="fs-4 fw-bolder mt-2 me-auto ms-3 text-truncate "  style="max-width: 80%; min-width:12vw;">${news.title}
-                                        </p>
-                                        <p class="fw-bolder mt-2 me-auto ms-3 text-truncate "   style="max-width: 80%; min-width:12vw;">
-                                        (${news.detail})</p>
-                                        </div>
+                            <img src="/storage/newsImage/${news.source}" class="my-3 ms-2 imageNews rounded"  alt="">
+                            <div class=" d-flex flex-column  me-auto ms-3 text-truncate w-75">
+                            <p class="  mt-2 me-auto ms-3 text-truncate "  style="max-width: 80%; min-width:12vw;">${news.title}
+                                </p>
+                                <p class="  mt-2 me-auto ms-3 text-truncate fontSizeForInform"   style="max-width: 80%; min-width:12vw;">
+                                (${news.detail})</p>
+                                </div>
                                         <img src="img/new.png" alt="" class="newsLogo gleft" width="49px">
                                 </div>
                                 ${more}
@@ -450,16 +450,18 @@ $(document).ready(function () {
                         } else {
                             $(".forNews").append(
                                 `
-                            <div class="news nocursor d-flex flex-row justify-content-center align-items-center mb-3">
-                                    <img src="/storage/newsImage/${news.source}" class="my-3 ms-2 rounded" alt="">
-                                    <div class=" d-flex flex-column  me-auto ms-3  text-truncate w-75" >
-                                    <p class="fs-4 fw-bolder mt-2 me-auto ms-3 text-truncate "  style="max-width: 80%; min-width:12vw;">${news.title}
+                                <div class="news nocursor d-flex flex-row justify-content-center align-items-center mb-3">
+                            
+                                    <img src="/storage/newsImage/${news.source}" class="my-3 ms-2 imageNews rounded"  alt="">
+                                    <div class=" d-flex flex-column  me-auto ms-3 text-truncate w-75">
+                                    <p class="  mt-2 me-auto ms-3 text-truncate "  style="max-width: 80%; min-width:12vw;">${news.title}
                                         </p>
-                                        <p class="fw-bolder mt-2 me-auto ms-3 text-truncate " style="max-width: 80%; min-width:12vw;"  >
-                            (${news.detail})</p>
+                                        <p class="  mt-2 me-auto ms-3 text-truncate fontSizeForInform"   style="max-width: 80%; min-width:12vw;">
+                                        (${news.detail})</p>
                                         </div>
                                         <img src="" alt="" class="newsLogo" >
                                 </div>
+                            
                                 ${more}
                             `
                             );
