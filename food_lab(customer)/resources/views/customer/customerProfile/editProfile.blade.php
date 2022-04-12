@@ -40,7 +40,7 @@
         </div>
         {{-- edit profile --}}
         <h1 class=" fw-bold text-center titleEditProfile">{{ __('messageZY.editprofile') }}</h1>
-        <p class=" fw-bold text-end  remaincoin">{{ __('messageZY.Remaincoin') }} - <i
+        <p class=" fw-bold text-end  remaincoin">{{ __('messageZY.Remaincoin') }} <i
                 class="coinCalInform fas fa-coins "></i>
             <span class="fs-5">{{ $remaincoin->remain_coin }}</span>
         </p>
@@ -54,7 +54,7 @@
                 <div class="bodyEditProfile d-flex flex-row justify-content-center">
 
                     <div class="d-flex me-3 ms-3 mt-0 mb-1 infos">
-                        <i class="fas fa-user fs-3 me-4 mt-2 text-light"></i>
+                        <i class="fas fa-user fs-3 me-4 mt-2 iconColor"></i>
                         <div class="InputParent">
                             <input type="text" name="username" id="username" class="InputChild"
                                 value="{{ $user->nickname }}" autocomplete="off">
@@ -65,7 +65,7 @@
                         @enderror
                     </div>
                     <div class="d-flex  me-3 ms-3 mt-0 mb-1 infos">
-                        <i class="fas fa-envelope fs-3 me-4 mt-2 text-light"></i>
+                        <i class="fas fa-envelope fs-3 me-4 mt-2  iconColor"></i>
                         <div class="InputParent">
                             <input type="text" id="email" class="InputChild" value="{{ $user->email }}" readonly>
                         </div>
@@ -76,9 +76,9 @@
                     </div>
 
                     <div class="d-flex  me-3 ms-3 mt-0 mb-1 infos">
-                        <i class="fas fa-address-book fs-3 me-4 mt-2 text-light"></i>
+                        <i class="fas fa-address-book fs-3 me-4 mt-2  iconColor"></i>
                         <div class="InputParent">
-                            <select name="state" id="addressState" class="InputChild">
+                            <select name="state" id="addressState" class="InputChild selectBoxWidth">
                                 @php
                                     $userState = $user->address1;
                                 @endphp
@@ -102,22 +102,10 @@
                         @enderror
                     </div>
                     <div class="d-flex  me-3 ms-3 mt-0 mb-1 infos">
-                        <i class="fas fa-phone-alt fs-3 me-4 mt-2 text-light"></i>
-                        <div class="InputParent">
-                            <input type="number" name="phonenumber" id="phonenumber" class="InputChild"
-                                value="{{ $user->phone }}" autocomplete="off">
-                        </div>
-                        @error('phonenumber')
-                            <span class="errorIcon"><i
-                                    class="fas fa-exclamation-circle fs-3 ms-2 errorPassword text-danger"></i></span>
-                        @enderror
-                    </div>
 
-                    <div class="d-flex  me-3 ms-3 mt-0 mb-1 infos">
-
-                        <i class="fas fa-address-book fs-3 me-4 mt-2 text-light"></i>
+                        <i class="fas fa-address-book fs-3 me-4 mt-2 iconColor "></i>
                         <div class="InputParent">
-                            <select name="township" id="addressTownship" class="InputChild">
+                            <select name="township" id="addressTownship" class="InputChild selectBoxWidth">
                                 @php
                                     $userTownship = $user->address2;
                                 @endphp
@@ -130,9 +118,33 @@
                         @enderror
                     </div>
                     <div class="d-flex  me-3 ms-3 mt-0 mb-1 infos">
-                        <i class="fas fa-utensils fs-3 me-4 mt-2 text-light"></i>
+                        <i class="fas fa-address-book fs-3 me-4 mt-2 iconColor "></i>
                         <div class="InputParent">
-                            <select name="Taste" id="Taste" class="InputChild">
+                            <input type="text" name="addressNumber" id="addressNumber" class="InputChild"
+                                value="{{ $user->address3 }}" autocomplete="off">
+                        </div>
+                        @error('addressNumber')
+                            <span class="errorIcon"><i
+                                    class="fas fa-exclamation-circle fs-3 ms-2 errorPassword text-danger"></i></span>
+                        @enderror
+                    </div>
+                    <div class="d-flex  me-3 ms-3 mt-0 mb-1 infos">
+                        <i class="fas fa-phone-alt fs-3 me-4 mt-2  iconColor"></i>
+                        <div class="InputParent">
+                            <input type="number" name="phonenumber" id="phonenumber" class="InputChild"
+                                value="{{ $user->phone }}" autocomplete="off">
+                        </div>
+                        @error('phonenumber')
+                            <span class="errorIcon"><i
+                                    class="fas fa-exclamation-circle fs-3 ms-2 errorPassword text-danger"></i></span>
+                        @enderror
+                    </div>
+
+
+                    <div class="d-flex  me-3 ms-3 mt-0 mb-1 infos">
+                        <i class="fas fa-utensils fs-3 me-4 mt-2 iconColor "></i>
+                        <div class="InputParent">
+                            <select name="Taste" id="Taste" class="InputChild selectBoxWidth">
                                 @php
                                     $userTaste = $user->taste;
                                 @endphp
@@ -155,19 +167,9 @@
                                     class="fas fa-exclamation-circle fs-3 ms-2 errorPassword text-danger"></i></span>
                         @enderror
                     </div>
+
                     <div class="d-flex  me-3 ms-3 mt-0 mb-1 infos">
-                        <i class="fas fa-address-book fs-3 me-4 mt-2 text-light"></i>
-                        <div class="InputParent">
-                            <input type="text" name="addressNumber" id="addressNumber" class="InputChild"
-                                value="{{ $user->address3 }}" autocomplete="off">
-                        </div>
-                        @error('addressNumber')
-                            <span class="errorIcon"><i
-                                    class="fas fa-exclamation-circle fs-3 ms-2 errorPassword text-danger"></i></span>
-                        @enderror
-                    </div>
-                    <div class="d-flex  me-3 ms-3 mt-0 mb-1 infos">
-                        <i class="fas fa-pen-square fs-3 me-4 mt-2 text-light"></i>
+                        <i class="fas fa-pen-square fs-3 me-4 mt-2 iconColor "></i>
                         <div class="InputParent">
                             <input type="text" name="bio" id="nickname" class="InputChild" value="{{ $user->bio }}"
                                 autocomplete="off">
@@ -179,7 +181,7 @@
                         @enderror
                     </div>
                     <div class="d-flex  me-3 ms-3 mt-0 mb-2 infos" id="favType">
-                        <i class="fas fa-grin-hearts fs-3 me-4 mt-2 text-light"></i>
+                        <i class="fas fa-grin-hearts fs-3 me-4 mt-2  iconColor"></i>
 
                         @php
                             $favtypes = $user->fav_type;
@@ -201,7 +203,7 @@
                         </div>
                     </div>
                     <div class="d-flex  me-3 ms-3 mt-0 mb-1 infos">
-                        <i class="fas fa-dizzy fs-3 me-4 mt-2 text-light"></i>
+                        <i class="fas fa-dizzy fs-3 me-4 mt-2 iconColor "></i>
                         <div class="InputParent">
                             <input type="text" name="Allergic" id="Allergic" class="InputChild"
                                 value="{{ $user->allergic }}" autocomplete="off">

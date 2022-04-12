@@ -30,6 +30,9 @@ body {
     font-size: 2rem;
     color: var(--primary-color);
 }
+.iconColor {
+    color: var(--primary-color);
+}
 .remaincoin {
     font-size: 1rem;
     color: var(--primary-color);
@@ -90,6 +93,9 @@ body {
 }
 .bodyEditProfile div label {
     color: white;
+}
+.selectBoxWidth {
+    width: 98% !important;
 }
 .titleEditProfile p {
     color: var(--primary-color);
