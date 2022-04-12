@@ -32,7 +32,9 @@
     {{-- Start Marquee --}}
     <marquee class="mt-3">
         @foreach ($news as $new)
-            <p class="d-inline mx-5 importantnews p-3 fs-5" id="{{ $new->category }}"><img src="/storage/siteLogo/{{ $new->source }}" class="me-2" width="50px" alt="{{ $new->source }}"/>{{ $new->title }}</p>
+            <p class="d-inline mx-5 importantnews p-3 fs-5" id="{{ $new->category }}"><img
+                    src="/storage/siteLogo/{{ $new->source }}" class="me-2" width="50px"
+                    alt="{{ $new->source }}" />{{ $new->title }}</p>
         @endforeach
     </marquee>
     {{-- End Marquee --}}
@@ -222,7 +224,8 @@
                         </div>
                         <div class="d-flex flex-column">
                             <p class="fs-3 mx-4">{{ __('messageZY.yousure') }}</p>
-                            <small class="mx-4 mb-4">{{ __('messageZY.logging') }}.Your cart item will be lost.</small>
+                            <small class="mx-4 mb-4">{{ __('messageZY.logging') }}.Your cart item will be
+                                lost.</small>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn border-secondary"
@@ -236,9 +239,9 @@
             {{-- End model --}}
             <div id="informAlert" class="informAlert">
 
-
                 @if (session()->has('customerId'))
-                    <div class="headerInform d-flex flex-row justify-content-center align-items-center  mt-2">
+                    <div class="headerInform d-flex flex-row justify-content-center align-items-center  ">
+                        <div class="topNotch "></div>
                         <div>
                             <p class="fw-bolder fs-5  infromTitle" id="clickNews">{{ __('messageZY.new') }}</p>
                         </div>
@@ -268,8 +271,8 @@
                                 {{ __('messageZY.more') }}</button></a> --}}
                     </div>
                 @else
-                    <div class="headerInform d-flex flex-row justify-content-center align-items-center  mt-2">
-
+                    <div class="headerInform d-flex flex-row justify-content-center align-items-center ">
+                        <div class="topNotch"></div>
                         <p class="fw-bolder fs-5 text-center  infromTitle" id="clickNews">
                             {{ __('messageZY.new') }}
                         </p>

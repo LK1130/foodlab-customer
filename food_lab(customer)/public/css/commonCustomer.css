@@ -144,7 +144,9 @@ marquee {
     text-align: center;
     line-height: 25px;
 }
-
+.imageNews {
+    width: 25%;
+}
 @media (max-width: 1000px) {
     #profileButton,
     #cartButton,
@@ -156,14 +158,17 @@ marquee {
 
         margin-top: 45vh;
         margin-left: auto;
-        margin-left: 1vw;
+        margin-left: 3%;
+    }
+    .imageNews {
+        width: 15%;
     }
     .forNews,
     .forMessages,
     .forTracks {
         height: fit-content;
         /* width: 80%; */
-        background-color: rgb(255, 255, 255);
+        background-color: #333333;
         margin: auto;
         gap: 2.5vh;
         border-radius: 1.4vh;
@@ -173,7 +178,12 @@ marquee {
     .tracks {
         height: fit-content;
         border-radius: 1vh;
-        background-color: rgb(189, 173, 158);
+    }
+    .topNotch {
+        display: none;
+    }
+    .informAlertDesign {
+        padding: auto;
     }
     .alertButton {
         background-color: rgb(167, 175, 166);
@@ -182,7 +192,7 @@ marquee {
         color: white;
     }
     .headerInform {
-        gap: 4vw;
+        gap: 18vw !important;
     }
     .informText {
         max-width: 20vw;
@@ -253,7 +263,19 @@ marquee {
     border-radius: 0 0 2vw 2vw;
     background-color: rgba(0, 0, 0, 0.952);
 }
-
+.informAlertDesign {
+    background-color: var(--primary-color);
+    color: white !important;
+    border-radius: 0.7vw;
+    /* padding: 0.5em 0.5em; */
+    padding-left: 0.4em !important;
+    padding-right: 0.4em !important;
+    padding-top: 0.3em !important;
+    padding-bottom: 0.3em !important;
+    text-align: center;
+    height: auto;
+    transition: all 0.3s 0s ease-out;
+}
 #back {
     cursor: pointer;
 }
@@ -323,16 +345,17 @@ marquee {
     /* width: 54.5vh; */
     width: 30%;
     /* height: fit-content; */
-    height: 100%;
-    background-color: rgb(255, 255, 255);
+
+    background-color: #333333;
     margin-left: 53%;
-    margin-top: 12vh;
+    margin-top: 7%;
     border-radius: 1.4vh;
     display: none;
 }
 
 #informButton {
     cursor: pointer;
+    border-radius: 1vw;
 }
 .btnCart {
     border-style: solid;
@@ -359,15 +382,28 @@ marquee {
     color: var(--primary-color);
     cursor: pointer;
 }
-
+.topNotch {
+    background-color: #5e5a5a;
+    width: 3vh;
+    height: 3vh;
+    position: absolute;
+    top: -17%;
+    border-radius: 0.3vw;
+    transform: rotate(45deg);
+}
 .headerInform {
-    margin: auto;
-    /* width: max-content; */
-    gap: 6vw;
+    background-color: #5e5a5a;
+    margin-bottom: 2vh;
+    height: fit-content;
+    border-radius: 0.4vw;
+    position: relative;
+    gap: 4vw;
 }
 
 .infromTitle {
     cursor: pointer;
+    margin-top: 1vh;
+    color: whitesmoke;
 }
 
 .alertButton {
@@ -383,7 +419,7 @@ marquee {
 }
 
 .yellow {
-    background-color: yellow;
+    background-color: rgb(163, 120, 3);
 }
 
 .red {
@@ -403,8 +439,7 @@ marquee {
 .forMessages,
 .forTracks {
     height: fit-content;
-
-    background-color: rgb(255, 255, 255);
+    background-color: #333333;
     margin: auto;
     /* gap: 2.5vh; */
     border-radius: 1.4vh;
@@ -428,14 +463,24 @@ marquee {
 .messages,
 .tracks {
     position: relative;
-    width: 90%;
+    width: 100%;
     height: 15vh;
     margin: auto;
     cursor: pointer;
-    border-radius: 1vh;
-    background-color: rgb(189, 173, 158);
+    color: rgb(218, 218, 221);
+    border-bottom: 1px solid #000000;
 }
-
+.showAllNewsText {
+    color: #110f0f;
+    font-size: large;
+    margin-bottom: 2vh;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: 2vw;
+}
+.showAllNewsText:hover {
+    color: #110f0fb7;
+}
 /* .tracks {
     height: 18vh !important;
 } */
