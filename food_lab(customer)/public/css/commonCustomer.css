@@ -341,12 +341,12 @@ marquee {
     position: absolute;
     z-index: 999;
     /* width: 54.5vh; */
-    width: 30%;
+    width: 30vw;
     /* height: fit-content; */
 
     background-color: #333333;
-    margin-left: 53%;
-    margin-top: 7%;
+    margin-left: 52.1vw;
+    margin-top: 12vh;
     border-radius: 1.4vh;
     display: none;
 }
@@ -479,7 +479,7 @@ marquee {
     border-bottom: 1px solid #000000;
 }
 .showAllNewsText {
-    color: #110f0f;
+    color: #e4d5d5;
     font-size: large;
     margin-bottom: 2vh;
     width: fit-content;
@@ -487,7 +487,7 @@ marquee {
     margin-right: 2vw;
 }
 .showAllNewsText:hover {
-    color: #110f0fb7;
+    color: #e4d5d5bd;
 }
 /* .tracks {
     height: 18vh !important;
