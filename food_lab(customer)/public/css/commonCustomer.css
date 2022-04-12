@@ -341,12 +341,13 @@ marquee {
     position: absolute;
     z-index: 999;
     /* width: 54.5vh; */
-    width: 30vw;
+    width: 30%;
     /* height: fit-content; */
 
     background-color: #333333;
-    margin-left: 52.1vw;
-    margin-top: 12vh;
+    /* margin-left: 52.1vw; */
+    margin-top: 13vh;
+    left: 54.4vw;
     border-radius: 1.4vh;
     display: none;
 }
