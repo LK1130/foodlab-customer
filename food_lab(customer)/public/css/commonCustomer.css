@@ -33,7 +33,6 @@ body {
     background-color: #000000;
 }
 
-
 /*Start Header*/
 
 .headers {
@@ -58,7 +57,6 @@ marquee {
 .coinCalInform {
     color: var(--coin-color);
 }
-
 
 /*start navbar*/
 
@@ -146,7 +144,9 @@ marquee {
     text-align: center;
     line-height: 25px;
 }
-
+.imageNews {
+    width: 25%;
+}
 @media (max-width: 1000px) {
     #profileButton,
     #cartButton,
@@ -155,16 +155,21 @@ marquee {
     }
     #informAlert {
         width: 91.5%;
-        margin-top: 45vh;
-        margin-left: auto;
-        margin-left: 1vw;
+        /* margin-top: 45vh;
+        /* margin-left: auto; */
+        /* margin-left: 3%; */
+        /*margin-right: 30vw; */
+        left: 16vw;
+    }
+    .imageNews {
+        width: 11%;
     }
     .forNews,
     .forMessages,
     .forTracks {
         height: fit-content;
         /* width: 80%; */
-        background-color: rgb(255, 255, 255);
+        background-color: #333333;
         margin: auto;
         gap: 2.5vh;
         border-radius: 1.4vh;
@@ -174,7 +179,12 @@ marquee {
     .tracks {
         height: fit-content;
         border-radius: 1vh;
-        background-color: rgb(189, 173, 158);
+    }
+    .topNotch {
+        display: none;
+    }
+    .informAlertDesign {
+        padding: auto;
     }
     .alertButton {
         background-color: rgb(167, 175, 166);
@@ -182,22 +192,19 @@ marquee {
         color: white;
     }
     .headerInform {
-        gap: 4vw;
+        gap: 18vw !important;
     }
     .informText {
         max-width: 20vw;
     }
 }
 
-
 /*end navbar*/
-
 
 /*
     * Create:zayar(2022/01/17)
     * Update:
     */
-
 
 /*start Profile Alert box*/
 
@@ -256,7 +263,19 @@ marquee {
     border-radius: 0 0 2vw 2vw;
     background-color: rgba(0, 0, 0, 0.952);
 }
-
+.informAlertDesign {
+    background-color: var(--primary-color);
+    color: white !important;
+    border-radius: 0.7vw;
+    /* padding: 0.5em 0.5em; */
+    padding-left: 0.4em !important;
+    padding-right: 0.4em !important;
+    padding-top: 0.3em !important;
+    padding-bottom: 0.3em !important;
+    text-align: center;
+    height: auto;
+    transition: all 0.3s 0s ease-out;
+}
 #back {
     cursor: pointer;
 }
@@ -311,15 +330,12 @@ marquee {
     } */
 }
 
-
 /*end profile alert */
-
 
 /*
     * Create:zayar(2022/01/22)
     * Update:
     */
-
 
 /*start inform Alert box*/
 
@@ -327,18 +343,20 @@ marquee {
     position: absolute;
     z-index: 999;
     /* width: 54.5vh; */
-    width: 30%;
+    width: 30vw;
     /* height: fit-content; */
-    height: 100%;
-    background-color: rgb(255, 255, 255);
-    margin-left: 53%;
-    margin-top: 12vh;
+
+    background-color: #333333;
+    /* margin-left: 52.1vw; */
+    margin-top: 4vh;
+    margin-left: -11.5vw;
     border-radius: 1.4vh;
     display: none;
 }
 
 #informButton {
     cursor: pointer;
+    border-radius: 1vw;
 }
 
 .btnCart {
@@ -369,15 +387,35 @@ marquee {
     color: var(--primary-color);
     cursor: pointer;
 }
-
-.headerInform {
-    margin: auto;
-    /* width: max-content; */
-    gap: 6vw;
+.topNotch {
+    background-color: #5e5a5a;
+    width: 3vh;
+    height: 3vh;
+    position: absolute;
+    top: -18%;
+    border-radius: 0.3vw;
+    transform: rotate(45deg);
 }
-
+.headerInform {
+    background-color: #5e5a5a;
+    margin-bottom: 2vh;
+    height: fit-content;
+    border-radius: 0.4vw;
+    position: relative;
+    gap: 4vw;
+}
+.fontSizeForInform {
+    font-size: 0.95rem;
+}
+.fontSizeForMessage {
+    font-size: 0.85rem;
+}
 .infromTitle {
     cursor: pointer;
+    margin-top: 2vh;
+    font-size: 0.95rem;
+    z-index: 99 !important;
+    color: whitesmoke;
 }
 
 .alertButton {
@@ -393,7 +431,7 @@ marquee {
 }
 
 .yellow {
-    background-color: yellow;
+    background-color: rgb(163, 120, 3);
 }
 
 .red {
@@ -417,7 +455,7 @@ marquee {
 .forMessages,
 .forTracks {
     height: fit-content;
-    background-color: rgb(255, 255, 255);
+    background-color: #333333;
     margin: auto;
     /* gap: 2.5vh; */
     border-radius: 1.4vh;
@@ -443,15 +481,24 @@ marquee {
 .messages,
 .tracks {
     position: relative;
-    width: 90%;
+    width: 100%;
     height: 15vh;
     margin: auto;
     cursor: pointer;
-    border-radius: 1vh;
-    background-color: rgb(189, 173, 158);
+    color: rgb(218, 218, 221);
+    border-bottom: 1px solid #000000;
 }
-
-
+.showAllNewsText {
+    color: #e4d5d5;
+    font-size: small;
+    margin-bottom: 2vh;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: 2vw;
+}
+.showAllNewsText:hover {
+    color: #e4d5d5bd;
+}
 /* .tracks {
     height: 18vh !important;
 } */
@@ -568,9 +615,7 @@ p.texts {
     color: var(--text-color);
 }
 
-
 /*end navbar*/
-
 
 /*start carousel*/
 
@@ -616,7 +661,6 @@ p.texts {
     width: 100%;
 }
 
-
 /*end carousel*/
 
 @media (max-width: 720px) {
@@ -628,18 +672,13 @@ p.texts {
     }
 }
 
+/*End Header*/
 
 /*End Header*/
 
-
 /*End Header*/
 
-
 /*End Header*/
-
-
-/*End Header*/
-
 
 /*End Header*/
 

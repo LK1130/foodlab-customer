@@ -6,6 +6,7 @@ body {
     background-position: center;
     background-size: auto;
     position: relative;
+    background-attachment: fixed;
 }
 .news-container {
     margin: auto;
