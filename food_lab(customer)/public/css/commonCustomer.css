@@ -155,7 +155,6 @@ marquee {
     }
     #informAlert {
         width: 91.5%;
-
         margin-top: 45vh;
         margin-left: auto;
         margin-left: 3%;
@@ -188,7 +187,6 @@ marquee {
     .alertButton {
         background-color: rgb(167, 175, 166);
         text-align: center;
-
         color: white;
     }
     .headerInform {
@@ -357,20 +355,24 @@ marquee {
     cursor: pointer;
     border-radius: 1vw;
 }
+
 .btnCart {
     border-style: solid;
     background: var(--btn-color);
     color: var(--text-color);
     border-color: transparent;
 }
+
 .informText {
     max-width: 8vw;
 }
+
 .btnShopping {
     border-style: solid;
     background-color: transparent;
     border-color: var(--btn-color);
 }
+
 .hiddenAlert {
     display: none;
 }
@@ -425,16 +427,20 @@ marquee {
 .red {
     background-color: red;
 }
+
 .gray {
     background-color: gray;
 }
+
 .visible {
     display: block !important;
 }
+
 .btnlogout {
     background-color: var(--primary-color);
     color: wheat;
 }
+
 .forNews,
 .forMessages,
 .forTracks {
@@ -444,9 +450,11 @@ marquee {
     /* gap: 2.5vh; */
     border-radius: 1.4vh;
 }
+
 .fc {
     height: fit-content;
 }
+
 #forNews {
     display: none !important;
 }
@@ -495,16 +503,18 @@ marquee {
     /* margin-bottom: 13vh; */
     /* margin-left: 100% !important; */
     top: -1vh;
-
     /* margin-bottom: 20% !important; */
 }
+
 .gleft {
     margin-left: 98% !important;
 }
+
 .aleft {
     margin-left: 100% !important;
     /* margin-bottom: 40% !important; */
 }
+
 .news img {
     max-width: 22%;
     /* margin-right: auto; */
@@ -573,9 +583,12 @@ marquee {
 }
 
 .texts {
-    color: var(--primary-color);
-    margin-bottom: 0;
+    color: var(--text-color);
     cursor: pointer;
+}
+
+p.texts {
+    margin-bottom: 0;
 }
 
 .texts:hover {
@@ -583,7 +596,9 @@ marquee {
 }
 
 .actives {
-    border-bottom: 1px solid var(--primary-color);
+    background: var(--primary-color);
+    color: white;
+    border-radius: 1vw;
 }
 
 .comapanynames {
