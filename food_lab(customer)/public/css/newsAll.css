@@ -35,8 +35,9 @@ body {
     position: relative;
     margin-top: 5vh !important;
     width: 90%;
-    background-color: rgb(216, 211, 193);
+    /* background-color: rgb(216, 211, 193); */
     /* max-height: 15vh; */
+    color: white;
     height: fit-content;
     margin: auto;
     cursor: pointer;
@@ -98,6 +99,9 @@ body {
 .heading {
     color: var(--primary-color);
     font-size: xx-large;
+    top:11vh;
+    z-index: 1;
+
 }
 .allNews {
     height: 80%;

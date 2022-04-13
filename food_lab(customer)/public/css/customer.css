@@ -618,10 +618,11 @@ form div .cancels {
 /*start register header*/
 
 .register-headers div:first-of-type {
-    min-width: 60%;
+    /* min-width: 60%; */
 }
 
 .welcome-registers {
+    margin-left: auto;
     min-width: 40%;
 }
 
@@ -636,7 +637,7 @@ form div .cancels {
 }
 
 .sign-withs>* {
-    background: var(--bg-color);
+  
     font-size: 1rem;
     color: var(--text-color);
     text-decoration: none;
@@ -655,7 +656,7 @@ form div .cancels {
 
 @media (max-width: 720px) {
     .register-headers div:first-of-type {
-        min-width: 100%;
+        /* min-width: 100%; */
     }
     .welcome-registers {
         display: none;
@@ -791,6 +792,7 @@ form div .cancels {
     font-size: 1.3rem;
     font-weight: bold;
     color: var(--text-color);
+    margin-left: 5rem !important;
 }
 
 .have-accs a {
