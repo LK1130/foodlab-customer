@@ -17,8 +17,9 @@ $(document).ready(function () {
                 ),
             },
         })
-
+        console.log($('#form1').val());
         var searchName = {name : $('#form1').val()};
+
         $.ajax({
             type : "POST",
             url : "searchFood",
@@ -28,10 +29,10 @@ $(document).ready(function () {
               
             },
             success: function(data){
-                console.log(data);
+               
                 $('.searchEngine').empty();
                 for( const list of data ){
-                        console.log(list.value);
+                       
                       $('.searchEngine').append(`
                     <option value="${list.value}"><span class="hello">${list.name}</span> </option>` );
               
@@ -43,6 +44,46 @@ $(document).ready(function () {
             }
         
         });
+
+
+    });
+
+
+    document.getElementById('form1').addEventListener('input',function(e){
+
+        $.ajaxSetup({
+            headers: {
+                "X-CSRF-TOKEN": jQuery('meta[name="csrf-token"]').attr(
+                    "content"
+                ),
+            },
+        })
+
+        if(e.inputType == "insertReplacementText" || e.inputType == null) {
+           
+    
+            var formdata = { name : e.target.value};
+            console.log(formdata);
+
+            $.ajax({
+                type : "POST",
+                url : "specificFood",
+                data: formdata,
+                dataType: "json",
+                beforeSend: function(){
+                  
+                },
+                success: function(data){
+                   
+                  console.log(data);
+                },
+                error: function(data){
+                    console.log(data);
+                }
+            
+            });
+        }
     });
     
 });
+
