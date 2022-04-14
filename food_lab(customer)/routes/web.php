@@ -52,183 +52,185 @@ use PhpParser\Node\Expr\FuncCall;
 
 Route::group(['middleware' => ['checkMaintenance']], function () {
 
-  //For Customer Cart Count
-  Route::post('/cartCount', [CustomerController::class, 'cartCount']);
-  /*
+   //For Customer Cart Count
+   Route::post('/cartCount', [CustomerController::class, 'cartCount']);
+   /*
      * For customer home page
     */
-  Route::get('/home', [CustomerController::class, 'home']);
+   Route::get('/home', [CustomerController::class, 'home']);
 
-  /*
+   /*
      * For Policy Info Page
     */
-  Route::get('/policyinfo', [CustomerController::class, 'policy']);
+   Route::get('/policyinfo', [CustomerController::class, 'policy']);
 
-  /*
+   /*
     * For delivery info Page
     */
-  Route::get('/delivery', [CustomerController::class, 'deliveryDetails']);
+   Route::get('/delivery', [CustomerController::class, 'deliveryDetails']);
 
-  /*
+   /*
     * For favtypess
     */
-  Route::get('/getfavtypes', [CustomerController::class, 'tagsFavType']);
-  // check Customer id
-  Route::group(['middleware' => ['checkCustomerId']], function () {
+   Route::get('/getfavtypes', [CustomerController::class, 'tagsFavType']);
+   // check Customer id
+   Route::group(['middleware' => ['checkCustomerId']], function () {
 
 
-    /*
+      /*
     * For Detail message Customer
     * zayar
     */
-    Route::get('/messageDetail/{id}', [CustomerController::class, 'messageDetail']);
-    /*
+      Route::get('/messageDetail/{id}', [CustomerController::class, 'messageDetail']);
+      /*
     * For Detail message Customer
     * zayar
     */
-    Route::get('/trackDetail/{id}', [CustomerController::class, 'trackDetail']);
+      Route::get('/trackDetail/{id}', [CustomerController::class, 'trackDetail']);
 
-    /*
+      /*
     * For Edit Profile Page
     * zayar
     */
-    Route::resource('editprofile', CustomerProfileController::class);
+      Route::resource('editprofile', CustomerProfileController::class);
 
-    /*
+      /*
     * For ajax
     * zayar
     */
-    Route::get('searchcustomerdetails', [customerInfoController::class, 'customerDetailSearch']);
+      Route::get('searchcustomerdetails', [customerInfoController::class, 'customerDetailSearch']);
 
-    /*
+      /*
     * For Update Profile Page
     * zayar
     */
-    Route::resource('updateprofile', CustomerProfileUpdate::class);
+      Route::resource('updateprofile', CustomerProfileUpdate::class);
 
-    /*
+      /*
      * For messages page
      * zayar
      */
-    Route::get('/messages', [CustomerController::class, 'message']);
+      Route::get('/messages', [CustomerController::class, 'message']);
 
-    /*
+      /*
      * For tracks page
      * zayar
      */
-    Route::get('/tracks', [CustomerController::class, 'tracks']);
+      Route::get('/tracks', [CustomerController::class, 'tracks']);
 
-    /*
+      /*
      * For Reprot Page
     */
-    Route::get('/report', [CustomerController::class, 'report']);
+      Route::get('/report', [CustomerController::class, 'report']);
 
-    /*
+      /*
      * From Report Page to store form data in database
     */
-    Route::post('/report', [CustomerController::class, 'reportForm']);
+      Route::post('/report', [CustomerController::class, 'reportForm']);
 
-    /*
+      /*
      * For Suggest Page */
-    Route::get('/suggest', [CustomerController::class, 'suggest']);
+      Route::get('/suggest', [CustomerController::class, 'suggest']);
 
-    // For Suggest Form
-    Route::post('/suggest', [CustomerController::class, 'suggestForm']);
+      // For Suggest Form
+      Route::post('/suggest', [CustomerController::class, 'suggestForm']);
 
-    /*
+      /*
      * For contact page*/
-    Route::get('/contact', [CustomerController::class, 'contact']);
+      Route::get('/contact', [CustomerController::class, 'contact']);
 
-    /*
+      /*
      * For contact form*/
-    Route::post('/contact', [CustomerController::class, 'contactForm']);
+      Route::post('/contact', [CustomerController::class, 'contactForm']);
 
-    /*
+      /*
      * For cart page
      * min khant
     */
-    Route::get('/cart', [CartController::class, 'cart']);
-    Route::post('/cart', [CartController::class, 'cartDetail']);
-    Route::post('/deleteProduct', [CartController::class, 'deleteProduct']);
+      Route::get('/cart', [CartController::class, 'cart']);
+      Route::post('/cart', [CartController::class, 'cartDetail']);
+      Route::post('/deleteProduct', [CartController::class, 'deleteProduct']);
 
-    /*
+      /*
      * For deliery info page
      * cherry
     */
-    Route::get('/deliveryInfo', [DeliveryInfoController::class, 'deliveryInfo']);
-    Route::post('/deliveryInfo', [DeliveryInfoController::class, 'order']);
-  });
+      Route::get('/deliveryInfo', [DeliveryInfoController::class, 'deliveryInfo']);
+      Route::post('/deliveryInfo', [DeliveryInfoController::class, 'order']);
+   });
 
-  /*
+   /*
      * For Access Page
      */
-  Route::get('/signup', [CustomerController::class, 'signup']);
+   Route::get('/signup', [CustomerController::class, 'signup']);
 
-  /*
+   /*
      * For Register Form
      */
-  Route::post('/access', [CustomerController::class, 'register']);
-  Route::post('/getTownship', [CustomerController::class, 'getTownship']);
+   Route::post('/access', [CustomerController::class, 'register']);
+   Route::post('/getTownship', [CustomerController::class, 'getTownship']);
 
-  Route::post('/google', [CustomerController::class, 'google']);
+   Route::post('/google', [CustomerController::class, 'google']);
 
-  /*
+   /*
       * For verify account
       */
-  Route::get('mail/{key}', [CustomerController::class, 'verifyLink']);
+   Route::get('mail/{key}', [CustomerController::class, 'verifyLink']);
 
-  /*
+   /*
       * For Login Page
       */
-  Route::get('/signin', [CustomerController::class, 'login']);
+   Route::get('/signin', [CustomerController::class, 'login']);
 
-  /*
+   /*
       * For Login Form
       */
-  Route::post('/login', [CustomerController::class, 'loginForm']);
+   Route::post('/login', [CustomerController::class, 'loginForm']);
 
-  //  for Check Mail page
-  Route::get('/checkEmail', [CustomerController::class, 'checkEmail']);
+   //  for Check Mail page
+   Route::get('/checkEmail', [CustomerController::class, 'checkEmail']);
 
-  /*
+   /*
      * For news get initial
      * zayar
      */
-  Route::get('/getnews', [CustomerController::class, 'getNews']);
+   Route::get('/getnews', [CustomerController::class, 'getNews']);
 
-  /*
+   /*
      * For news page
      * zayar
      */
-  Route::get('/customerNews', [CustomerController::class, 'news']);
+   Route::get('/customerNews', [CustomerController::class, 'news']);
 
-  /*
+   /*
     For Buy Coin Page
     */
-  Route::get('/buycoin', [BuycoinController::class, 'customerBuycoin']);
-  Route::post('/buycoinForm', [BuycoinController::class, 'coinrequestUpload']);
+   Route::get('/buycoin', [BuycoinController::class, 'customerBuycoin']);
+   Route::post('/buycoinForm', [BuycoinController::class, 'coinrequestUpload']);
 
 
-  /*
+   /*
      * For Product Detail Form
      */
-  Route::get('/productDetail', [ProductDetailController::class, 'detail']);
-  Route::post('/cartsession', [CartController::class, 'getData']);
-  Route::post('/sessionCount', [CartController::class, 'getData']);
+   Route::get('/productDetail', [ProductDetailController::class, 'detail']);
+   Route::post('/cartsession', [CartController::class, 'getData']);
+   Route::post('/sessionCount', [CartController::class, 'getData']);
 
 
-  /*
+   /*
      * For Product
      */
-  Route::get('/', [ProductDetailController::class, 'productList']);
-  // Route::get('menu',[ProductDetailController::class,'eachList'] );
-  Route::post('/searchCategory', [ProductSearchController::class, 'searchByCategory']);
-  Route::post('/searchTaste', [ProductSearchController::class, 'searchByTaste']);
-  Route::get('/menutype', [ProductSearchController::class, 'listByType']);
-  Route::get('/menutaste', [ProductSearchController::class, 'listByTaste']);
+   Route::get('/', [ProductDetailController::class, 'productList']);
+   // Route::get('menu',[ProductDetailController::class,'eachList'] );
+   Route::post('/searchFood', [ProductSearchController::class, 'searchFood']);
+   Route::post('/specificFood', [ProductSearchController::class, 'searchByName']);
+   Route::post('/searchCategory', [ProductSearchController::class, 'searchByCategory']);
+   Route::post('/searchTaste', [ProductSearchController::class, 'searchByTaste']);
+   Route::get('/menutype', [ProductSearchController::class, 'listByType']);
+   Route::get('/menutaste', [ProductSearchController::class, 'listByTaste']);
 
-  /*
+   /*
      * For logging out
      */
-  Route::get('/logout', [CustomerController::class, 'logout']);
+   Route::get('/logout', [CustomerController::class, 'logout']);
 });

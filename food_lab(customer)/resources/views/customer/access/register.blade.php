@@ -21,8 +21,9 @@
 
 @section('google')
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <meta name="google-signin-client_id" content="608465627296-6kuk054hln5v9k61t8d7vkpo7jqej6u7.apps.googleusercontent.com">
-    <script src="https://apis.google.com/js/platform.js" async></script>
+     <meta name="google-signin-scope" content="profile email">
+    <meta name="google-signin-client_id" content="340689033557-ljdssigb8ilnr1f6km3tk4dju7eep0rt.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
 @endsection
 
 @section('facebook')
@@ -42,14 +43,16 @@
         </div>
 
         {{-- start register header --}}
+     
+        
         <div class="d-flex ms-5 mb-3 register-headers">
+             
             <div>
                 <p class="fw-bolder pb-3 creates">{{ __('messageMK.signUp') }}</p>
                 <div class="d-flex justify-content-around align-items-center text-white sign-withs">
-                    <p class="btn g-signin2" data-onsuccess="onSignIn"><i
-                            class="fab fa-google"></i>{{ __('messageMK.signUpWithGoogle') }}</p>
-                    <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
-                    </fb:login-button>
+                    <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+                    {{-- <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+                    </fb:login-button> --}}
                 </div>
             </div>
             <div class="welcome-registers">

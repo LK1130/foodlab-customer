@@ -135,7 +135,7 @@
     @if (session()->has('customerId'))
         <section class="recommand-items">
             <div class="seller-headers">
-                <img src="{{ url("img/reommand_item.png.png") }}"/>
+                <img src="{{ url("img/recommand_item.png") }}"/>
             </div>
             <fieldset
                 class="d-flex flex-wrap justify-content-around align-items-center border border-3 text-light recommands">
@@ -204,7 +204,7 @@
             </div>
         </div>
     </section>
-    {{-- End Contact Section --}}    
+    {{-- End Contact Section --}}
 
     {{-- Start Delivery Section --}}
     <section class="deliverys">

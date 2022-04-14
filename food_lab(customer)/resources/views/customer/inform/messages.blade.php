@@ -17,7 +17,7 @@
 @section('title', "$name->site_name | Messages")
 @section('body')
 
-    <div class="d-flex ps-5 py-4">
+    <div class="d-flex ps-5 py-4 position-sticky fixed-top bg-black">
         <div class="me-4 mt-3">
             <a href="/"><i class="fas fa-arrow-left text-white arrows"></i></a>
         </div>
@@ -25,7 +25,7 @@
             <img src="/storage/siteLogo/{{ $name->site_logo }}" width="50px" />
         </div>
     </div>
-    <h1 class=" fw-bold text-center heading">{{ __('messageZY.messages') }}</h1>
+    <h1 class=" fw-bold text-center heading position-sticky bg-black">{{ __('messageZY.messages') }}</h1>
     @php
     $ldate = date('Y-m-d H:i:s');
     $currentdate = strtotime($ldate);
