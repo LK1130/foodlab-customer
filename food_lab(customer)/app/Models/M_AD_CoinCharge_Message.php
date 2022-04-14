@@ -30,7 +30,7 @@ class M_AD_CoinCharge_Message extends Model
 
             ->leftjoin('m_ad_coincharge_message', 'm_ad_coincharge_message.charge_id', '=', 't_ad_coincharge.id')
             ->where('m_ad_coincharge_message.del_flg', 0)
-            ->select('*', DB::raw('m_ad_coincharge_message.created_at AS messagecreated'), DB::raw('m_ad_coincharge_message.id AS chargeid'))
+            ->select('*', DB::raw('m_ad_coincharge_message.updated_at AS messagecreated'), DB::raw('m_ad_coincharge_message.id AS chargeid'))
             ->orderBy('m_ad_coincharge_message.created_at', 'DESC')
 
             ->limit(3)
