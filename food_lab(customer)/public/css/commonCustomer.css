@@ -274,7 +274,19 @@ marquee {
     padding-bottom: 0.3em !important;
     text-align: center;
     height: auto;
-    transition: all 0.3s 0s ease-out;
+    /* transition:  0.3s 0s ease-out; */
+}
+.alertIndicatorForInform {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: #ff1b1b;
+    position: absolute;
+    margin-right: auto;
+    right: -6px;
+    top: 8px;
+    /* left: 50px;
+    top: 13px; */
 }
 #back {
     cursor: pointer;
@@ -416,6 +428,7 @@ marquee {
     font-size: 0.95rem;
     z-index: 99 !important;
     color: whitesmoke;
+    position: relative;
 }
 
 .alertButton {

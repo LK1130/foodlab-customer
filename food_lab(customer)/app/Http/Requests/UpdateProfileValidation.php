@@ -28,7 +28,7 @@ class UpdateProfileValidation extends FormRequest
 
         return [
             'username' => 'required | min:6 | max:30',
-            'bio' => 'required | min:0 | max:255',
+
             'phonenumber' => 'required | max:11 ',
             // 'email' => ['required', ' max:128 ', 'email', new CheckMailUpdate()],
             'addressNumber' => 'required | max:128',

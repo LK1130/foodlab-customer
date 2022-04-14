@@ -161,16 +161,17 @@
                                     <div
                                         class="headerInform d-flex flex-row justify-content-center align-items-center  ">
                                         <div class="topNotch "></div>
-                                        <div>
+                                        <div class="position-relative">
                                             <p class="   infromTitle" id="clickNews">
-                                                {{ __('messageZY.new') }}</p>
+                                                {{ __('messageZY.new') }}
+                                            </p>
                                         </div>
-                                        <div>
+                                        <div class="position-relative" id="informTitleCountShowForMessage">
                                             <p class="  infromTitle" id="clickMessages">
                                                 {{ __('messageZY.message') }}
                                             </p>
                                         </div>
-                                        <div>
+                                        <div class="position-relative" id="informTitleCountShowForTrack">
                                             <p class=" infromTitle" id="clickTracks">
                                                 {{ __('messageZY.track') }}
                                             </p>

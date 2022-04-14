@@ -42,7 +42,35 @@ class M_AD_CoinCharge_Message extends Model
 
         return $result;
     }
+    /*
+    * Create:zayar(2022/04/13) 
+    * Update: 
+    * This is method is used to count unseen messages in inform alert. (customer)
 
+    */
+    public function informMessageToCount($sessionCustomerId)
+    {
+        Log::channel('customerlog')->info("M_AD_CoinCharge_Message Model", [
+            'Start informMessageToCount'
+        ]);
+
+        $result = T_AD_CoinCharge::where('t_ad_coincharge.customer_id', $sessionCustomerId)
+
+            ->where('t_ad_coincharge.del_flg', 0)
+
+            ->where('t_ad_coincharge.customer_id', '=', $sessionCustomerId)
+            ->leftjoin('m_ad_coincharge_message', 'm_ad_coincharge_message.charge_id', '=', 't_ad_coincharge.id')
+            ->where('t_ad_coincharge.del_flg', 0)
+            ->where('m_ad_coincharge_message.seen', 0)
+            ->limit(3)
+            ->get();
+
+        Log::channel('customerlog')->info("M_AD_CoinCharge_Message Model", [
+            'End informMessageToCount'
+        ]);
+
+        return $result;
+    }
     /*
     * Create:zayar(2022/01/26) 
     * Update: 
@@ -61,7 +89,7 @@ class M_AD_CoinCharge_Message extends Model
             ->leftjoin('m_ad_coincharge_message', 'm_ad_coincharge_message.charge_id', '=', 't_ad_coincharge.id')
             ->select('*', DB::raw('m_ad_coincharge_message.updated_at AS messagecreated'), DB::raw('t_ad_coincharge.id AS chargeid'))
             ->orderBy('m_ad_coincharge_message.updated_at', 'DESC')
-            ->leftjoin('m_decision_status', 'm_decision_status.id', '=', 't_ad_coincharge.decision_status')
+
 
             ->paginate(10);
 

@@ -51,7 +51,16 @@ $(document).ready(function () {
                 if (data["alertcount"] == 0) {
                     $("#alertCount").css("display", "none");
                 } else $("#alertCount").text(data["alertcount"]);
-
+                if (data["messageLimitedCount"].length > 0) {
+                    $("#informTitleCountShowForMessage").append(
+                        `<div class="alertIndicatorForInform "></div>`
+                    );
+                }
+                if (data["trackLimitedCount"].length > 0) {
+                    $("#informTitleCountShowForTrack").append(
+                        `<div class="alertIndicatorForInform "></div>`
+                    );
+                }
                 let newscount = data["limitednews"].length;
                 var today = new Date();
                 var dd = String(today.getDate()).padStart(2, "0");
@@ -141,12 +150,12 @@ $(document).ready(function () {
                         // $statusMessage = messages.decision_status;
                         $messagecolor = "";
                         if (messages.title == "APPROVED")
-                            $messagecolor = "green";
+                            $messagecolor = "green"; //success
                         if (messages.title == "REQUEST")
-                            $messagecolor = "yellow";
+                            $messagecolor = "yellow"; //primary
                         if (messages.title == "WAITING")
-                            $messagecolor = "yellow";
-                        if (messages.title == "REJECT") $messagecolor = "gray";
+                            $messagecolor = "yellow"; //bgwaring
+                        if (messages.title == "REJECT") $messagecolor = "gray"; // secondary
                         if (messages.seen == 0) {
                             $(".forMessages").append(
                                 `
@@ -240,15 +249,15 @@ $(document).ready(function () {
                                             </div>
                                             
                                             
-                                        <p class="  mb-1 ms-2 fontSizeForMessage"><i class="coinCalInform fas fa-coins"></i> ${tracks.coin} </p>
-                                        <p class="  mb-1 ms-2 fontSizeForMessage">${tracks.amount} MMK</p>
+                                        <p class="  mb-1 ms-2 fontSizeForInform"><i class="coinCalInform fas fa-coins"></i> ${tracks.coin} </p>
+                                        <p class="  mb-1 ms-2 fontSizeForInform">${tracks.amount} MMK</p>
                                         </div>
                                         <div class="d-flex flex-column  w-100 mt-3">
                                             <p class=" w-75 fw-bolder rounded ${$messagecolor} text-center">
                                             ${tracks.status} </p>
                                             <p class="fontSizeForMessage fw-bold mt-4">${tracks.trackscreated} </p>
                                         </div>
-                                        <img src="img/new.png" alt="" class="newsLogo aleft" >
+                                        <img src="img/new.png" alt="" class="newsLogo aleft" width="49px" >
                                     </div>
                                     ${more}
                                         `
@@ -263,8 +272,8 @@ $(document).ready(function () {
                                         <p class="text-truncate  informText " >${product.product_name}</p> ${$howmuchtext}
                                             </div>
                                             
-                                        <p class="  mb-1 ms-2  fontSizeForMessage"><i class="coinCalInform fas fa-coins"></i> ${tracks.coin} </p>
-                                        <p class=" mb-1 ms-2  fontSizeForMessage">${tracks.amount} MMK</p>
+                                        <p class="  mb-1 ms-2  fontSizeForInform"><i class="coinCalInform fas fa-coins"></i> ${tracks.coin} </p>
+                                        <p class=" mb-1 ms-2  fontSizeForInform">${tracks.amount} MMK</p>
                                         </div>
                                         <div class="d-flex flex-column  w-100 mt-3">
                                             <p class=" fw-bolder w-75 text-center rounded ${$messagecolor} text-center">
