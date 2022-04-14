@@ -51,7 +51,16 @@ $(document).ready(function () {
                 if (data["alertcount"] == 0) {
                     $("#alertCount").css("display", "none");
                 } else $("#alertCount").text(data["alertcount"]);
-
+                if (data["messageLimitedCount"].length > 0) {
+                    $("#informTitleCountShowForMessage").append(
+                        `<div class="alertIndicatorForInform "></div>`
+                    );
+                }
+                if (data["trackLimitedCount"].length > 0) {
+                    $("#informTitleCountShowForTrack").append(
+                        `<div class="alertIndicatorForInform "></div>`
+                    );
+                }
                 let newscount = data["limitednews"].length;
                 var today = new Date();
                 var dd = String(today.getDate()).padStart(2, "0");
@@ -95,7 +104,7 @@ $(document).ready(function () {
                                         <p class="  mt-2 me-auto ms-3 text-truncate fontSizeForInform"   style="max-width: 80%; min-width:12vw;">
                                         (${news.detail})</p>
                                         </div>
-                                        <img src="img/new.png" alt="" class="newsLogo gleft" width="49px">
+                                        <div class="newsLine"></div>
                                 </div>
                                 ${more}
                             `
@@ -112,7 +121,7 @@ $(document).ready(function () {
                                         <p class="  mt-2 me-auto ms-3 text-truncate fontSizeForInform"   style="max-width: 80%; min-width:12vw;">
                                         (${news.detail})</p>
                                         </div>
-                                        <img src="" alt="" class="newsLogo" >
+                                        
                                 </div>
                                 ${more}
                             `
@@ -132,7 +141,58 @@ $(document).ready(function () {
                 } else {
                     let countMessage = 0;
                     let more = ``;
+
+                    var today = new Date();
+                    var dd = String(today.getDate()).padStart(2, "0");
+                    var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
+                    var yyyy = today.getFullYear();
+                    var time =
+                        today.getHours() +
+                        ":" +
+                        today.getMinutes() +
+                        ":" +
+                        today.getSeconds();
+                    todayDate = yyyy + "-" + mm + "-" + dd + " " + time;
+                    var todayDateParsed = Date.parse(todayDate); //returns milliseconds difference between today and January 1, 1970
+
                     for (const messages of data["limitedmessages"]) {
+                        var msgCreatedParsed = Date.parse(
+                            messages.messagecreated
+                        ); //returns milliseconds since January 1, 1970
+                        $totalMilliSecondsDiff =
+                            todayDateParsed - msgCreatedParsed; //returns milliseconds difference
+                        $totalSecondsDiff = $totalMilliSecondsDiff / 1000; //total second difference
+                        $totalDaysDiff = Math.floor(
+                            $totalSecondsDiff / 60 / 60 / 24
+                        ); //total day difference
+                        $totalTimesDiff = Math.floor(
+                            $totalSecondsDiff / 60 / 60
+                        ); //total hour difference
+                        $totalMinutesDiff = Math.floor($totalSecondsDiff / 60); //total minute difference
+                        $timeDifferenceMessage = "";
+
+                        if ($totalDaysDiff == 0) {
+                            if ($totalTimesDiff == 0) {
+                                $timeDifferenceMessage =
+                                    $totalMinutesDiff == 0
+                                        ? "1 minute ago"
+                                        : $totalMinutesDiff == 1
+                                        ? "1 minute ago"
+                                        : $totalMinutesDiff + " minutes ago";
+                            } else if ($totalTimesDiff == 1) {
+                                $timeDifferenceMessage =
+                                    $totalTimesDiff + " hour ago";
+                            } else {
+                                $timeDifferenceMessage =
+                                    $totalTimesDiff + " hours ago";
+                            }
+                        } else if ($totalDaysDiff == 1) {
+                            $timeDifferenceMessage = "Yesterday";
+                        } else {
+                            $timeDifferenceMessage =
+                                $totalDaysDiff + " " + " days ago";
+                        }
+
                         countMessage++;
                         if (countMessage == 3)
                             more = `<a href="/messages" class=" showAllNewsText">Show All Messages</a>`;
@@ -141,12 +201,13 @@ $(document).ready(function () {
                         // $statusMessage = messages.decision_status;
                         $messagecolor = "";
                         if (messages.title == "APPROVED")
-                            $messagecolor = "green";
+                            $messagecolor = "bg-success"; //success
                         if (messages.title == "REQUEST")
-                            $messagecolor = "yellow";
+                            $messagecolor = "bg-primary"; //primary
                         if (messages.title == "WAITING")
-                            $messagecolor = "yellow";
-                        if (messages.title == "REJECT") $messagecolor = "gray";
+                            $messagecolor = "bg-warning"; //bgwaring
+                        if (messages.title == "REJECT")
+                            $messagecolor = "bg-secondary"; // secondary
                         if (messages.seen == 0) {
                             $(".forMessages").append(
                                 `
@@ -154,16 +215,18 @@ $(document).ready(function () {
         
                 <p class="fontSizeForMessage me-auto w-50 ms-3 mt-3">${messages.detail}</p>
                 <div class="d-flex flex-column me-4">
-                    <p class=" ms-auto mt-2 w-100 rounded ${$messagecolor} text-center">
+                <p class=" fontSizeForMessage  mb-1 ">${messages.request_coin}</p>
+                    <p class=" ms-auto mt-1 titleStatus  w-100 rounded ${$messagecolor} text-center">
                     ${messages.title}
                     </p>
                     <p class=" fontSizeForMessage  mb-1 ">${messages.messagecreated}</p>
                 </div>
-                <img src="img/new.png" alt="" class="newsLogo gleft" width="49px">
+                <div class="newsLine"></div>
+                
             </div>
             ${more}
         `
-                            );
+                            ); //<img src="img/new.png" alt="" class="newsLogo gleft" width="49px">
                         } else {
                             $(".forMessages").append(
                                 `
@@ -171,10 +234,12 @@ $(document).ready(function () {
         
                                 <p class="fontSizeForMessage me-auto w-50 ms-3 mt-3">${messages.detail}</p>
                                 <div class="d-flex flex-column me-4">
-                                    <p class=" ms-auto mt-2 w-100 rounded ${$messagecolor} text-center">
+                                
+                                    <p class=" ms-auto mt-1 titleStatus w-100 rounded ${$messagecolor} text-center">
                                     ${messages.title}
                                     </p>
-                                    <p class=" fontSizeForMessage  mb-1 ">${messages.messagecreated}</p>
+                                    <p class=" fontSizeForMessage mb-3 w-100 "><i class="coinCalInform fas fa-coins"></i> ${messages.request_coin}  (${$timeDifferenceMessage})</p>
+                                    
                                 </div>
                                 
                             </div>
@@ -185,6 +250,7 @@ $(document).ready(function () {
                     }
                     $(".messages").click(function () {
                         $id = $(this).attr("id");
+
                         window.location.replace("/messageDetail/" + $id);
                     });
                 }
@@ -201,7 +267,63 @@ $(document).ready(function () {
                 } else {
                     let countTrack = 0;
                     let more = ``;
+                    let message = "";
+
+                    var today = new Date();
+                    var dd = String(today.getDate()).padStart(2, "0");
+                    var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
+                    var yyyy = today.getFullYear();
+                    var time =
+                        today.getHours() +
+                        ":" +
+                        today.getMinutes() +
+                        ":" +
+                        today.getSeconds();
+                    todayDate = yyyy + "-" + mm + "-" + dd + " " + time;
+                    var todayDateParsed = Date.parse(todayDate); //returns milliseconds difference between today and January 1, 1970
                     for (const tracks of data["limitedtracks"]) {
+                        var msgCreatedParsed = Date.parse(tracks.trackscreated); //returns milliseconds since January 1, 1970
+                        $totalMilliSecondsDiff =
+                            todayDateParsed - msgCreatedParsed; //returns milliseconds difference
+                        $totalSecondsDiff = $totalMilliSecondsDiff / 1000; //total second difference
+                        $totalDaysDiff = Math.floor(
+                            $totalSecondsDiff / 60 / 60 / 24
+                        ); //total day difference
+                        $totalTimesDiff = Math.floor(
+                            $totalSecondsDiff / 60 / 60
+                        ); //total hour difference
+                        $totalMinutesDiff = Math.floor($totalSecondsDiff / 60); //total minute difference
+                        $timeDifferenceMessage = "";
+
+                        if ($totalDaysDiff == 0) {
+                            if ($totalTimesDiff == 0) {
+                                $timeDifferenceMessage =
+                                    $totalMinutesDiff == 0
+                                        ? "1 minute ago"
+                                        : $totalMinutesDiff == 1
+                                        ? "1 minute ago"
+                                        : $totalMinutesDiff + " minutes ago";
+                            } else if ($totalTimesDiff == 1) {
+                                $timeDifferenceMessage =
+                                    $totalTimesDiff + " hour ago";
+                            } else {
+                                $timeDifferenceMessage =
+                                    $totalTimesDiff + " hours ago";
+                            }
+                        } else if ($totalDaysDiff == 1) {
+                            $timeDifferenceMessage = "Yesterday";
+                        } else {
+                            $timeDifferenceMessage =
+                                $totalDaysDiff + " " + " days ago";
+                        }
+                        if (tracks.grandtotal_coin == 0) {
+                            message = `
+                                <p class="mb-1 ms-2 fontSizeForMessage">${tracks.grandtotal_cash} MMK</p>`;
+                        }
+                        if (tracks.grandtotal_cash == 0) {
+                            message = `
+                                <p class="mb-1 ms-2 fontSizeForMessage"><i class="coinCalInform fas fa-coins"></i> ${tracks.grandtotal_coin} </p>`;
+                        }
                         countTrack++;
                         if (countTrack == 3)
                             more = `<a href="/tracks" class="showAllNewsText">Show All Tracks</a>`;
@@ -232,7 +354,7 @@ $(document).ready(function () {
                                 if (tracks.seen == 0) {
                                     $(".forTracks").append(
                                         `
-                                        <div class="tracks mt-2 d-flex flex-row justify-content-center align-items-center h-auto d-inline-block mb-3" id="${tracks.tid}">
+                                        <div class="tracks  d-flex flex-row justify-content-center align-items-center h-auto d-inline-block mb-3" id="${tracks.tid}">
                                         
                                         <div class="d-flex flex-column w-100 ms-3  ">
                                         <div class="d-flex flex-row gap-1 ms-2 fontSizeForMessage">
@@ -240,15 +362,14 @@ $(document).ready(function () {
                                             </div>
                                             
                                             
-                                        <p class="  mb-1 ms-2 fontSizeForMessage"><i class="coinCalInform fas fa-coins"></i> ${tracks.coin} </p>
-                                        <p class="  mb-1 ms-2 fontSizeForMessage">${tracks.amount} MMK</p>
+                                            ${message}
                                         </div>
-                                        <div class="d-flex flex-column  w-100 mt-3">
-                                            <p class=" w-75 fw-bolder rounded ${$messagecolor} text-center">
+                                        <div class="d-flex flex-column  w-100 ">
+                                            <p class=" w-75 fw-bolder titleStatus rounded ${$messagecolor} text-center">
                                             ${tracks.status} </p>
-                                            <p class="fontSizeForMessage fw-bold mt-4">${tracks.trackscreated} </p>
+                                            <p class="fontSizeForMessage fw-bold ">${$timeDifferenceMessage} </p>
                                         </div>
-                                        <img src="img/new.png" alt="" class="newsLogo aleft" >
+                                        <div class="newsLine"></div>
                                     </div>
                                     ${more}
                                         `
@@ -256,20 +377,19 @@ $(document).ready(function () {
                                 } else {
                                     $(".forTracks").append(
                                         `
-                                        <div class="tracks mt-2 d-flex flex-row justify-content-center align-items-center h-auto d-inline-block mb-3" id="${tracks.tid}">
+                                        <div class="tracks  d-flex flex-row justify-content-center align-items-center h-auto d-inline-block mb-3" id="${tracks.tid}">
                                         
                                         <div class="d-flex flex-column w-100 ms-3 ">
                                         <div class="d-flex flex-row gap-1 ms-2  fontSizeForMessage">
                                         <p class="text-truncate  informText " >${product.product_name}</p> ${$howmuchtext}
                                             </div>
                                             
-                                        <p class="  mb-1 ms-2  fontSizeForMessage"><i class="coinCalInform fas fa-coins"></i> ${tracks.coin} </p>
-                                        <p class=" mb-1 ms-2  fontSizeForMessage">${tracks.amount} MMK</p>
+                                        ${message}
                                         </div>
-                                        <div class="d-flex flex-column  w-100 mt-3">
-                                            <p class=" fw-bolder w-75 text-center rounded ${$messagecolor} text-center">
+                                        <div class="d-flex flex-column  w-100 ">
+                                            <p class="  w-75 titleStatus text-center rounded ${$messagecolor} text-center">
                                             ${tracks.status} </p>
-                                            <p class="fontSizeForMessage fw-bold mt-4 ">${tracks.trackscreated} </p>
+                                            <p class="fontSizeForMessage fw-bold  ">${$timeDifferenceMessage}  </p>
                                         </div>
                                         
                                     </div>

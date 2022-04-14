@@ -70,12 +70,12 @@
 
                         {{ $alltrack->title }}
                     </p>
-                    <p class=" fw-bold fs-4">{{ $alltrack->coin }}<i class=" fas fa-coins"></i>
+                    <p class=" fw-bold fs-4">{{ $alltrack->coin }} <i class="coinCalInform fas fa-coins"></i>
                         ({{ $alltrack->amount }} {{ __('messageZY.mmk') }})
                     </p>
                 </div>
                 <div class="d-flex flex-column  me-5 mt-4 ">
-                    <p class="fs-3 me-3 fw-bolder rounded {{ $messagecolor }} w-100 text-center">
+                    <p class="fs-3 me-3 fw-bolder titleStatus rounded {{ $messagecolor }} w-100 text-center">
                         {{ $alltrack->status }}
                     </p>
                     <p class=" fw-bold fs-5 mb-3 ">
@@ -84,6 +84,7 @@
                     </p>
                 </div>
                 <img src="img/new.png" alt="" class="newsLogoMessage" width="45vw">
+                <div class="bottomLine"></div>
             </div>
         @else
             <div class="tracks d-flex flex-row justify-content-center align-items-center my-2" id="{{ $alltrack->tid }}">
@@ -93,12 +94,12 @@
 
                         {{ $alltrack->title }}
                     </p>
-                    <p class=" fw-bold fs-4">{{ $alltrack->coin }}<i class=" fas fa-coins"></i>
+                    <p class=" fw-bold fs-4">{{ $alltrack->coin }} <i class="coinCalInform fas fa-coins"></i>
                         ({{ $alltrack->amount }} {{ __('messageZY.mmk') }})
                     </p>
                 </div>
                 <div class="d-flex flex-column  me-5 mt-4 ">
-                    <p class="fs-3 me-3 fw-bolder rounded {{ $messagecolor }} w-100 text-center">
+                    <p class="fs-3 me-3 fw-bolder titleStatus rounded {{ $messagecolor }} w-100 text-center">
                         {{ $alltrack->status }}
                     </p>
                     <p class=" fw-bold fs-5 mb-3 ">
@@ -107,6 +108,7 @@
                     </p>
                 </div>
                 <img src="" alt="" class="newsLogoMessage" width="45vw">
+                <div class="bottomLine"></div>
             </div>
         @endif
 

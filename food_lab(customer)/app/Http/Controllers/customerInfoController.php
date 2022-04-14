@@ -32,12 +32,14 @@ class customerInfoController extends Controller
             $sessionCustomerId = session()->get('customerId');
             $messages = new M_AD_CoinCharge_Message();
             $messageLimited = $messages->informMessage($sessionCustomerId);
+            $messageLimitedToCount = $messages->informMessageToCount($sessionCustomerId);
             $allmessage = $messages->allMessage($sessionCustomerId);
             $allMessageToCount = $messages->allMessageToCount($sessionCustomerId);
             $messagecount = count($allMessageToCount);
 
             $tracks = new M_AD_Track();
             $tracksLimited = $tracks->trackLimited($sessionCustomerId);
+            $tracksLimitedToCount = $tracks->trackLimitedToCount($sessionCustomerId);
             $productIds = [];
             foreach ($tracksLimited as $key => $value) {
                 $ids = (int)$value->title;
@@ -76,7 +78,9 @@ class customerInfoController extends Controller
                 'limitedtracks' => $tracksLimited,
                 'allmessages' => $allmessage,
                 'alertcount' => $informBadgeCount,
-                'trackProduct' => $searchProduct
+                'trackProduct' => $searchProduct,
+                'messageLimitedCount' => $messageLimitedToCount,
+                'trackLimitedCount' => $tracksLimitedToCount
             ]);
     }
 }

@@ -168,7 +168,7 @@
                         @enderror
                     </div>
 
-                    <div class="d-flex  me-3 ms-3 mt-0 mb-1 infos">
+                    {{-- <div class="d-flex  me-3 ms-3 mt-0 mb-1 infos">
                         <i class="fas fa-pen-square fs-3 me-4 mt-2 iconColor "></i>
                         <div class="InputParent">
                             <input type="text" name="bio" id="nickname" class="InputChild" value="{{ $user->bio }}"
@@ -176,6 +176,17 @@
 
                         </div>
                         @error('bio')
+                            <span class="errorIcon"><i
+                                    class="fas fa-exclamation-circle fs-3 ms-2 errorPassword text-danger"></i></span>
+                        @enderror
+                    </div> --}}
+                    <div class="d-flex  me-3 ms-3 mt-0 mb-1 infos">
+                        <i class="fas fa-dizzy fs-3 me-4 mt-2 iconColor "></i>
+                        <div class="InputParent">
+                            <input type="text" name="Allergic" id="Allergic" class="InputChild"
+                                value="{{ $user->allergic }}" autocomplete="off">
+                        </div>
+                        @error('Allergic')
                             <span class="errorIcon"><i
                                     class="fas fa-exclamation-circle fs-3 ms-2 errorPassword text-danger"></i></span>
                         @enderror
@@ -202,17 +213,7 @@
                                 data-role="tagsinput">
                         </div>
                     </div>
-                    <div class="d-flex  me-3 ms-3 mt-0 mb-1 infos">
-                        <i class="fas fa-dizzy fs-3 me-4 mt-2 iconColor "></i>
-                        <div class="InputParent">
-                            <input type="text" name="Allergic" id="Allergic" class="InputChild"
-                                value="{{ $user->allergic }}" autocomplete="off">
-                        </div>
-                        @error('Allergic')
-                            <span class="errorIcon"><i
-                                    class="fas fa-exclamation-circle fs-3 ms-2 errorPassword text-danger"></i></span>
-                        @enderror
-                    </div>
+
 
                     <div class="btnDiv">
                         <button class="btn updateButton" value="Update1">{{ __('messageZY.updateprofile') }}</button>
@@ -242,6 +243,12 @@
         @else
             <input type="text" value="0" id="error2" class="hide">
         @endif
+        @if (session()->has('success'))
+            <div class="passwordSuccess">
+                {{ session()->get('success') }}
+            </div>
+        @endif
+
         <div class="alertBox" id="alertBox">
 
 
