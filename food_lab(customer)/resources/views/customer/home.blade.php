@@ -7,11 +7,16 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="{{ url('css/commonCustomer.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ url('css/customer.css') }}" rel="stylesheet" type="text/css" />
+    {{-- aos library --}}
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 @endsection
+
 
 @section('script')
     <script src="{{ url('js/commonCustomer.js') }}" type="text/javascript" defer></script>
     <script src="{{ url('js/customer.js') }}" type="text/javascript" defer></script>
+    {{-- aos library --}}
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 @endsection
 
 @section('title', "$name->site_name | home")
@@ -28,49 +33,30 @@
                 aria-label="Slide 3"></button>
         </div>
         <div class="carousel-inner">
-            <div class="carousel-item active">
-                <div class="row align-items-center items">
-                    <div class="col-8 flex-column">
-                        <h1 class="fw-bolder tastes">{{ __('messageMK.TasteOurDeliciousFood') }}</h1>
-                        <p class="fw-bold fs-5 ms-5 delivery-infos text-center">
-                            {{ __('messageMK.banner') }}
-                        </p>
-                        <a href="/productLists" class="btn delivery-btns">{{ __('messageMK.shopnow') }}</a>
-                    </div>
+            @forelse($sliderInfos as $sliderInfo)
+                <div class="carousel-item @if($sliderInfo->id == 1) active @endif">
+                    <div class="row align-items-center items">
+                        <div class="col-8 flex-column">
+                            <h1 class="fw-bolder tastes">{{ $sliderInfo->banner_title }}</h1>
+                            <p class="fw-bold fs-5 ms-5 delivery-infos text-center">
+                                {{ $sliderInfo->banner_detail }}
+                            </p>
+                            @if($sliderInfo->button_state == 1)
+                                <a href="/{{ $sliderInfo->button_link }}" class="btn delivery-btns">{{ $sliderInfo->button_text }}</a>
+                            @endif
+                        </div>
 
-                    <div class="col-4">
-                        <img src="{{ url('img/menu.png') }}" class="carousel-photos" alt="menu1" />
+                        <div class="col-4">
+                            <img src="/storage/sliderImageFile/{{ $sliderInfo->image }}" class="carousel-photos" alt="{{ $sliderInfo->image }}" />
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="carousel-item">
-                <div class="row align-items-center items">
-                    <div class="col-8 flex-column">
-                        <h1 class="fw-bolder tastes">{{ __('messageMK.TasteOurDeliciousFood') }}</h1>
-                        <p class="fw-bold fs-5 ms-5 delivery-infos">
-                            {{ __('messageMK.banner') }}
-                        </p>
-                        <a href="/productLists" class="btn delivery-btns">{{ __('messageMK.shopnow') }}</a>
-                    </div>
-                    <div class="col-4 ">
-                        <img src="{{ url('img/menu.png') }}" class="carousel-photos" alt="menu1" />
-                    </div>
+            @empty
+                <div class="text-center">
+                    <p>No data</p>
                 </div>
-            </div>
-            <div class="carousel-item">
-                <div class="row align-items-center items">
-                    <div class="col-8 flex-column">
-                        <h1 class="fw-bolder tastes">{{ __('messageMK.TasteOurDeliciousFood') }}</h1>
-                        <p class="fw-bold fs-5 ms-5 delivery-infos">
-                            {{ __('messageMK.banner') }}
-                        </p>
-                        <a href="/productLists" class="btn delivery-btns">{{ __('messageMK.shopnow') }}</a>
-                    </div>
-                    <div class="col-4">
-                        <img src="{{ url('img/menu.png') }}" class="carousel-photos" alt="menu1" />
-                    </div>
-                </div>
-            </div>
+            @endforelse
+
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
             data-bs-slide="prev">
@@ -88,22 +74,22 @@
 
 @section('section')
 
-
     {{-- Start Welcome Section --}}
     <section class="d-flex flex-column justify-content-center align-items-center welcomes" id="welcomes">
-        <p class="fs-1 p-3 fw-bolder text-uppercase text-center welcometexts">{{ __('messageMK.welcome') }}{{ $name->site_name }}</p>
-        <p class="fs-3 p-3 companyinfos"><i class="fas fa-quote-left falefts me-5"></i>{{ $name->intro }}<i
-                class="fas fa-quote-right farights ms-5"></i></p>
+        <p class="fs-1 p-3 fw-bolder text-uppercase text-center welcometexts"  data-aos="zoom-out-up"  data-aos-easing="linear" data-aos-duration="900">{{ __('messageMK.welcome') }}{{ $name->site_name }}</p>
+        <p class="fs-3 p-3 text-break companyinfos"  data-aos="zoom-out-up"  data-aos-easing="linear" data-aos-duration="900"><i class="fas fa-quote-left falefts me-5"></i>{{ $name->intro }}<i class="fas fa-quote-right farights ms-5"></i></p>
     </section>
     {{-- End Welcome Section --}}
 
     {{-- Start Best Seller Item Section --}}
     <section class="best-items">
-        <div class="seller-headers">
+        <div class="seller-headers" data-aos="fade-down"  data-aos-easing="linear"
+             data-aos-duration="900">
             <img src="{{ url("img/Best_Seller_Item1.png") }}"/>
         </div>
 
-        <div class="d-flex flex-wrap justify-content-around align-items-center border border-3 text-light sellers">
+        <div class="d-flex flex-wrap justify-content-around align-items-center border border-3 text-light sellers" data-aos="fade-up"  data-aos-easing="linear"
+             data-aos-duration="900">
             {{-- start items --}}
             @forelse ($sellProducts as $sellProduct)
                 <div class="d-flex flex-column justify-content-center align-items-center fw-bold my-3 py-5"
@@ -134,11 +120,11 @@
     {{-- Start Recommand Item Section --}}
     @if (session()->has('customerId'))
         <section class="recommand-items">
-            <div class="seller-headers">
+            <div class="seller-headers" data-aos="fade-down"  data-aos-easing="linear" data-aos-duration="900">
                 <img src="{{ url("img/recommand_item.png") }}"/>
             </div>
-            <fieldset
-                class="d-flex flex-wrap justify-content-around align-items-center border border-3 text-light recommands">
+            <div class="d-flex flex-wrap justify-content-around align-items-center border border-3 text-light recommands" data-aos="fade-up"  data-aos-easing="linear"
+                 data-aos-duration="900">
                 {{-- start items --}}
                 @foreach ($recomProducts as $recomProduct)
                     @foreach ($recomProduct as $product)
@@ -154,18 +140,18 @@
                     @endforeach
                 @endforeach
                 {{-- end items --}}
-            </fieldset>
+            </div>
         </section>
     @endif
     {{-- End Recommand Item Section --}}
 
     {{-- Start Contact Section --}}
     <section>
-        <div class="d-flex flex-row justify-content-center align-items-center contacts">
+        <div class="d-flex flex-row justify-content-center align-items-center my-5 contacts" >
             <div class="d-flex flex-column justify-content-center align-items-center ms-5">
                 <div class="company-infos">
-                    <p class="fw-bolder mb-5">{{ __('messageMK.getcontact') }}</p>
-                    <div class="company-details">
+                    <p class="fw-bolder mb-5" data-aos="fade-right"  data-aos-easing="linear" data-aos-duration="900">{{ __('messageMK.getcontact') }}</p>
+                    <div class="company-details"  data-aos="fade-left"  data-aos-easing="linear" data-aos-duration="900">
                         <div class="row">
                             <div class="col-2 text-center">
                                 <i class="fas fa-map-marker-alt"></i>
@@ -208,8 +194,10 @@
 
     {{-- Start Delivery Section --}}
     <section class="deliverys">
-        <p class="fw-bolder text-center pt-5 pb-3 del-infos">{{ __('messageMK.Delivery Information') }}</p>
-        <div class="row">
+        <div class="text-center delivery-headers" data-aos="fade-down"  data-aos-easing="linear" data-aos-duration="900">
+            <img src="{{ url("img/delivery.png") }}"/>
+        </div>
+        <div class="row" data-aos="fade-up"  data-aos-easing="linear" data-aos-duration="900">
             {{-- start delivery Informaiton --}}
             <div class="col-12 township-infos">
                 <div class="row justify-content-center align-items-center text-center text-white">
@@ -244,9 +232,9 @@
             </div>
             <div class="d-flex flex-wrap justify-content-around align-items-start mt-5 pb-3 footer-details">
                 <div class="footer-navs">
-                    <p><a href="/">{{ __('messageMK.home') }}</a></p>
+                    <p><a href="/home">{{ __('messageMK.home') }}</a></p>
                     <p><a href="#welcomes">{{ __('messageMK.aboutus') }}</a></p>
-                    <p><a href="/productLists">{{ __('messageMK.Food') }}</a></p>
+                    <p><a href="/">{{ __('messageMK.Food') }}</a></p>
                     @if (session()->has('customerId'))
                         <p><a href="/buycoin">{{ __('messageMK.buy coin') }}</a></p>
                     @endif
@@ -305,4 +293,7 @@
         {{-- end model --}}
 
         <script src="{{ url('js/customerShop.js') }}" type="text/javascript" defer></script>
+    <script>
+        AOS.init();
+    </script>
 @endsection
