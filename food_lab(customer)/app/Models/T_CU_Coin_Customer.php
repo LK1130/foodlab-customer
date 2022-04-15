@@ -58,8 +58,7 @@ class T_CU_Coin_Customer extends Model
         Log::channel('customerlog')->info('T_CU_Coin_Customer Model', [
             'start customerCoin'
         ]);
-
-
+        
         $check = T_CU_Coin_Customer::select('remain_coin')
             ->where('customer_id', $id)
             ->where('del_flg', 0)
@@ -67,6 +66,7 @@ class T_CU_Coin_Customer extends Model
         Log::channel('customerlog')->info('T_CU_Coin_Customer Model', [
             'end customerCoin'
         ]);
+
         return $check;
     }
 

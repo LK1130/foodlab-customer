@@ -1,5 +1,7 @@
 /*start navbar*/
 
+
+
 .headers {
     min-height: 100vh;
     background-image: url('/img/bg10.png') !important;
@@ -75,6 +77,33 @@
 .products {
     font-size: 3rem;
     color: var(--product-color);
+}
+
+
+.custombtn{
+    background-color: var(--product-color);
+    color: var(--text-color);
+}
+input[list]
+{
+    margin-left:auto;
+    margin-right:auto;
+    /* background: #D2E9FF; */
+    padding: 15px 15px 15px 15px;
+    font: 14px Arial, Helvetica, sans-serif;
+
+}
+
+datalist{
+   
+    color: yellow !important;
+}
+#form1{
+    border-radius: 0rem 0.25rem 0.25rem 0rem !important;
+}
+.custombtn:focus,#form1:focus,#form1:active{
+    outline: none !important;
+    box-shadow: none;
 }
 
 #selectpicker1 {

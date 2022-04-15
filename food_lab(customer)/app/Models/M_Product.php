@@ -7,11 +7,16 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 
+class Food{
+        public $name;
+        public $value;
+}
 class M_Product extends Model
 {
     use HasFactory;
     public $table = 'm_product';
 
+   
     /*
     * Create : Min Khant(14/1/2022)
     * Update :
@@ -64,6 +69,47 @@ class M_Product extends Model
 
         Log::channel('customerlog')->info("M_Product Model", [
             'End showProductList'
+        ]);
+
+        return $product;
+    }
+
+    /*
+    * Create : Aung Min Khant(13/4/2022)
+    * Update :
+    * Explain of function : To search product data to customer product page (customer)
+    * parament : none
+    * return product data
+    * */
+
+    public function searchEngineByName($request){
+        Log::channel('customerlog')->info("M_Product Model", [
+            'Start searchEngineByName'
+        ]);
+        
+        $product =   DB::table('m_product')
+        ->select(['*'], DB::raw('m_product.id'))
+        ->join('t_ad_photo', 't_ad_photo.link_id', '=', 'm_product.id')
+        ->join('m_fav_type', 'm_fav_type.id', '=', 'm_product.product_type')
+        ->join('m_taste', 'm_taste.id', '=', 'm_product.product_taste')
+        
+        ->where(function($query) use ($request){
+            $query->orWhere('m_product.product_name','Like','%'.$request.'%')
+            ->orWhere('m_product.description','Like','%'.$request.'%')
+            ->orWhere('m_product.list','Like','%'.$request.'%');
+        })
+        ->where(function($query){
+            $query->where('m_product.avaliable', 1)
+            ->where('t_ad_photo.order_id', 1)
+            ->where('t_ad_photo.del_flg', 0)
+            ->where('m_product.del_flg', 0);
+        })
+        ->orderBy('m_product.id')
+        ->get();
+
+        
+        Log::channel('customerlog')->info("M_Product Model", [
+            'End searchEngineByName'
         ]);
 
         return $product;
@@ -174,7 +220,85 @@ class M_Product extends Model
         return $product;
     }
 
+    /*
+    * Create : Aung Min Khant(12/4/2022)
+    * Update :
+    * Explain of function : To search product to customer product page (customer)
+    * parament : none
+    * return product data
+    * */
 
+    public function searchEngine($request){
+        Log::channel('customerlog')->info("M_Product Model", [
+            'Start searchEngine'
+        ]);
+
+        $searchValue = [];
+        $productName = DB::table('m_product')
+        ->select(['product_name'], DB::raw('m_product.id'))
+        ->join('t_ad_photo', 't_ad_photo.link_id', '=', 'm_product.id')
+        ->join('m_fav_type', 'm_fav_type.id', '=', 'm_product.product_type')
+        ->join('m_taste', 'm_taste.id', '=', 'm_product.product_taste')
+        ->where('m_product.product_name','Like','%'.$request.'%')
+        ->where('m_product.avaliable', 1)
+        ->where('t_ad_photo.order_id', 1)
+        ->where('t_ad_photo.del_flg', 0)
+        ->where('m_product.del_flg', 0)
+        ->get();
+
+
+        $desc = DB::table('m_product')
+        ->select(['description'], DB::raw('m_product.id'))
+        ->join('t_ad_photo', 't_ad_photo.link_id', '=', 'm_product.id')
+        ->join('m_fav_type', 'm_fav_type.id', '=', 'm_product.product_type')
+        ->join('m_taste', 'm_taste.id', '=', 'm_product.product_taste')
+        ->where('m_product.description','Like','%'.$request.'%')
+        ->where('m_product.avaliable', 1)
+        ->where('t_ad_photo.order_id', 1)
+        ->where('t_ad_photo.del_flg', 0)
+        ->where('m_product.del_flg', 0)
+        ->get();
+
+        $lists = DB::table('m_product')
+        ->select(['list'], DB::raw('m_product.id'))
+        ->join('t_ad_photo', 't_ad_photo.link_id', '=', 'm_product.id')
+        ->join('m_fav_type', 'm_fav_type.id', '=', 'm_product.product_type')
+        ->join('m_taste', 'm_taste.id', '=', 'm_product.product_taste')
+        ->where('m_product.list','Like','%'.$request.'%')
+        ->where('m_product.avaliable', 1)
+        ->where('t_ad_photo.order_id', 1)
+        ->where('t_ad_photo.del_flg', 0)
+        ->where('m_product.del_flg', 0)
+        ->get();
+       
+
+        foreach($productName as $name){
+            $foods = new Food();
+            $foods->name= 'Food';
+            $foods->value = $name->product_name;
+            array_push($searchValue,$foods);
+        }
+        foreach($desc as $de){
+            $foods = new Food();
+            $foods->name = 'Description';
+            $foods->value = $de->description;
+            array_push($searchValue,$foods);
+        }
+        foreach($lists as $list){
+            $foods = new Food();
+            $foods->name = "Ingredients";
+            $foods->value = $list->list;
+            array_push($searchValue,$foods);
+        }
+      
+        
+        
+        Log::channel('customerlog')->info("M_Product Model", [
+            'End searchEngine'
+        ]);
+
+        return $searchValue;
+    }
 
 
     public function productDetail()

@@ -718,15 +718,25 @@ class CustomerController extends Controller
         Log::channel('customerlog')->info('Customer Controller', [
             'start messageDetail'
         ]);
-
+        $sessionCustomerId = session()->get('customerId');
         $site = new M_Site();
         $name = $site->siteName();
+
         $message = new T_AD_CoinCharge();
+        $find = $message->checkFirst($id, $sessionCustomerId);
+        if (count($find) == 0) {
+            Log::channel('customerlog')->info("Customer Controller", [
+                'End messageDetail(error)'
+            ]);
+
+            return view('errors.404');
+        }
+
+
         $coinmessage = $message->searchMessage($id);
         Log::channel('customerlog')->info('Customer Controller', [
             'end messageDetail'
         ]);
-
         return view('customer.customerProfile.messageDetail', ['name' => $name, 'message' => $coinmessage, 'nav' => 'inform']);
     }
 

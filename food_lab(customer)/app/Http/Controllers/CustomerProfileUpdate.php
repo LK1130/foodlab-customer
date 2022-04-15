@@ -29,7 +29,7 @@ class CustomerProfileUpdate extends Controller
                 'End update'
             ]);
 
-            return redirect('editprofile');
+            return redirect()->back()->with('success', 'Password Changed!');
         } else {
             Log::channel('customerlog')->info("CustomerProfileUpdate", [
                 'End update(error)'

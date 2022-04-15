@@ -47,6 +47,33 @@ class M_AD_Track extends Model
         return $result;
     }
     /*
+   * Create:zayar(2022/04/14) 
+   * Update: 
+   * This function is used to count unseen limited tracks in inform alert. (customer)
+   */
+
+    public function trackLimitedToCount($sessionCustomerId)
+    {
+        Log::channel('customerlog')->info("M_AD_Track Model", [
+            'Start trackLimitedToCount'
+        ]);
+
+        $result = T_AD_Order::select('*', DB::raw('t_ad_order.created_at AS trackscreated'))
+            ->where('t_ad_order.customer_id', '=', $sessionCustomerId)
+            ->where('t_ad_order.del_flg', 0)
+
+            ->leftjoin('m_ad_track', 'm_ad_track.order_id', '=', 't_ad_order.id')
+            ->where('m_ad_track.seen', 0)
+            ->limit(3)
+            ->get();
+
+        Log::channel('customerlog')->info("M_AD_Track Model", [
+            'End trackLimitedToCount'
+        ]);
+
+        return $result;
+    }
+    /*
    * Create:zayar(2022/01/24) 
    * Update: 
    * This function is used to show tracks in tracks page.(customer)

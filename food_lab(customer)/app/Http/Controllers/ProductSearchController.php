@@ -12,6 +12,63 @@ use Illuminate\Support\Facades\Log;
 class ProductSearchController extends Controller
 {
 
+     /*
+    * Create : Aung Min Khant(12/4/2022)
+    * Update :
+    * Explain of function : search engine for food  (customer)
+    * parameter : request form view with ajax
+    * return data product with json
+    * */
+
+    public function searchFood(Request $request){
+        
+        Log::channel('customerlog')->info("ProductSearchController", [
+            'Start searchFood'
+        ]);
+
+        $products = new M_Product();
+        $food = $products->searchEngine($request->input('name'));
+    
+        Log::channel('customerlog')->info("ProductSearchController", [
+            'End searchFood'
+        ]);
+
+        return response()
+        ->json(
+            $food
+        );
+    }
+
+     /*
+    * Create : Aung Min Khant(13/4/2022)
+    * Update :
+    * Explain of function : search food by name  (customer)
+    * parameter : request form view with ajax
+    * return data product with json
+    * */
+
+
+    public function searchByName(Request $request){
+
+        Log::channel('customerlog')->info("ProductSearchController", [
+            'Start searchByName'
+        ]);
+
+        $products = new M_Product();
+        $food = $products->searchEngineByName($request->input('name'));
+
+        Log::channel('customerlog')->info("ProductSearchController", [
+            'End searchByName'
+        ]);
+
+        return response()
+            ->json(
+                $food
+            );
+            
+
+
+    }
     /*
     * Create : Aung Min Khant(30/1/2022)
     * Update :

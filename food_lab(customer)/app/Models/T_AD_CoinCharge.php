@@ -209,6 +209,28 @@ class T_AD_CoinCharge extends Model
   {
     return $this->belongsTo("App\Models\T_AD_Evd");
   }
+
+
+  public function checkFirst($id, $sessionCustomerId)
+  {
+    Log::channel('customerlog')->info("T_AD_CoinCharge Model", [
+      'start checkFirst'
+    ]);
+    Log::channel('customerlog')->info("T_AD_CoinCharge Model", [
+      'end checkFirst'
+    ]);
+    // SELECT * FROM `m_ad_coincharge_message` LEFT JOIN t_ad_coincharge ON m_ad_coincharge_message.charge_id = t_ad_coincharge.id WHERE m_ad_coincharge_message.id = 16 AND t_ad_coincharge.customer_id = 12
+    Log::channel('customerlog')->info("cus id", [
+      $sessionCustomerId
+    ]);
+    $find = M_AD_CoinCharge_Message::leftjoin('t_ad_coincharge', 't_ad_coincharge.id', '=', 'm_ad_coincharge_message.charge_id')
+      ->where('m_ad_coincharge_message.id', $id)
+      ->where('t_ad_coincharge.customer_id', $sessionCustomerId)
+      ->get();
+
+    return $find;
+  }
+
   /*
     * Create : zayar(2022/02/07) 
     * Update : 
@@ -221,6 +243,8 @@ class T_AD_CoinCharge extends Model
     Log::channel('customerlog')->info("T_AD_CoinCharge Model", [
       'start searchMessage'
     ]);
+
+
     $find = M_AD_CoinCharge_Message::find($id);
     $find->seen = 1;
     $find->save();

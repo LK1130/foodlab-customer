@@ -17,7 +17,7 @@
 @section('title', "$name->site_name | Messages")
 @section('body')
 
-    <div class="d-flex ps-5 py-4">
+    <div class="d-flex ps-5 py-4 position-sticky fixed-top bg-black">
         <div class="me-4 mt-3">
             <a href="/"><i class="fas fa-arrow-left text-white arrows"></i></a>
         </div>
@@ -25,7 +25,7 @@
             <img src="/storage/siteLogo/{{ $name->site_logo }}" width="50px" />
         </div>
     </div>
-    <h1 class=" fw-bold text-center heading">{{ __('messageZY.messages') }}</h1>
+    <h1 class=" fw-bold text-center heading position-sticky bg-black">{{ __('messageZY.messages') }}</h1>
     @php
     $ldate = date('Y-m-d H:i:s');
     $currentdate = strtotime($ldate);
@@ -72,10 +72,11 @@
             @endphp
             @if ($allmessage->seen == 0)
                 <div class="newsAll d-flex flex-row justify-content-center messageClick align-items-center mb-4"
-                    id="{{ $allmessage->chargeid }}">
+                    id="{{ $allmessage->id }}">
                     <p class="fs-4 fw-bolder me-auto ms-5 mt-3 text-truncate  ">{{ $allmessage->detail }}</p>
                     <div class="d-flex flex-column me-5 ms-auto ">
-                        <p class="fs-5 fw-bolder me-4 w-100 ms-auto mt-2 rounded text-center {{ $messagecolor }}">
+                        <p
+                            class="fs-5 fw-bolder me-4 w-100 titleStatus ms-auto mt-2 rounded text-center {{ $messagecolor }}">
                             {{ $allmessage->title }}
                         </p>
                         <p class=" fw-bold fs-5  mb-1 me-3">
@@ -83,14 +84,17 @@
                             {{ $message }}
                         </p>
                     </div>
-                    <img src="img/new.png" alt="" class="newsLogoMessage" width="45vw">
+                    {{-- <img src="img/new.png" alt="" class="newsLogoMessage" width="45vw"> --}}
+                    <div class="bottomLine"></div>
+                    <div class="newsLine"></div>
                 </div>
             @else
                 <div class="newsAll d-flex flex-row justify-content-center messageClick align-items-center mb-4"
-                    id="{{ $allmessage->chargeid }}">
+                    id="{{ $allmessage->id }}">
                     <p class="fs-4 fw-bolder me-auto ms-5 mt-3 text-truncate  ">{{ $allmessage->detail }}</p>
                     <div class="d-flex flex-column me-5 ms-auto ">
-                        <p class="fs-5 fw-bolder me-4 w-100 ms-auto mt-2 rounded text-center {{ $messagecolor }}">
+                        <p
+                            class="fs-5 fw-bolder me-4 w-100 titleStatus ms-auto mt-2 rounded text-center {{ $messagecolor }}">
                             {{ $allmessage->title }}
                         </p>
                         <p class=" fw-bold fs-5  mb-1 me-3">
@@ -99,6 +103,7 @@
                         </p>
                     </div>
                     <img src="" alt="" class="newsLogoMessage" width="45vw">
+                    <div class="bottomLine"></div>
                 </div>
             @endif
 
