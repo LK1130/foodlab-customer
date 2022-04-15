@@ -45,7 +45,7 @@
                     <div class="  newsA d-flex flex-row  justify-content-between align-items-center">
                         <img src="/storage/newsImage/{{ $allnew->source }}" alt="" class="ms-3 rounded" width="60vw">
                         <div class="titleDateBox">
-                            <div class="d-flex flex-column mt-2">
+                            <div class="d-flex flex-row mt-2">
                                 <p class=" fs-5 fw-bolder Wtruncate">{{ $allnew->title }}
                                 </p>
                                 <p class="  fs-5 fw-bolder Wtruncate">
@@ -57,15 +57,15 @@
                                 {{ $diff == 0 ? 'Today' : ($diff == 1 ? 'Yesterday' : $diff . 'days ago') }}
                             </p>
                         </div>
-                        <img src="img/new.png" alt="" class="newsLogoMessage" width="40vw">
+                        {{-- <img src="img/new.png" alt="" class="newsLogoMessage" width="40vw"> --}}
+                        <div class="bottomLine"></div>
+                        <div class="newsLine"></div>
                     </div>
-
                 @else
-
                     <div class="  newsA d-flex flex-row  justify-content-between align-items-center">
-                        <img src="/storage/newsImage/{{ $allnew->source }}" alt="" class="ms-3 rounded" width="60vw">
+                        <img src="/storage/newsImage/{{ $allnew->source }}" alt="" class="ms-3 mb-4 rounded" width="60vw">
                         <div class="titleDateBox">
-                            <div class="d-flex flex-column mt-2  ">
+                            <div class="d-flex flex-row mt-2  ">
                                 <p class=" fs-5 fw-bolder  Wtruncate ">{{ $allnew->title }}
                                 </p>
                                 <p class="  fs-5 fw-bolder Wtruncate ">
@@ -78,6 +78,7 @@
                             </p>
                         </div>
                         <img src="" alt="" class="newsLogoMessage" width="40vw">
+                        <div class="bottomLine"></div>
                     </div>
                 @endif
 

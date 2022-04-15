@@ -211,15 +211,17 @@ $(document).ready(function () {
                         if (messages.seen == 0) {
                             $(".forMessages").append(
                                 `
+
+                                
         <div class="messages d-flex flex-row justify-content-center align-items-center mb-3" id="${messages.chargeid}">
         
                 <p class="fontSizeForMessage me-auto w-50 ms-3 mt-3">${messages.detail}</p>
                 <div class="d-flex flex-column me-4">
-                <p class=" fontSizeForMessage  mb-1 ">${messages.request_coin}</p>
+                
                     <p class=" ms-auto mt-1 titleStatus  w-100 rounded ${$messagecolor} text-center">
                     ${messages.title}
                     </p>
-                    <p class=" fontSizeForMessage  mb-1 ">${messages.messagecreated}</p>
+                    <p class=" fontSizeForMessage mb-3 w-100 "><i class="coinCalInform fas fa-coins"></i> ${messages.request_coin}  (${$timeDifferenceMessage})</p>
                 </div>
                 <div class="newsLine"></div>
                 

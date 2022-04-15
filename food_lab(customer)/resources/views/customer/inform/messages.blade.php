@@ -84,8 +84,9 @@
                             {{ $message }}
                         </p>
                     </div>
-                    <img src="img/new.png" alt="" class="newsLogoMessage" width="45vw">
+                    {{-- <img src="img/new.png" alt="" class="newsLogoMessage" width="45vw"> --}}
                     <div class="bottomLine"></div>
+                    <div class="newsLine"></div>
                 </div>
             @else
                 <div class="newsAll d-flex flex-row justify-content-center messageClick align-items-center mb-4"

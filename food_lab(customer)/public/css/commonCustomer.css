@@ -456,6 +456,37 @@ marquee {
 .gray {
     background-color: #6c757d;
 }
+/* .pagination .page-link {
+    background: var(--primary-color);
+    color: white;
+}
+.pagination.active .page-link {
+    background: rgb(211, 14, 14);
+    color: white;
+} */
+.page-item.active .page-link,
+.page-item.disabled .page-link {
+    z-index: 1;
+    color: #fff;
+    background-color: rgb(255, 94, 0);
+    border-color: rgb(12, 11, 11);
+}
+.pagination > li > a,
+.pagination > li > span {
+    z-index: 3;
+    color: #ffffff;
+    background-color: var(--primary-color);
+    border-color: rgb(46, 42, 42);
+}
+.pagination > li > a:focus,
+.pagination > li > a:hover,
+.pagination > li > span:focus,
+.pagination > li > span:hover {
+    z-index: 3;
+    color: #c9dff1;
+    background-color: rgb(243, 131, 66);
+    border-color: #ddd;
+}
 .newsLine {
     width: 0.5vw;
     height: 60%;
@@ -464,6 +495,7 @@ marquee {
     right: 0px;
     gap: 0px;
     font-size: small;
+    border-radius: 3.5px 0px 0px 3.5px;
 }
 .titleStatus {
     text-shadow: -1px 1px 1px #000, 1px 1px 1px #000, 1px -1px 1px #000,

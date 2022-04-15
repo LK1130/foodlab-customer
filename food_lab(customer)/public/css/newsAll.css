@@ -20,16 +20,26 @@ body {
 }
 .newsA {
     position: relative;
-    height: 15vh !important;
-    width: 60%;
+    margin-top: 5vh !important;
+    width: 90%;
+    /* background-color: rgb(216, 211, 193); */
+    /* max-height: 15vh; */
+    color: white;
+    height: fit-content;
     margin: auto;
-    cursor: pointer;
-    border-radius: 1vw;
-    background-color: rgb(216, 211, 193);
 }
 .dateDiv {
     color: var(--secondary-color);
-    margin-top: 2rem;
+}
+.newsLine {
+    width: 0.5vw;
+    height: 60%;
+    background-color: #db0202;
+    position: absolute;
+    right: 0px;
+    gap: 0px;
+    font-size: small;
+    border-radius: 3.5px 0px 0px 3.5px;
 }
 .newsAll {
     position: relative;
@@ -53,6 +63,9 @@ body {
     box-shadow: 0px 0px 2px 1px rgba(255, 255, 255, 0.2);
 }
 .newsAll:hover .bottomLine {
+    width: 93%;
+}
+.newsA:hover .bottomLine {
     width: 93%;
 }
 .tracks {
