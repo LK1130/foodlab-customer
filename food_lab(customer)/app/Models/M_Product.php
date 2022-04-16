@@ -63,7 +63,6 @@ class M_Product extends Model
             ->where('t_ad_photo.del_flg', 0)
             ->where('m_product.del_flg', 0)
             ->orderBy('m_product.id')
-            ->take(4)
             ->get();
 
 
@@ -110,6 +109,62 @@ class M_Product extends Model
         
         Log::channel('customerlog')->info("M_Product Model", [
             'End searchEngineByName'
+        ]);
+
+        return $product;
+    }
+
+
+     /*
+    * Create : Aung Min Khant(15/4/2022)
+    * Update :
+    * Explain of function : To search product data to customer product page (customer)
+    * parament : none
+    * return product data
+    * */
+
+    public function searchEngineByNameAndCategory($name,$category,$taste){
+        Log::channel('customerlog')->info("M_Product Model", [
+            'Start searchEngineByNameAndCategory'
+        ]);
+        
+            
+        $query =   DB::table('m_product')
+        ->select(['*'], DB::raw('m_product.id'))
+        ->join('t_ad_photo', 't_ad_photo.link_id', '=', 'm_product.id')
+
+        ->join('m_fav_type', 'm_fav_type.id', '=', 'm_product.product_type')
+        ->join('m_taste', 'm_taste.id', '=', 'm_product.product_taste')
+        
+        ->where(function($query) use ($name){
+            $query->orWhere('m_product.product_name','Like','%'.$name.'%')
+            ->orWhere('m_product.description','Like','%'.$name.'%')
+            ->orWhere('m_product.list','Like','%'.$name.'%');
+        });
+       
+        
+        $query->when(isset($category),function($q) use($category){
+
+            return $q->where('m_product.product_type', '=',(int)$category);
+        });
+
+        $query->when(isset($taste),function($q) use($taste){
+            return $q->where('m_product.product_taste', '=', (int)$taste);
+        });
+
+        
+        $product = $query->where(function($query){
+            $query->where('m_product.avaliable', 1)
+            ->where('t_ad_photo.order_id', 1)
+            ->where('t_ad_photo.del_flg', 0)
+            ->where('m_product.del_flg', 0);
+        })
+        ->orderBy('m_product.id')
+        ->get();
+
+        
+        Log::channel('customerlog')->info("M_Product Model", [
+            'End searchEngineByNameAndCategory'
         ]);
 
         return $product;

@@ -69,6 +69,35 @@ class ProductSearchController extends Controller
 
 
     }
+
+     /*
+    * Create : Aung Min Khant(15/4/2022)
+    * Update :
+    * Explain of function : search food by name and category  (customer)
+    * parameter : request form view with ajax
+    * return data product with json
+    * */
+
+    public function searchByNameAndCategory(Request $request){
+
+        Log::channel('customerlog')->info("ProductSearchController", [
+            'Start searchByName'
+        ]);
+
+        $products = new M_Product();
+        $food = $products->searchEngineByNameAndCategory($request->input('name'),$request->input('category'),$request->input('taste'));
+
+        Log::critical("message",[$request->input('name'),$request->input('category'),$request->input('taste')]);
+        Log::critical("message",[$food]);
+        Log::channel('customerlog')->info("ProductSearchController", [
+            'End searchByName'
+        ]);
+
+        return response()
+            ->json(
+                $food
+            );
+    }
     /*
     * Create : Aung Min Khant(30/1/2022)
     * Update :

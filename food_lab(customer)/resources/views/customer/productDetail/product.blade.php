@@ -15,7 +15,7 @@
 
 @section('script')
     {{--  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>  --}}
-    <script src="{{ url('js/productSearch.js') }}" type="text/javascript"></script>
+  
     
 
 @endsection
@@ -35,10 +35,19 @@
         <div class="container-fluid p-3">
         <div class="row d-flex">
             
-            <div class="col-md-6 m-4 p-3">
+            <div class="col-md-3 col-sm-12 mt-3 p-3 searchbox">
                 <div class="input-group">
-                    <button type="button" class="btn  custombtn">
-                        <i class="fas fa-search"></i>
+                    <button type="button" class="btn custombtn search">
+                        <div class="loader">
+                            <div class="duo">
+                              <div class="dot dot-a"></div>
+                              <div class="dot dot-b"></div>
+                              <div class="dot dot-c"></div>
+                              <div class="dot dot-d"></div>
+                            </div>
+                          </div>
+                        <i class="fas fa-search icons"></i>
+                      
                       </button>
                     <div class="form-outline">
                       <input type="search" list="datalistOptions" id="form1" class="form-control" />
@@ -47,18 +56,18 @@
                         
                       </datalist>
                     </div>
+                    
                    
                     
                   </div>
-                  {{--  <ul class="d">
-                    <li>Hot pot</li>
-                </ul>  --}}
+                 
+                
 
             </div>
-            <div class="col-md-3 mt-3">
+            <div class="col-md-2 col-sm-5 mt-3">
                 <div class="form-group">
-                    <select class="selectpicker p-3 mx-3 m-5 mt-0 "  data-size="5" name="type" id="selectpicker1">
-                        <option class="selectpicker1" value="" selected disabled>Lists By Category</option>
+                    <select class="selectpicker mt-3 mb-5"  data-size="5" name="type" id="selectpicker1">
+                        <option class="" value="a" selected disabled>Lists By Category</option>
                         @foreach ($mFav as $item)
                             <option  value="{{ $item->id }}" class="special">{{ $item->favourite_food }}</option>
                         @endforeach
@@ -67,9 +76,22 @@
                 </div>
             </div>
 
-            <div class="col-sm-3 ms-auto my-auto btnappend">
-               <a href="" id="typetag"> <button type="button" class="btn typebtns">See All</button></a>
+            <div class="col-md-2 col-sm-5 mt-3">
+                <div class="form-group">
+                    <select class="selectpicker mt-3 mb-5" data-size="7"  id="selectpicker2">
+                        <option class="" value="a" selected disabled>Lists By Taste</option>
+                        @foreach ($mTaste as $item)
+                        <option  value="{{ $item->id }}" class="special">{{ $item->taste }}</option>
+                    @endforeach
+                    </select>
+                </div>
             </div>
+
+            <div class="col-md-2  mt-5 loading">
+                <span class="spinner"></span>
+               </div>
+
+          
         </div>
 
        <div id="byCategory" class="col-md-12 col-sm-12 d-flex flex-wrap m-auto border border-3 text-light productbox">
@@ -95,23 +117,14 @@
 
 
         <div class="row">
-            <div class="col-sm-3">
-                <div class="form-group">
-                    <select class="selectpicker p-3 mx-3 m-5" data-size="7" id="selectpicker2">
-                        <option class="" value="" selected disabled>Lists By Taste</option>
-                        @foreach ($mTaste as $item)
-                        <option  value="{{ $item->id }}" class="special">{{ $item->taste }}</option>
-                    @endforeach
-                    </select>
-                </div>
-            </div>
+           
 
-            <div class="col-sm-3 ms-auto my-auto btnappend">
+            {{--  <div class="col-sm-3 ms-auto my-auto btnappend">
                 <a href="" id="tastetag"> <button type="button" class="btn tastebtns">See All</button></a>
              </div>
-        </div>
+        </div>  --}}
 
-        <div id="byTaste" class="col-md-12 col-sm-12 d-flex flex-wrap m-auto border border-3 text-light productbox">
+        {{--  <div id="byTaste" class="col-md-12 col-sm-12 d-flex flex-wrap m-auto border border-3 text-light productbox">
 
             @foreach( $products as $item)
 
@@ -132,9 +145,9 @@
 
 
             @endforeach
-        </div>
+        </div>  --}}
 
-      @if (session()->has('customerId'))
+      {{--  @if (session()->has('customerId'))
       <div class="row">
         <div class="col-md-3 col-sm-3   mt-4 mb-4  text-center">
                 <p class="recommends">Recommend items</p>
@@ -168,7 +181,7 @@
       @endif
 
 
-    </div>
+    </div>  --}}
 
       {{-- start modal --}}
       <div id="modal" class="modal fade"  data-bs-backdrop="static" data-bs-keyboard="false"
@@ -206,6 +219,7 @@
             let customerId = @json(session()->has('customerId'));
 
         </script>
-        <script src="{{ url('js/productChange.js') }}" type="text/javascript"></script>
+        {{--  <script src="{{ url('js/productChange.js') }}" type="text/javascript"></script>  --}}
         <script src="{{ url('js/customerShop.js') }}" type="text/javascript"></script>
+        <script src="{{ url('js/productSearch.js') }}" type="text/javascript"></script>
 @endsection

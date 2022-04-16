@@ -223,6 +223,7 @@ Route::group(['middleware' => ['checkMaintenance']], function () {
    Route::get('/', [ProductDetailController::class, 'productList']);
    // Route::get('menu',[ProductDetailController::class,'eachList'] );
    Route::post('/searchFood',[ProductSearchController::class,'searchFood']);
+   Route::post('/searchFoodName',[ProductSearchController::class,'searchByNameAndCategory']);
    Route::post('/specificFood',[ProductSearchController::class,'searchByName']);
    Route::post('/searchCategory', [ProductSearchController::class, 'searchByCategory']);
    Route::post('/searchTaste', [ProductSearchController::class, 'searchByTaste']);

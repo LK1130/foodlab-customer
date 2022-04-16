@@ -201,7 +201,7 @@
 
                             @if (session()->has('customerId'))
                                 <div class="d-flex justify-content-end col-md-6 col-sm-6 mt-3 mx-auto  ">
-                                    <button class="btn btns" data-bs-toggle="modal" data-bs-target="#modal2">Buy Now</button>
+                                    <button class="btn btns" data-bs-toggle="modal" data-bs-target="#modal4">Buy Now</button>
                                   <button id="{{ $productId->pid }}" class="btn btns buy" data-bs-toggle="modal" data-bs-target="#modal">Add to Cart</button>
 
                                 </div>
@@ -274,7 +274,7 @@
                      {{--end model --}}
 
                      {{--start model --}}
-                     <div id="modal2" class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+                     <div id="modal4" class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
                      aria-labelledby="staticBackdropLabel" aria-hidden="true">
                      <div class="col-sm-6  modal-dialog modal-dialog-centered " role="document">
                          <div class="modal-content">
