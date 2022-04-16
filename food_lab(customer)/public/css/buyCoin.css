@@ -167,6 +167,22 @@ section {
     color: wheat;
  }
 
+ .icon-box{
+     text-align: center;
+ }
+
+ .icons{
+     font-size: 3rem;
+     
+ }
+
+ .cancelbutton{
+    width: 30vw;
+ }
+ .modal-body{
+     text-align: center;
+ }
+
 @media(max-width:720px) {
     .container {
         flex-direction: column-reverse;

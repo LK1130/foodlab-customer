@@ -1,7 +1,8 @@
 @extends('COMMON.layout.layout_customer')
 
 @section('script')
-    <script src="{{ url('js/buyCoin.js') }}" type="text/javascript" defer></script>
+
+    
 @endsection
 
 @section('css')
@@ -47,7 +48,7 @@
                     </div>
                     <button type="buttton" id="reset"
                         class="cancelbtn btn btn-light">{{ __('messageCPPK.Reset') }}</button>
-                    <button type="button" id="submitbtn" class="submitbtn btn btn-danger" data-bs-toggle="modal" data-bs-target="#modal5">{{ __('messageCPPK.Charge') }}</button>
+                    <button type="button" id="submitbtn" class="submitbtn btn btn-danger" data-bs-toggle="modal" data-bs-target="#modal5" disabled>{{ __('messageCPPK.Charge') }}</button>
                
             </div>
             <div class="coinrule">
@@ -95,8 +96,8 @@
                 {{-- </span>Do you want to buy <span class="coins"></span>coins for <span class="mmk"></span> MMK? --}}
               {{-- </div> --}}
               <div class="modal-footer">
-                <button type="button" class="btn" data-bs-dismiss="modal" >Cancel</button>
-                <button type="submit" class="btn chargeBtn" data-b>Charge</button>
+                <button type="button" class="btn backBtn" data-bs-dismiss="modal" >Cancel</button>
+                <button type="submit" class="btn chargeBtn" data-bs-toggle="modal" data-bs-target="#modal6">Charge</button>
               </div>
             </div>
           </div>
@@ -104,30 +105,47 @@
     </form>
 
 
-    <div id="modal5" class="modal fade"  data-bs-backdrop="static" data-bs-keyboard="false"
+    <div id="modal6" class="modal fade" role="dialog"  data-bs-backdrop="static" data-easein="bounceIn" data-bs-keyboard="false"
     tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="col-sm-4 modal-dialog modal-dialog-centered " role="document">
           <div class="modal-content">
             {{-- <div class="modal-header"> --}}
 
             <div class="d-flex justify-content-end ">
-                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">&times;</button>
+              <a href="/">  <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">&times;</button></a>
             </div>
             {{-- </div> --}}
             {{-- <div class="modal-body"> --}}
-              <p id="coins" class="mx-4 text-dark "></p>
+            <div class="icon-box">
+                <div><i class="fa-solid fa-handshake text-muted icons"></i></div>
+            </div>
+
+            <div class="modal-body">
+                <div class="request text-muted"><span><i class="fas fa-check-circle text-success mx-2"></i></span> Your Request has been received.
+                    We will be in touch and contact you soon!
+                </div>
+            </div>
               {{-- </span>Do you want to buy <span class="coins"></span>coins for <span class="mmk"></span> MMK? --}}
             {{-- </div> --}}
-            <div class="modal-footer">
-              <button type="button" class="btn" data-bs-dismiss="modal" >Cancel</button>
-              <button type="submit" class="btn chargeBtn" data-b>Charge</button>
+            <div class="d-flex justify-content-center m-3">
+            <a href="/"><button type="button" class="btn btn-primary cancelbutton" data-bs-dismiss="modal" >Back to site</button></a>
+              
             </div>
           </div>
         </div>
       </div>
+
+
+      
 {{-- end modal --}}
         <div class="copys">
             <p>Copyright &copy; {{ $name->site_name }}</p>
         </div>
     </section>
+
+    
+        <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="//cdn.jsdelivr.net/velocity/1.1.0/velocity.min.js"></script>
+    <script src="{{ url('js/buyCoin.js') }}" type="text/javascript" defer></script>
+    
 @endsection

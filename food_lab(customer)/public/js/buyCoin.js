@@ -1,4 +1,7 @@
 $(document).ready(function () {
+
+var modal = document.getElementById('modal5');
+var modal2 = document.getElementById('modal6');
 var coinInput = document.getElementById('ccalcul');
 var mmkInput = document.getElementById('mmkcalcul');
 var coinRate = document.getElementById('coinratedata');
@@ -35,10 +38,14 @@ reset.addEventListener("click" , function (){
     fileimginput.value="";
 
 })
+coinChargeinput.addEventListener('input',validate);
+fileimginput.addEventListener('input',validate);
 
 
 $('#submitbtn').click(function(e){
     e.preventDefault();
+
+    
     let coins = $('#coinChargeinput').val();
     let sum = $('#mmkcalcul').val();
     let result =`<span><i class="fas fa-check-circle text-success mx-2"></i></span>
@@ -46,9 +53,53 @@ $('#submitbtn').click(function(e){
    
     $('#coins').append(result);
 
+    
 
 });
 
-
+$('.backBtn').click(function(){
+    coinChargeinput.value="";
+    coinInput.value="";
+    mmkInput.value="";  
+    fileimginput.value="";
+    
+    validate();
+    $('#coins').empty();
 });
+
+
+$('.chargeBtn').click(function(e){
+    e.preventDefault();
+});
+
+function validate(){
+
+    if(coinChargeinput.value === "" ||  fileimginput.value === ""){
+        submit.setAttribute("disabled","disabled");
+    }else{
+        submit.removeAttribute("disabled"); 
+    }
+}
+
+// $(".modal").each(function (l) {
+    $("#modal5").on("show.bs.modal", function (l) {
+      var o = $("#modal5").attr("data-easein");
+      "shake" == o
+        ? $(".modal-dialog").velocity("callout." + o)
+        : "pulse" == o
+        ? $(".modal-dialog").velocity("callout." + o)
+        : "tada" == o
+        ? $(".modal-dialog").velocity("callout." + o)
+        : "flash" == o
+        ? $(".modal-dialog").velocity("callout." + o)
+        : "bounce" == o
+        ? $(".modal-dialog").velocity("callout." + o)
+        : "swing" == o
+        ? $(".modal-dialog").velocity("callout." + o)
+        : $(".modal-dialog").velocity("transition." + o);
+    });
+//   });
+});
+
+
 
