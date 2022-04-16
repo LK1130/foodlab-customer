@@ -31,7 +31,7 @@
 
     <div class="container-fluid">
         <div class="d-flex mt-2 align-items-baseline">
-            <a href="/productLists">
+            <a href="/">
                 <i class="fas fa-arrow-left fs-2 text-white arrows"></i>
             </a>
             <div class="mx-5 details">Food Details</div>

@@ -153,6 +153,20 @@ section {
     transform: translate(-50%, -50%);
 }
 
+.close{
+    width: 5%;
+    height: 5%;
+    font-size: 1.5rem;
+    margin-right: 1rem;
+    background: transparent;
+    border: none;
+ }
+
+ .chargeBtn{
+    background-color: var(--primary-color);
+    color: wheat;
+ }
+
 @media(max-width:720px) {
     .container {
         flex-direction: column-reverse;

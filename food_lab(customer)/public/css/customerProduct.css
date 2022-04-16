@@ -153,7 +153,10 @@ datalist{
 }
 
 .productbox {
-    background: linear-gradient( 120deg, rgba(245, 0, 0, 0.5) 30%, rgba(0, 0, 0, 1) 60%);
+    /* background: linear-gradient( 120deg, rgba(245, 0, 0, 0.5) 30%, rgba(0, 0, 0, 1) 60%); */
+    border-left: none !important;
+    border-right: 5px !important;
+    box-shadow: 1rem 1rem 1rem var(--text-color2);
     border-radius: 20px;
 }
 
@@ -444,24 +447,25 @@ datalist{
         border: 1px solid var(--product-color);
     }
 
-    #selectpicke1 {
-        width: 43vw;
+    #selectpicker1 {
+        width: 47vw;
         height: 7.5vh; 
     }
 
-    #selectpicke2 {
-        width: 43vw;
+    #selectpicker2 {
+        width: 47vw;
         height: 7.5vh; 
     }
 
-    .spinner{
-        position: absolute;
-        top: 8.5%;
-        left: 85%;
-        /* top:  45%;
-        left: 90%; */
-    }
+   
 
+   .loading{
+    margin-top: 0.5rem !important;
+    margin-bottom: 3rem;
+    margin-left: 11rem;
+    text-align: center;
+    align-items: center;
+   }
     #form1{
         /* position: relative; */
         width: 100% !important;

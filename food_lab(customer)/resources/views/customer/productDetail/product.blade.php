@@ -86,7 +86,7 @@
                     </select>
                 </div>
             </div>
-
+            
             <div class="col-md-2  mt-5 loading">
                 <span class="spinner"></span>
                </div>
@@ -94,7 +94,7 @@
           
         </div>
 
-       <div id="byCategory" class="col-md-12 col-sm-12 d-flex flex-wrap m-auto border border-3 text-light productbox">
+       <div id="byCategory" class="col-md-12 col-sm-12 d-flex flex-wrap m-auto border border-2 text-light productbox">
             @foreach( $products as $item)
 
             <div class="col-md-3 col-sm-3 d-flex flex-column justify-content-center align-items-center m-auto my-3 fw-bold py-5">
@@ -116,7 +116,7 @@
         </div>
 
 
-        <div class="row">
+        {{-- <div class="row"> --}}
            
 
             {{--  <div class="col-sm-3 ms-auto my-auto btnappend">

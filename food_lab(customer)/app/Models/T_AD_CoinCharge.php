@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Common\Variable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
@@ -199,7 +200,13 @@ class T_AD_CoinCharge extends Model
       $curequestcoindata->request_evd_ID = $evdData->id;
       $curequestcoindata->save();
       // $evdData->coinChargeconnect()->save($curequestcoindata);
+
+      $common = new Variable();
+    $m_ad_coincharge_message = new M_AD_CoinCharge_Message();
+    $m_ad_coincharge_message->addMessage($common->REQ, $common->REQ_MESSAGE_DET, $curequestcoindata->id);
     });
+
+    
     Log::channel('customerlog')->info('T_AD_CoinCharge Model', [
       'End customerCoinCharge'
     ]);
