@@ -17,6 +17,7 @@ use App\Models\M_CU_Customer_Login;
 use App\Models\M_Fav_Type;
 use App\Models\M_Product;
 use App\Models\M_Site;
+use App\Models\M_Slider;
 use App\Models\M_State;
 use App\Models\M_Suggest;
 use App\Models\M_Taste;
@@ -65,6 +66,8 @@ class CustomerController extends Controller
             }
         }
 
+        $mSlider = new M_Slider();
+        $sliderInfo = $mSlider->slider();
 
         $townships = new M_Township();
         $townshipnames = $townships->townshipDetails();
@@ -83,6 +86,7 @@ class CustomerController extends Controller
         ]);
 
         return view('customer.home', [
+            'sliderInfos' => $sliderInfo,
             'townships' => $townshipnames,
             'news' => $newDatas,
             'name' => $name,
@@ -714,15 +718,25 @@ class CustomerController extends Controller
         Log::channel('customerlog')->info('Customer Controller', [
             'start messageDetail'
         ]);
-
+        $sessionCustomerId = session()->get('customerId');
         $site = new M_Site();
         $name = $site->siteName();
+
         $message = new T_AD_CoinCharge();
+        $find = $message->checkFirst($id, $sessionCustomerId);
+        if (count($find) == 0) {
+            Log::channel('customerlog')->info("Customer Controller", [
+                'End messageDetail(error)'
+            ]);
+
+            return view('errors.404');
+        }
+
+
         $coinmessage = $message->searchMessage($id);
         Log::channel('customerlog')->info('Customer Controller', [
             'end messageDetail'
         ]);
-
         return view('customer.customerProfile.messageDetail', ['name' => $name, 'message' => $coinmessage, 'nav' => 'inform']);
     }
 

@@ -1,7 +1,7 @@
 body {
     height: auto;
-    background-image: url("/img/Home.png");
-
+    /* background-image: url("/img/Home.png"); */
+    /* background-color: rgb(255, 167, 116); */
     background-repeat: no-repeat;
     background-position: center;
     background-size: auto;
@@ -20,16 +20,26 @@ body {
 }
 .newsA {
     position: relative;
-    height: 15vh !important;
-    width: 60%;
+    margin-top: 5vh !important;
+    width: 90%;
+    /* background-color: rgb(216, 211, 193); */
+    /* max-height: 15vh; */
+    color: white;
+    height: fit-content;
     margin: auto;
-    cursor: pointer;
-    border-radius: 1vw;
-    background-color: rgb(216, 211, 193);
 }
 .dateDiv {
     color: var(--secondary-color);
-    margin-top: 2rem;
+}
+.newsLine {
+    width: 0.5vw;
+    height: 60%;
+    background-color: #db0202;
+    position: absolute;
+    right: 0px;
+    gap: 0px;
+    font-size: small;
+    border-radius: 3.5px 0px 0px 3.5px;
 }
 .newsAll {
     position: relative;
@@ -40,18 +50,36 @@ body {
     color: white;
     height: fit-content;
     margin: auto;
+
     cursor: pointer;
-    border-radius: 1vw;
+}
+.bottomLine {
+    bottom: 0px;
+    position: absolute;
+    width: 0;
+    height: 0.2vh;
+    background-color: rgb(239, 247, 255);
+    transition: 0.15s ease-in;
+    box-shadow: 0px 0px 2px 1px rgba(255, 255, 255, 0.2);
+}
+.newsAll:hover .bottomLine {
+    width: 93%;
+}
+.newsA:hover .bottomLine {
+    width: 93%;
 }
 .tracks {
     position: relative;
     margin-top: 5vh !important;
     width: 90%;
-    background-color: rgb(216, 211, 193);
+    /* background-color: rgb(216, 211, 193); */
     /* max-height: 15vh; */
     height: fit-content !important;
     margin: auto;
     border-radius: 1vw;
+}
+.tracks:hover .bottomLine {
+    width: 93%;
 }
 .productname {
     width: 40vw !important;
@@ -99,9 +127,8 @@ body {
 .heading {
     color: var(--primary-color);
     font-size: xx-large;
-    top:11vh;
+    top: 11vh;
     z-index: 1;
-
 }
 .allNews {
     height: 80%;

@@ -241,7 +241,7 @@ class T_CU_Customer extends Model
 
     $customer = T_CU_Customer::find($id);
     $customer->nickname = $validate['username'];
-    $customer->bio = $validate['bio'];
+
     $customer->phone = $validate['phonenumber'];
     $customer->address1 = $validate['state'];
     $customer->address2 = $validate['township'];

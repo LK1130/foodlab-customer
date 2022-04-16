@@ -153,6 +153,28 @@ body {
 #favType2 {
     height: fit-content !important;
     min-height: 7vh !important;
+    width: 56vw;
+}
+.passwordSuccess {
+    width: 30vw;
+    height: 20vh;
+    position: absolute;
+    left: 40%;
+    top: 40%;
+    font-weight: bolder;
+    color: var(--primary-color);
+    font-size: 1.8rem !important;
+    visibility: hidden;
+    animation: animatename 1s ease-out 1;
+}
+@keyframes animatename {
+    0% {
+        transform: translateY(0px);
+        visibility: visible;
+    }
+    100% {
+        transform: translateY(-15vh);
+    }
 }
 /* edit profile*/
 @media (max-width: 650px) {
@@ -161,6 +183,9 @@ body {
         margin-left: 36vw;
         margin-top: 3rem;
         font-size: 1.5rem;
+    }
+    #favType2 {
+        width: 100%;
     }
     .remaincoin {
         margin-right: 10vw;
