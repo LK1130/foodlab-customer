@@ -34,20 +34,22 @@
         </div>
         <div class="carousel-inner">
             @forelse($sliderInfos as $sliderInfo)
-                <div class="carousel-item @if($sliderInfo->id == 1) active @endif">
+                <div class="carousel-item @if ($sliderInfo->id == 1) active @endif">
                     <div class="row align-items-center items">
                         <div class="col-8 flex-column">
                             <h1 class="fw-bolder tastes">{{ $sliderInfo->banner_title }}</h1>
                             <p class="fw-bold fs-5 ms-5 delivery-infos text-center">
                                 {{ $sliderInfo->banner_detail }}
                             </p>
-                            @if($sliderInfo->button_state == 1)
-                                <a href="/{{ $sliderInfo->button_link }}" class="btn delivery-btns">{{ $sliderInfo->button_text }}</a>
+                            @if ($sliderInfo->button_state == 1)
+                                <a href="/{{ $sliderInfo->button_link }}"
+                                    class="btn delivery-btns">{{ $sliderInfo->button_text }}</a>
                             @endif
                         </div>
 
                         <div class="col-4">
-                            <img src="/storage/sliderImageFile/{{ $sliderInfo->image }}" class="carousel-photos" alt="{{ $sliderInfo->image }}" />
+                            <img src="/storage/sliderImageFile/{{ $sliderInfo->image }}" class="carousel-photos"
+                                alt="{{ $sliderInfo->image }}" />
                         </div>
                     </div>
                 </div>
@@ -76,20 +78,21 @@
 
     {{-- Start Welcome Section --}}
     <section class="d-flex flex-column justify-content-center align-items-center welcomes" id="welcomes">
-        <p class="fs-1 p-3 fw-bolder text-uppercase text-center welcometexts"  data-aos="zoom-out-up"  data-aos-easing="linear" data-aos-duration="900">{{ __('messageMK.welcome') }}{{ $name->site_name }}</p>
-        <p class="fs-3 p-3 text-break companyinfos"  data-aos="zoom-out-up"  data-aos-easing="linear" data-aos-duration="900"><i class="fas fa-quote-left falefts me-5"></i>{{ $name->intro }}<i class="fas fa-quote-right farights ms-5"></i></p>
+        <p class="fs-1 p-3 fw-bolder text-uppercase text-center welcometexts" data-aos="zoom-out-up"
+            data-aos-easing="linear" data-aos-duration="900">{{ __('messageMK.welcome') }}{{ $name->site_name }}</p>
+        <p class="fs-3 p-3 text-break companyinfos" data-aos="zoom-out-up" data-aos-easing="linear" data-aos-duration="900">
+            <i class="fas fa-quote-left falefts me-5"></i>{{ $name->intro }}<i
+                class="fas fa-quote-right farights ms-5"></i></p>
     </section>
     {{-- End Welcome Section --}}
 
     {{-- Start Best Seller Item Section --}}
     <section class="best-items">
-        <div class="seller-headers" data-aos="fade-down"  data-aos-easing="linear"
-             data-aos-duration="900">
-            <img src="{{ url("img/Best_Seller_Item1.png") }}"/>
+        <div class="seller-headers" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="900">
+            <img src="{{ url('img/Best_Seller_Item1.png') }}" />
         </div>
 
-        <div class="d-flex flex-wrap justify-content-around align-items-center border border-3 text-light sellers" data-aos="fade-up"  data-aos-easing="linear"
-             data-aos-duration="900">
+        <div class="d-flex flex-wrap justify-content-around align-items-center text-light sellers">
             {{-- start items --}}
             @forelse ($sellProducts as $sellProduct)
                 <div class="d-flex flex-column justify-content-center align-items-center fw-bold my-3 py-5"
@@ -99,12 +102,15 @@
                     </div>
                     <p class="fs-3 pt-2 text-uppercase">{{ $sellProduct->product_name }}</p>
                     <p class="fs-5"><i class="fas fa-coins pe-2 coins"></i> {{ $sellProduct->coin }}</p>
-                    <p class="fs-5"><i class="fa-solid fa-money-bill money text-success"></i><span class="prices"> {{ $sellProduct->amount }}</span> Ks</p>
-                   @if (session()->has('customerId'))
-                   <button type="button"  id="{{ $sellProduct->product_id }}"   class="btn shopbtns shopcart" data-bs-toggle="modal" data-bs-target="#modal">{{ __('messageMK.shopnow') }}</button>
-                   @else
-                   <a href="/signin"><button type="button" class="btn shopbtns">{{ __('messageAMK.shopnow') }}</button></a>
-                   @endif
+                    <p class="fs-5"><i class="fa-solid fa-money-bill money text-success"></i><span
+                            class="prices"> {{ $sellProduct->amount }}</span> Ks</p>
+                    @if (session()->has('customerId'))
+                        <button type="button" id="{{ $sellProduct->product_id }}" class="btn shopbtns shopcart"
+                            data-bs-toggle="modal" data-bs-target="#modal">{{ __('messageMK.shopnow') }}</button>
+                    @else
+                        <a href="/signin"><button type="button"
+                                class="btn shopbtns">{{ __('messageAMK.shopnow') }}</button></a>
+                    @endif
                 </div>
             @empty
                 <div class="text-center">
@@ -114,28 +120,80 @@
             {{-- end items --}}
 
         </div>
+
+
+        <div class="bg-black menulist my-5 p-2"  data-aos="fade-up" data-aos-easing="linear" data-aos-duration="900">
+            <div class="foods my-5">
+                   <div class="img-container">
+                 <img src="{{ url('img/menu.png') }}" />
+                   </div>
+                   <p class="fw-bold my-2 fs-4 text-white text-center ">
+                      Chinese Food
+                  </p>
+                  <p class="text-muted text-center lead ">
+                      Try these delicious Chinese recipes at home for your next meal.
+                  </p>
+            </div>
+            <div class="foods my-5">
+                   <div class="img-container">
+                  <img src="{{ url('img/menu2.png') }}" />
+                   </div>
+                   <p class="fw-bold  my-2 fs-4 text-white text-center ">
+                      Korean Food
+                  </p>
+                  <p class="text-muted text-center lead ">
+                    There are over 100 different types of kimchi should tell you something about the pride Koreans have in their food.
+                  </p>
+            </div>
+            <div class="foods my-5">
+                <div class="img-container">
+                 <img src="{{ url('img/menu5.png') }}" />
+                 </div>
+                   <p class="fw-bold  my-2 fs-4 text-white text-center ">
+                      Burmese Food
+                  </p>
+                  <p class="text-muted text-center lead ">
+                    Visitors are discovering a cuisine that's been largely hidden from sight for the past 50 years.
+                  </p>
+            </div>
+            <div class="foods my-5">
+                   <div class="img-container">
+                 <img src="{{ url('img/menu4.png') }}" />
+                   </div>
+                   <p class="fw-bold  my-2 fs-4 text-white text-center ">
+                      Thai Food
+                  </p>
+                  <p class="text-muted text-center lead ">
+                     Whatever type of Thai you're in the mood for, you'll find it here at its tantalizing best!
+                  </p>
+            </div>
+
+        </div>
     </section>
     {{-- End Best Seller Item Section --}}
 
     {{-- Start Recommand Item Section --}}
     @if (session()->has('customerId'))
         <section class="recommand-items">
-            <div class="seller-headers" data-aos="fade-down"  data-aos-easing="linear" data-aos-duration="900">
-                <img src="{{ url("img/recommand_item.png") }}"/>
+            <div class="seller-headers" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="900">
+                <img src="{{ url('img/recommand_item.png') }}" />
             </div>
-            <div class="d-flex flex-wrap justify-content-around align-items-center border border-3 text-light recommands" data-aos="fade-up"  data-aos-easing="linear"
-                 data-aos-duration="900">
+            <div class="d-flex flex-wrap justify-content-around align-items-center border border-3 text-light recommands"
+                data-aos="fade-up" data-aos-easing="linear" data-aos-duration="900">
                 {{-- start items --}}
                 @foreach ($recomProducts as $recomProduct)
                     @foreach ($recomProduct as $product)
-                        <div class="d-flex flex-column justify-content-center align-items-center fw-bold my-3 py-5" id="{{ $product->id }}">
+                        <div class="d-flex flex-column justify-content-center align-items-center fw-bold my-3 py-5"
+                            id="{{ $product->id }}">
                             <div class="product-imgs">
                                 <img src="/storage/{{ $product->path }}" width="100%" alt="bestitem1" />
                             </div>
-                            <p class="fs-3 pt-2">{{$product->product_name }}</p>
+                            <p class="fs-3 pt-2">{{ $product->product_name }}</p>
                             <p class="fs-5"><i class="fas fa-coins me-2 coins"></i>{{ $product->coin }}</p>
-                            <p class="fs-5"><i class="fa-solid fa-money-bill money text-success"></i><span class="prices"> {{ $product->amount }}</span> Ks</p>
-                            <button type="button" id="{{ $product->link_id }}"  class="btn shopbtns shopcart" data-bs-toggle="modal" data-bs-target="#modal">{{ __('messageMK.shopnow') }}</button>
+                            <p class="fs-5"><i class="fa-solid fa-money-bill money text-success"></i><span
+                                    class="prices"> {{ $product->amount }}</span> Ks</p>
+                            <button type="button" id="{{ $product->link_id }}" class="btn shopbtns shopcart"
+                                data-bs-toggle="modal" data-bs-target="#modal">{{ __('messageMK.shopnow') }}</button>
                         </div>
                     @endforeach
                 @endforeach
@@ -147,11 +205,12 @@
 
     {{-- Start Contact Section --}}
     <section>
-        <div class="d-flex flex-row justify-content-center align-items-center my-5 contacts" >
+        <div class="d-flex flex-row justify-content-center align-items-center my-5 contacts">
             <div class="d-flex flex-column justify-content-center align-items-center ms-5">
                 <div class="company-infos">
-                    <p class="fw-bolder mb-5" data-aos="fade-right"  data-aos-easing="linear" data-aos-duration="900">{{ __('messageMK.getcontact') }}</p>
-                    <div class="company-details"  data-aos="fade-left"  data-aos-easing="linear" data-aos-duration="900">
+                    <p class="fw-bolder mb-5" data-aos="fade-right" data-aos-easing="linear" data-aos-duration="900">
+                        {{ __('messageMK.getcontact') }}</p>
+                    <div class="company-details" data-aos="fade-left" data-aos-easing="linear" data-aos-duration="900">
                         <div class="row">
                             <div class="col-2 text-center">
                                 <i class="fas fa-map-marker-alt"></i>
@@ -167,11 +226,13 @@
                             <div class="col-10">
                                 <p>
                                     <a href="tel:{{ $name->phone1 }}" class="d-block">{{ $name->phone1 }}</a>
-                                    @if($name->phone2 != 'null')
-                                        <a href="tel:{{ $name->phone2 }}" class="d-block">{{ $name->phone2 }}</a>
+                                    @if ($name->phone2 != 'null')
+                                        <a href="tel:{{ $name->phone2 }}"
+                                            class="d-block">{{ $name->phone2 }}</a>
                                     @endif
-                                    @if($name->phone3 != 'null')
-                                        <a href="tel:{{ $name->phone3 }}" class="d-block">{{ $name->phone3 }}</a>
+                                    @if ($name->phone3 != 'null')
+                                        <a href="tel:{{ $name->phone3 }}"
+                                            class="d-block">{{ $name->phone3 }}</a>
                                     @endif
 
                                 </p>
@@ -194,10 +255,10 @@
 
     {{-- Start Delivery Section --}}
     <section class="deliverys">
-        <div class="text-center delivery-headers" data-aos="fade-down"  data-aos-easing="linear" data-aos-duration="900">
-            <img src="{{ url("img/delivery.png") }}"/>
+        <div class="text-center delivery-headers" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="900">
+            <img src="{{ url('img/delivery.png') }}" />
         </div>
-        <div class="row" data-aos="fade-up"  data-aos-easing="linear" data-aos-duration="900">
+        <div class="row" data-aos="fade-up" data-aos-easing="linear" data-aos-duration="900">
             {{-- start delivery Informaiton --}}
             <div class="col-12 township-infos">
                 <div class="row justify-content-center align-items-center text-center text-white">
@@ -227,7 +288,7 @@
     <footer>
         <div class="pt-5 ps-3 footer-infos">
             <div class="d-flex align-items-center footer-logos">
-                 <img src="/storage/siteLogo/{{ $name->site_logo }}" width="80px"/>
+                <img src="/storage/siteLogo/{{ $name->site_logo }}" width="80px" />
                 <p class="fw-bolder text-uppercase ms-2 footer-names">{{ $name->site_name }}</p>
             </div>
             <div class="d-flex flex-wrap justify-content-around align-items-start mt-5 pb-3 footer-details">
@@ -270,29 +331,31 @@
     {{-- End Footer Section --}}
 
 
-    {{-- start model  --}}
-    <div id="modal" class="modal fade"  data-bs-backdrop="static" data-bs-keyboard="false"
-      tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-          <div class="col-sm-4 modal-dialog modal-dialog-centered " role="document">
+    {{-- start model --}}
+    <div id="modal" class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="col-sm-4 modal-dialog modal-dialog-centered " role="document">
             <div class="modal-content">
 
-              <div class="d-flex justify-content-end ">
-                  <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">&times;</button>
-              </div>
+                <div class="d-flex justify-content-end ">
+                    <button type="button" class="close" data-bs-dismiss="modal"
+                        aria-label="Close">&times;</button>
+                </div>
 
-                <p class="mx-4"> <span><i class="fas fa-check-circle text-success mx-2"></i></span>A new item has been added to your Shopping Cart. You now have item in your Shopping Cart.</p>
+                <p class="mx-4"> <span><i class="fas fa-check-circle text-success mx-2"></i></span>A new item
+                    has been added to your Shopping Cart. You now have item in your Shopping Cart.</p>
 
-              <div class="modal-footer">
-               <a href="/cart"> <button type="button" class="btn btnCart shop" >View Shopping Cart</button></a>
-                <button type="button" class="btn btnShopping" data-bs-dismiss="modal">Continue Shopping</button>
-              </div>
+                <div class="modal-footer">
+                    <a href="/cart"> <button type="button" class="btn btnCart shop">View Shopping Cart</button></a>
+                    <button type="button" class="btn btnShopping" data-bs-dismiss="modal">Continue Shopping</button>
+                </div>
             </div>
-          </div>
         </div>
+    </div>
 
-        {{-- end model --}}
+    {{-- end model --}}
 
-        <script src="{{ url('js/customerShop.js') }}" type="text/javascript" defer></script>
+    <script src="{{ url('js/customerShop.js') }}" type="text/javascript" defer></script>
     <script>
         AOS.init();
     </script>
