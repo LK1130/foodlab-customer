@@ -31,9 +31,9 @@
         </div>
 
         <div class="container-fluid p-3">
-            <div class="row d-flex">
-                <div class="col-md-3 col-sm-12 mt-3 p-3 searchbox">
-                    <div class="input-group">
+            <div class="row d-flex justify-content-center">
+                <div class="col-md-6 col-sm-12 p-3 searchbox d-flex justify-content-center">
+                    <div class="input-group  flex-nowrap">
                         <button type="button" class="btn custombtn search">
                             <div class="loader">
                                 <div class="duo">
@@ -45,16 +45,16 @@
                             </div>
                             <i class="fas fa-search icons"></i>
                         </button>
-                        <div class="form-outline">
+                        <div class="form-outline w-100">
                             <input type="search" list="datalistOptions" id="form1" class="form-control" />
                             <datalist id="datalistOptions" class="searchEngine">
                             </datalist>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-2 col-sm-5 mt-3">
+                <div class="col-md-2 col-sm-4  ms-sm-0 d-flex justify-content-center">
                     <div class="form-group">
-                        <select class="selectpicker mt-3 mb-5" data-size="5" name="type" id="selectpicker1">
+                        <select class="form-select selectpicker  my-3" data-size="5" name="type" id="selectpicker1">
                             <option class="" value="a" selected disabled>Lists By Category</option>
                             @foreach ($mFav as $item)
                                 <option value="{{ $item->id }}" class="special">{{ $item->favourite_food }}
@@ -64,10 +64,9 @@
                         </select>
                     </div>
                 </div>
-
-                <div class="col-md-2 col-sm-5 mt-3">
+                <div class="col-md-2 col-sm-4   d-flex justify-content-center ">
                     <div class="form-group">
-                        <select class="selectpicker mt-3 mb-5" data-size="7" id="selectpicker2">
+                        <select class="form-select selectpicker  my-3" data-size="7" id="selectpicker2">
                             <option class="" value="a" selected disabled>Lists By Taste</option>
                             @foreach ($mTaste as $item)
                                 <option value="{{ $item->id }}" class="special">{{ $item->taste }}</option>
@@ -75,16 +74,18 @@
                         </select>
                     </div>
                 </div>
-                <div class="col-md-2  mt-5 loading">
+                <div class="col-md-2  mt-4  col-sm-12 loading">
                     <span class="spinner"></span>
                 </div>
             </div>
 
-            <div id="byCategory" class="col-md-12 col-sm-12 d-flex flex-wrap m-auto text-light productbox justify-content-center align-items-center">
+            <div id="byCategory"
+                class="col-md-12 col-sm-12 d-flex flex-wrap m-auto text-light productbox justify-content-center align-items-center">
                 @foreach ($products as $item)
-                    <div class="food bg-dark m-3">
+                    <div class="food  m-3">
                         <div class="pic mt-2 d-flex justify-content-center align-items-center">
-                            <img src="@isset($item->path) /storage/{{ $item->path }} @endisset" alt="">
+                            <img src="{{ url('img/menu4.png') }}" />
+                            {{-- <img src="@isset($item->path) /storage/{{ $item->path }} @endisset" alt=""> --}}
                         </div>
                         <div class="detail ">
                             <a href="" class="title fw-bold ms-3 my-3 fs-4">{{ $item->product_name }}</a>
@@ -93,19 +94,19 @@
                                 {{ $item->coin }}
                                 <br>
                                 <i class="fa-solid fa-money-bill money text-success"></i>
-                                 {{ number_format($item->amount) }} Ks
+                                {{ number_format($item->amount) }} Ks
                             </div>
 
                             <div class="slide">
                             </div>
                             <div class="price fw-bolder fs-4  p-2">
-                                  @if (session()->has('customerId'))
-                            <button type="button" id="{{ $item->link_id }}" class=""
-                                data-bs-toggle="modal" data-bs-target="#modal">SHOP</button>
-                        @else
-                            <a href="/signin" class="order_food">SHOP</a>
-                        @endif
-                                
+                                @if (session()->has('customerId'))
+                                    <button type="button" id="{{ $item->link_id }}" class=""
+                                        data-bs-toggle="modal" data-bs-target="#modal">SHOP</button>
+                                @else
+                                    <a href="/signin" class="order_food">SHOP</a>
+                                @endif
+
                             </div>
                         </div>
                     </div>

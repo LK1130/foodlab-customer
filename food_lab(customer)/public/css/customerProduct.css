@@ -76,7 +76,7 @@
 }
 
 .custombtn {
-    background-color: var(--product-color);
+    background-color: var(--primary-color);
     color: var(--text-color);
 }
 input[list] {
@@ -92,7 +92,7 @@ datalist {
 }
 #form1 {
     border-radius: 0rem 0.25rem 0.25rem 0rem !important;
-    width: 115% !important;
+    width: 100% !important;
 }
 
 .custombtn {
@@ -106,27 +106,19 @@ datalist {
 }
 
 #selectpicker1 {
-    /* min-width: 20%; */
-    width: 13vw;
-    height: 7.5vh;
     font-size: 1rem;
-
+    border-radius: 12px;
     font-weight: bold;
-    color: var(--text-color2);
-    border: 1px solid var(--bg-color);
-    background: var(--text-color);
+    color: #fff;
+    background-color:var(--primary-color);
 }
 
 #selectpicker2 {
-    /* min-width: 50%; */
-    width: 13vw;
-    height: 7.5vh;
     font-size: 1rem;
-
+    border-radius: 12px;
     font-weight: bold;
-    color: var(--text-color2);
-    border: 1px solid var(--bg-color);
-    background: var(--text-color);
+        color: #fff;
+    background-color:var(--primary-color);
 }
 
 .special {
@@ -145,10 +137,7 @@ datalist {
 
 .productbox {
     /* background: linear-gradient( 120deg, rgba(245, 0, 0, 0.5) 30%, rgba(0, 0, 0, 1) 60%); */
-    border-left: none !important;
-    border-right: 5px !important;
-    box-shadow: 1rem 1rem 1rem var(--text-color2);
-    border-radius: 20px;
+
 }
 
 .coins {
@@ -427,15 +416,8 @@ body {
         border: 1px solid var(--product-color);
     }
 
-    #selectpicker1 {
-        width: 47vw;
-        height: 7.5vh;
-    }
 
-    #selectpicker2 {
-        width: 47vw;
-        height: 7.5vh;
-    }
+    
 
     .loading {
         margin-top: 0.5rem !important;
@@ -457,16 +439,18 @@ body {
 
  .food {
     overflow: hidden;
-    border-radius: 8px;
+    border-radius: 5px;
     display: flex;
     flex-direction: column;
     align-items: center;
     cursor: pointer !important;
+    border: 1px solid darkgrey !important;
 }
 
+
 .pic {
-    width: 250px;
-    height: 170px;
+    width: 300px;
+    height: 200px;
     text-align: center;
 }
 
@@ -475,8 +459,8 @@ body {
 }
 
 .pic + .detail{
-    width: 250px;
-    height: 170px;
+    width: 300px;
+    height: 140px;
     display: flex;
     flex-direction: column;
     justify-content: start;
@@ -508,7 +492,7 @@ body {
     transition: transform 1s ;
 }
 
-.detail > .title:hover::before{
+.food:hover .title::before{
     transform: scale(1);
 }
 
@@ -519,7 +503,7 @@ body {
     width: 200px;
     height: 100px;
     transform: rotate(-45deg);
-    background-color: var(--product-color);
+    background-color: var(--primary-color);
 }
 
 .order_food{
