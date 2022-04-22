@@ -20,8 +20,6 @@
 }
 
 .tastes {
-    margin-left: 15%;
-    margin-bottom: 10%;
     color: var(--text-color);
 }
 
@@ -34,9 +32,6 @@
     color: var(--text-color);
     border: 2px groove transparent;
     font-weight: bold;
-    font-size: 1.2rem;
-    margin-left: 45%;
-    margin-top: 20px;
 }
 
 .delivery-btns:hover {
@@ -941,5 +936,10 @@ text-align: center;
     transform: scale(1.5);
 }
 
+.slidertx{
+    background-color: #2d2d2d;
+    opacity: 0.7;
+    border-radius: 12px;
+}
 
 

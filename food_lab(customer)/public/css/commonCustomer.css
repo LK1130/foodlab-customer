@@ -38,7 +38,7 @@ body {
 
 .headers {
     min-height: 100vh;
-    background-image: url("/img/Home.png");
+    /* background-image: url("/img/Home.png"); */
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -696,13 +696,13 @@ p.texts {
     background-color: blue;
 }
 
-.tastes {
+/* .tastes {
     margin-left: 15%;
     margin-bottom: 10%;
     color: var(--text-color);
-}
+} */
 
-.delivery-btns {
+/* .delivery-btns {
     background-color: var(--primary-color);
     color: var(--text-color);
     border: 2px groove transparent;
@@ -710,7 +710,7 @@ p.texts {
     font-size: 1.2rem;
     margin-left: 45%;
     margin-top: 20px;
-}
+} */
 
 .delivery-btns:hover {
     background-color: var(--text-color);

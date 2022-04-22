@@ -34,20 +34,21 @@
         </div>
         <div class="carousel-inner">
             @forelse($sliderInfos as $sliderInfo)
-                <div class="carousel-item @if ($sliderInfo->id == 1) active @endif">
-                    <div class="row align-items-center items">
-                        <div class="col-8 flex-column">
-                            <h1 class="fw-bolder tastes">{{ $sliderInfo->banner_title }}</h1>
-                            <p class="fw-bold fs-5 ms-5 delivery-infos text-center">
+                <div class="carousel-item @if ($sliderInfo->id == 1) active @endif" style="background-image:url('img/bg1.png');background-size:cover">
+                    <div class="row align-items-center items ms-2">
+                        <div class="col-8   flex-column slidertx p-3">
+                            <h1 class="fw-bolder  ms-5 tastes">{{ $sliderInfo->banner_title }}</h1>
+                            <p class=" fs-4 ms-5 w-70 text-white lead text-left">
                                 {{ $sliderInfo->banner_detail }}
                             </p>
                             @if ($sliderInfo->button_state == 1)
                                 <a href="/{{ $sliderInfo->button_link }}"
-                                    class="btn delivery-btns">{{ $sliderInfo->button_text }}</a>
+                                    class="btn delivery-btns m-5">{{ $sliderInfo->button_text }}</a>
                             @endif
                         </div>
 
                         <div class="col-4">
+                           
                             <img src="/storage/sliderImageFile/{{ $sliderInfo->image }}" class="carousel-photos"
                                 alt="{{ $sliderInfo->image }}" />
                         </div>
