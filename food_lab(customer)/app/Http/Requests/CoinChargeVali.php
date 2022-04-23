@@ -31,7 +31,7 @@ class CoinChargeVali extends FormRequest
             'end rules'
         ]);
         return [
-            "coinput"=>"required | max:3",
+            "coinput" =>"required | max:3",
             "fileimage" => "required|image|mimes:jpg,png,jpeg,gif,svg|max:51200"
         ];
     }

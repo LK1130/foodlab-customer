@@ -67,9 +67,56 @@ $('.backBtn').click(function(){
     $('#coins').empty();
 });
 
+$('#backSite').click(function(){
 
-$('.chargeBtn').click(function(e){
+    location.reload();
+})
+
+
+$('#coinchargeform').on('submit',function(e){
     e.preventDefault();
+
+    $.ajaxSetup({
+        headers: {
+            "X-CSRF-TOKEN": jQuery('meta[name="csrf-token"]').attr(
+                "content"
+            ),
+        },
+    })
+
+    $.ajax({
+        type : "POST",
+        url : "buycoinForm",
+        cache: false,
+        contentType: false,
+        processData: false,
+        data: new FormData(this),
+        beforeSend: function(){
+            
+        },
+        success : function(data){
+             $('#modal6').modal('show');
+        },
+        error : function(request){
+            
+            $('#coins').empty();
+          
+            let errors = request.responseJSON.errors;
+            
+            if(errors['coinput'].length > 0){
+                let   err = ` <p class="text-danger" >${errors['coinput']}</p>`;
+                $('#coindiv').append(err);   
+            }
+         
+            if(errors['fileimage'].length > 0){
+                let image = errors['fileimage'].toString();
+                     let  err2 = `<p class="text-danger">${image}</p>`;
+                $('#imagediv').append(err2);
+            }
+           
+        }
+
+    });
 });
 
 function validate(){
@@ -81,24 +128,7 @@ function validate(){
     }
 }
 
-// $(".modal").each(function (l) {
-    $("#modal5").on("show.bs.modal", function (l) {
-      var o = $("#modal5").attr("data-easein");
-      "shake" == o
-        ? $(".modal-dialog").velocity("callout." + o)
-        : "pulse" == o
-        ? $(".modal-dialog").velocity("callout." + o)
-        : "tada" == o
-        ? $(".modal-dialog").velocity("callout." + o)
-        : "flash" == o
-        ? $(".modal-dialog").velocity("callout." + o)
-        : "bounce" == o
-        ? $(".modal-dialog").velocity("callout." + o)
-        : "swing" == o
-        ? $(".modal-dialog").velocity("callout." + o)
-        : $(".modal-dialog").velocity("transition." + o);
-    });
-//   });
+
 });
 
 
