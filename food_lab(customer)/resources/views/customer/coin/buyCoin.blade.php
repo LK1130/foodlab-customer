@@ -23,32 +23,28 @@
         <div class="container">
             <div class="coinchargeformdiv">
                 <h2 class="coincharge">{{ __('messageCPPK.Coin Charge') }}</h2>
-                <form action="buycoinForm" method="POST" class="coinchargeform" enctype="multipart/form-data">
+                <form action="" id="coinchargeform" enctype="multipart/form-data">
                     @csrf
                     <div class="col-8 d-flex coininput">
                         <span class="col-7"><i class="coinCal fas fa-coins"></i>
                             {{ __('messageCPPK.Coin') }}</span>
-                        <div class="col-7">
+                        <div id="coindiv"class="col-7">
                             <input type="number" id="coinChargeinput" name="coinput">
-                            @error('coinput')
-                                <p class="text-danger">{{ $message }}</p>
-                            @enderror
+                           
                         </div>
                     </div>
                     <div class="col-8 d-flex choosephoto">
-                        <span class="col-7"><i class="fileUpload far fa-file-alt"></i>
+                        <span class="col-7 "><i class="fileUpload far fa-file-alt"></i>
                             {{ __('messageCPPK.Screenshot') }}</span>
-                        <div class="col-7">
+                        <div id="imagediv" class="col-7">
                             <input class="fileuploadInput form-control" type="file" accept="image/*" id="formFile"
                                 name="fileimage">
-                            @error('fileimage')
-                                <span class="text-danger">{{ $message }}</span>
-                            @enderror
+                           
                         </div>
                     </div>
                     <button type="buttton" id="reset"
                         class="cancelbtn btn btn-light">{{ __('messageCPPK.Reset') }}</button>
-                    <button type="button" id="submitbtn" class="submitbtn btn btn-danger" data-bs-toggle="modal" data-bs-target="#modal5" disabled>{{ __('messageCPPK.Charge') }}</button>
+                    <button type="button" name="submit" id="submitbtn" class="submitbtn btn btn-danger" data-bs-toggle="modal" data-bs-target="#modal5" disabled>{{ __('messageCPPK.Charge') }}</button>
                
             </div>
             <div class="coinrule">
@@ -85,19 +81,12 @@
       tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
           <div class="col-sm-4 modal-dialog modal-dialog-centered " role="document">
             <div class="modal-content">
-              {{-- <div class="modal-header"> --}}
-
-              <div class="d-flex justify-content-end ">
-                  <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">&times;</button>
-              </div>
-              {{-- </div> --}}
-              {{-- <div class="modal-body"> --}}
-                <p id="coins" class="mx-4 text-dark "></p>
-                {{-- </span>Do you want to buy <span class="coins"></span>coins for <span class="mmk"></span> MMK? --}}
-              {{-- </div> --}}
+              
+                <p id="coins" class="m-5 text-dark "></p>
+                
               <div class="modal-footer">
                 <button type="button" class="btn backBtn" data-bs-dismiss="modal" >Cancel</button>
-                <button type="submit" class="btn chargeBtn" data-bs-toggle="modal" data-bs-target="#modal6">Charge</button>
+                <button type="submit" name="submit" class="btn chargeBtn" data-bs-toggle="modal" >Charge</button>
               </div>
             </div>
           </div>
@@ -109,14 +98,8 @@
     tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="col-sm-4 modal-dialog modal-dialog-centered " role="document">
           <div class="modal-content">
-            {{-- <div class="modal-header"> --}}
-
-            <div class="d-flex justify-content-end ">
-              <a href="/">  <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">&times;</button></a>
-            </div>
-            {{-- </div> --}}
-            {{-- <div class="modal-body"> --}}
-            <div class="icon-box">
+        
+            <div class="icon-box mt-4">
                 <div><i class="fa-solid fa-handshake text-muted icons"></i></div>
             </div>
 
@@ -125,10 +108,9 @@
                     We will be in touch and contact you soon!
                 </div>
             </div>
-              {{-- </span>Do you want to buy <span class="coins"></span>coins for <span class="mmk"></span> MMK? --}}
-            {{-- </div> --}}
+           
             <div class="d-flex justify-content-center m-3">
-            <a href="/"><button type="button" class="btn btn-primary cancelbutton" data-bs-dismiss="modal" >Back to site</button></a>
+            <button type="button" id="backSite" class="btn btn-primary cancelbutton" data-bs-dismiss="modal" >Back to site</button>
               
             </div>
           </div>

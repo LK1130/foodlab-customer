@@ -101,6 +101,7 @@ class BuycoinController extends Controller
         ]);
 
         $coinChargeFormdata = $request->validated();
+    
         $file = $request->file('fileimage');
         $filepath = $file->store('coinCharge');
 

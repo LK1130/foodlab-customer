@@ -194,7 +194,7 @@ class T_AD_CoinCharge extends Model
       $evdData->path = $filepath;
       $evdData->save();
       $curequestcoindata = new T_AD_CoinCharge();
-      $curequestcoindata->request_coin = $coinChargeFormdata['coinput'];
+      $curequestcoindata->request_coin =(int)$coinChargeFormdata['coinput'];
       $curequestcoindata->customer_id = $customerID;
       $curequestcoindata->decision_status = "1";
       $curequestcoindata->request_evd_ID = $evdData->id;
