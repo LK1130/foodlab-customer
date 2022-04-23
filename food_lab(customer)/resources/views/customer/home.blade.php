@@ -23,7 +23,7 @@
 
 @section('header')
     {{-- start carousel --}}
-    <div id="carouselExampleIndicators" class="carousel slide carousels" data-bs-ride="">
+    <div id="carouselExampleIndicators" class="carousel slide carousels mt-5" data-bs-ride="">
         <div class="carousel-indicators">
             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
                 aria-current="true" aria-label="Slide 1"></button>
@@ -35,22 +35,22 @@
         <div class="carousel-inner">
             @forelse($sliderInfos as $sliderInfo)
                 <div class="carousel-item @if ($sliderInfo->id == 1) active @endif" style="background-image:url('img/bg5.png');background-size:cover">
-                    <div class="row align-items-center items ms-2">
-                        <div class="col-8   flex-column slidertx p-3">
-                            <h1 class="fw-bolder  ms-5 tastes">{{ $sliderInfo->banner_title }}</h1>
-                            <p class=" fs-4 ms-5 w-70 text-white lead text-left">
+                    <div class="row align-items-center items ms-2 justify-content-center">
+                        <div class="col-9  flex-column slidertx p-4 text-center">
+                            <h1 class="fw-bolder  tastes text-uppercase">{{ $sliderInfo->banner_title }}</h1>
+                            <p class=" fs-4  w-70  text-light lead text-left">
                                 {{ $sliderInfo->banner_detail }}
                             </p>
                             @if ($sliderInfo->button_state == 1)
                                 <a href="/{{ $sliderInfo->button_link }}"
-                                    class="btn delivery-btns m-5">{{ $sliderInfo->button_text }}</a>
+                                    class="btn delivery-btns">{{ $sliderInfo->button_text }}</a>
                             @endif
                         </div>
 
-                        <div class="col-4">
+                        {{-- <div class="col-4">
                             <img src="/storage/sliderImageFile/{{ $sliderInfo->image }}" class="carousel-photos"
                                 alt="{{ $sliderInfo->image }}" />
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             @empty
