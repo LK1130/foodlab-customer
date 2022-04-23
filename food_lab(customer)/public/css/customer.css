@@ -32,6 +32,7 @@
     color: var(--text-color);
     border: 2px groove transparent;
     font-weight: bold;
+    float: right;
 }
 
 .delivery-btns:hover {
@@ -783,7 +784,7 @@ form div .cancels {
 
 .login {
     min-height: 90vh;
-    background: url("/img/bg8.png");
+    /* background: url("/img/bg8.png"); */
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -794,6 +795,14 @@ form div .cancels {
 
 
 /*End Login Section*/
+.access-imgs{
+    width: 50vw;
+    text-align: center;
+}
+
+.access-imgs > img{
+    width: 80%;
+}
 
 @media (max-width: 720px) {
     .access-imgs {
@@ -850,7 +859,7 @@ form div .cancels {
     min-height: 10vh;
     background-size: cover;
     color: var(--primary-color);
-     background-color: var(--bg-color);
+     /* background-color: var(--bg-color); */
     font-size: 1.5rem;
     font-weight: bold;
     position: relative;

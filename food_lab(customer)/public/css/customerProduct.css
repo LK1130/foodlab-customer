@@ -445,8 +445,13 @@ body {
     align-items: center;
     cursor: pointer !important;
     border: 1px solid darkgrey !important;
+    position: relative;
+    transition: transform 0.2s;
 }
 
+.food:hover{
+    transform: scale(1.1);
+}
 
 .pic {
     width: 300px;
@@ -504,6 +509,24 @@ body {
     height: 100px;
     transform: rotate(-45deg);
     background-color: var(--primary-color);
+}
+
+
+.food > .slide{
+    position: absolute;
+    top: -79px;
+    left: -75px;
+    width: 200px;
+    height: 100px;
+    transform: rotate(-45deg);
+    background-color: red;
+}
+
+.slide + p{
+    position: absolute;
+    top: 6px;
+    left: -2px;
+    transform: rotate(-45deg);
 }
 
 .order_food{
