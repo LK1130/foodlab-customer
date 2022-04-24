@@ -83,6 +83,9 @@
                 class="col-md-12 col-sm-12 d-flex flex-wrap m-auto text-light productbox justify-content-center align-items-center">
                 @foreach ($products as $item)
                     <div class="food  m-3">
+                        <div class="slide">
+                        </div>
+                        <p class="p-1">SPICY</p>
                         <div class="pic mt-2 d-flex justify-content-center align-items-center">
                             <img src="{{ url('img/menu4.png') }}" />
                             {{-- <img src="@isset($item->path) /storage/{{ $item->path }} @endisset" alt=""> --}}

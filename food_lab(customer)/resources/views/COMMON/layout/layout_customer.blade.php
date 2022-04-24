@@ -99,30 +99,30 @@
             <div class="collapse navbar-collapse text-uppercase fw-bolder" id="navbarNav">
                 <ul class="navbar-nav w-100 justify-content-around align-items-center border-0 rounded py-3 navs">
                     @if ($nav == 'home')
-                        <li class="nav-item actives">
+                        <li class="nav-item actives px-2">
                             <a class="nav-link texts" href="/home">{{ __('messageMK.home') }}</a>
                         </li>
                     @else
-                        <li class="nav-item">
+                        <li class="nav-item px-2">
                             <a class="nav-link texts" href="/home">{{ __('messageMK.home') }}</a>
                         </li>
                     @endif
                     @if ($nav == 'product')
-                        <li class="nav-item actives">
+                        <li class="nav-item actives px-2">
                             <a class="nav-link texts" href="/">{{ __('messageMK.Food') }}</a>
                         </li>
                     @else
-                        <li class="nav-item">
+                        <li class="nav-item px-2">
                             <a class="nav-link texts" href="/">{{ __('messageMK.Food') }}</a>
                         </li>
                     @endif
                     @if (session()->has('customerId'))
                         @if ($nav == 'coin')
-                            <li class="nav-item actives">
+                            <li class="nav-item actives px-2">
                                 <a class="nav-link texts " href="/buycoin">{{ __('messageMK.buy coin') }}</a>
                             </li>
                         @else
-                            <li class="nav-item">
+                            <li class="nav-item px-2">
                                 <a class="nav-link texts" href="/buycoin">{{ __('messageMK.buy coin') }}</a>
                             </li>
                         @endif
@@ -135,7 +135,7 @@
                         </a>
                     </li>
                     @if ($nav == 'inform')
-                        <li class="nav-item">
+                        <li class="nav-item px-2">
                             <p class="nav-link texts actives position-relative" id="informButton">
                                 {{ __('messageMK.inform') }}
                                 <span id="alertCount"
@@ -147,7 +147,7 @@
 
                         </li>
                     @else
-                        <li class="nav-item">
+                        <li class="nav-item px-2">
                             <p class="nav-link texts  position-relative" id="informButton">
                                 {{ __('messageMK.inform') }}
                                 <span id="alertCount"
@@ -156,7 +156,7 @@
                                     <span class="visually-hidden">unread messages</span>
                                 </span>
                             </p>
-                            <div id="informAlert" class="informAlert">
+                            <div id="informAlert" class="informAlert bg-dark">
                                 @if (session()->has('customerId'))
                                     <div
                                         class="headerInform d-flex flex-row justify-content-center align-items-center  ">
@@ -177,7 +177,7 @@
                                             </p>
                                         </div>
                                     </div>
-                                    <div class="forNews d-flex flex-column" id="forNews">
+                                    <div class="forNews d-flex flex-column bg-dark" id="forNews">
                                         {{-- <a href="/customerNews" class="ms-auto me-2"><button class="btn mb-2 alertButton">
                                                 {{ __('messageZY.more') }}</button></a> --}}
                                     </div>
@@ -197,7 +197,7 @@
                                             {{ __('messageZY.new') }}
                                         </p>
                                     </div>
-                                    <div class="forNews d-flex flex-column" id="forNews">
+                                    <div class="forNews d-flex flex-column bg-dark" id="forNews">
                                     </div>
                                 @endif
                             </div>

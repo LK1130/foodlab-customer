@@ -26,9 +26,9 @@
 
         {{-- start register header --}}
         <div class="d-flex ms-5 register-headers">
-            <div class="welcome-registers">
+            {{-- <div class="welcome-registers">
                 <p class="text-center creates">{{ __('messageMK.welcomeFrom') }} <span class="d-block ms-5 ps-5">{{ __('messageMK.ourFoodLab') }}</span></p>
-            </div>
+            </div> --}}
             <div>
                 <p class="fw-bolder pb-3 creates">{{ __('messageMK.signinForm') }}</p>
             </div>
@@ -38,7 +38,7 @@
         {{-- start register form --}}
         <div class="d-flex register-forms">
             <div  class="access-imgs">
-                <img src="{{ url('img/menu3.png') }}" width="90%"/>
+                <img src="{{ url('img/menu4.png') }}" />
             </div>
             <form action="/login" method="post" class="d-flex flex-column align-items-center justify-content-center">
                 @csrf
@@ -62,7 +62,7 @@
                     <input type="submit" class="form-control text-center createAccs" value="{{ __('messageMK.signIn') }}"/>
                 </div>
                 <div class="py-2 have-accs">
-                    <p>{{ __('messageMK.Ifyoudoesn\'thaveAnyaccount') }} ? <a href="/signup" class="ms-2 text-decoration-underline">{{ __('messageMK.signUpHere') }}</a></p>
+                    <p>{{ __('messageMK.Ifyoudoesn\'thaveAnyaccount') }} ? <br><a href="/signup" class="ms-2 text-decoration-underline">{{ __('messageMK.signUpHere') }}</a></p>
                 </div>
             </form>
         </div>

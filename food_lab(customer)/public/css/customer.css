@@ -783,7 +783,7 @@ form div .cancels {
 
 .login {
     min-height: 90vh;
-    background: url("/img/bg8.png");
+    /* background: url("/img/bg8.png"); */
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -794,6 +794,14 @@ form div .cancels {
 
 
 /*End Login Section*/
+.access-imgs{
+    width: 50vw;
+    text-align: center;
+}
+
+.access-imgs > img{
+    width: 80%;
+}
 
 @media (max-width: 720px) {
     .access-imgs {
@@ -850,7 +858,7 @@ form div .cancels {
     min-height: 10vh;
     background-size: cover;
     color: var(--primary-color);
-     background-color: var(--bg-color);
+     /* background-color: var(--bg-color); */
     font-size: 1.5rem;
     font-weight: bold;
     position: relative;
@@ -937,9 +945,12 @@ text-align: center;
 }
 
 .slidertx{
-    background-color: #2d2d2d;
-    opacity: 0.7;
+    background-color: rgba(45, 45, 45, 0.7);
     border-radius: 12px;
 }
 
+.carousel-indicators > button{
+    background-color: var(--primary-color) !important;
+    height: 5px  !important;
+}
 
