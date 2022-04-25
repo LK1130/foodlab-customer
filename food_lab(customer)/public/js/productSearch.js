@@ -28,6 +28,7 @@ $(document).ready(function () {
             beforeSend: function(){
                     $('.icons').hide();
                     $('.loader').show();
+                    $('.searchEngine').empty();
             },  
             success: function(data){
 
@@ -66,7 +67,7 @@ $(document).ready(function () {
            
     
             var formdata = { name : e.target.value};
-            console.log(formdata);
+
 
             $.ajax({
                 type : "POST",
@@ -78,9 +79,10 @@ $(document).ready(function () {
                     $("#byCategory").hide('slow');
                     $('.loading').show();
                     $('#form1').blur();
+                    $('.searchEngine').empty();
                 },
                 success: function(data){
-                   
+                    $('#form1').blur();
                     $('.loading').hide('slow');
                   $("#byCategory").empty();
                  
@@ -96,27 +98,54 @@ $(document).ready(function () {
                   for (const list of data) {
                     let amount = numberWithCommas(list.amount);
                     if(customerId){
+                        
                      $('#byCategory').append(
-                         `<div class="col-md-3 col-sm-3 d-flex flex-column justify-content-center align-items-center m-auto my-3 fw-bold py-5">
-                         <div class="image-container">
-                         <img src="/storage/${list.path}" class=" images" alt="bestitem1" />
+                         `<div class="food  m-3">
+                         <div class="pic mt-2 d-flex justify-content-center align-items-center">
+                          <img src="/storage/${list.path}" alt="">
+                
                          </div>
-                         <p class="fs-3 pt-2">${ list.product_name }</p>
-                         <p class="fs-5"><i class="fas fa-coins pe-2 coins"></i>${ list.coin } </br> <p> <i class="fa-solid fa-money-bill money text-success"></i> ${amount} MMK</p>
-                         <a href="productDetail?id=${ list.link_id }"><button type="button" class="btn detailbtns"> More Details</button></a>
-                         <button type="button" id="${list.link_id}" class="btn shopbtns shopcart" data-bs-toggle="modal" data-bs-target="#modal" > Shop Now</button>
-                         </div>`)
+                         <div class="detail ">
+                         <a href="productDetail?id=${ list.link_id}" class="title fw-bold ms-3 my-3 fs-4">${ list.product_name }</a>
+                         <div class="fw-bold  text-white ms-3 fs-5 ">
+                                <i class="fas fa-coins me-2 coins"></i>
+                                ${ list.coin }
+                                <br>
+                                <i class="fa-solid fa-money-bill money text-success"></i>
+                                ${amount} Ks
+                            </div>
+                            <div class="slide">
+                            </div>
+                            <div class="price fw-bolder fs-4  p-2">
+                            <button type="button" id="${list.link_id}" class="shopcart"
+                            data-bs-toggle="modal" data-bs-target="#modal">SHOP</button>
+                            </div>
+                            </div>
+                        </div>
+                         `)
                     }else{
                      $('#byCategory').append(
-                         `<div class="col-md-3 col-sm-3 d-flex flex-column justify-content-center align-items-center m-auto my-3 fw-bold py-5">
-                         <div class="image-container">
-                         <img src="/storage/${list.path}" class=" images" alt="bestitem1" />
+                         `<div class="food  m-3">
+                         <div class="pic mt-2 d-flex justify-content-center align-items-center">
+                          <img src="/storage/${list.path}" alt="">
+                
                          </div>
-                         <p class="fs-3 pt-2">${ list.product_name }</p>
-                         <p class="fs-5"><i class="fas fa-coins pe-2 coins"></i>${ list.coin } </br> <p> <i class="fa-solid fa-money-bill money text-success"></i> ${amount} MMK</p>
-                         <a href="productDetail?id=${ list.link_id }"><button type="button" class="btn detailbtns"> More Details</button></a>
-                         <a href="/signin"><button type="button" class="btn shopbtns"> Shop Now</button></a> 
-                         </div>`)
+                         <div class="detail ">
+                         <a href="productDetail?id=${ list.link_id}" class="title fw-bold ms-3 my-3 fs-4">${ list.product_name }</a>
+                         <div class="fw-bold  text-white ms-3 fs-5 ">
+                                <i class="fas fa-coins me-2 coins"></i>
+                                ${ list.coin }
+                                <br>
+                                <i class="fa-solid fa-money-bill money text-success"></i>
+                                ${amount} Ks
+                            </div>
+                            <div class="slide">
+                            </div>
+                            <div class="price fw-bolder fs-4  p-2">
+                            <a href="/signin" class="order_food">SHOP</a>
+                            </div>
+                            </div>
+                        </div>`)
                     }
                   }
 
@@ -157,9 +186,7 @@ $(document).ready(function () {
             });
         }
     });
-
-
-    $('.search').click(function(){
+    function sendData(){
 
         $.ajaxSetup({
             headers: {
@@ -183,6 +210,7 @@ $(document).ready(function () {
                 $('#byCategory').empty();
                 $("#byCategory").hide('slow');
                 $('.loading').show();
+                $('.searchEngine').empty();
             },
             success :function(data){
                 $('.loading').hide('slow');
@@ -201,26 +229,51 @@ $(document).ready(function () {
                   let amount = numberWithCommas(list.amount);
                   if(customerId){
                    $('#byCategory').append(
-                       `<div class="col-md-3 col-sm-3 d-flex flex-column justify-content-center align-items-center m-auto my-3 fw-bold py-5">
-                       <div class="image-container">
-                       <img src="/storage/${list.path}" class=" images" alt="bestitem1" />
+                       `<div class="food  m-3">
+                       <div class="pic mt-2 d-flex justify-content-center align-items-center">
+                        <img src="/storage/${list.path}" alt="">
+              
                        </div>
-                       <p class="fs-3 pt-2">${ list.product_name }</p>
-                       <p class="fs-5"><i class="fas fa-coins pe-2 coins"></i>${ list.coin } </br> <p> <i class="fa-solid fa-money-bill money text-success"></i> ${amount} MMK</p>
-                       <a href="productDetail?id=${ list.link_id }"><button type="button" class="btn detailbtns"> More Details</button></a>
-                       <button type="button" id="${list.link_id}" class="btn shopbtns shopcart" data-bs-toggle="modal" data-bs-target="#modal" > Shop Now</button>
-                       </div>`)
+                       <div class="detail ">
+                       <a href="productDetail?id=${ list.link_id}" class="title fw-bold ms-3 my-3 fs-4">${ list.product_name }</a>
+                       <div class="fw-bold  text-white ms-3 fs-5 ">
+                              <i class="fas fa-coins me-2 coins"></i>
+                              ${ list.coin }
+                              <br>
+                              <i class="fa-solid fa-money-bill money text-success"></i>
+                              ${amount} Ks
+                          </div>
+                          <div class="slide">
+                          </div>
+                          <div class="price fw-bolder fs-4  p-2">
+                          <button type="button" id="${list.link_id}" class="shopcart"
+                          data-bs-toggle="modal" data-bs-target="#modal">SHOP</button>
+                          </div>
+                          </div>
+                      </div>`)
                   }else{
                    $('#byCategory').append(
-                       `<div class="col-md-3 col-sm-3 d-flex flex-column justify-content-center align-items-center m-auto my-3 fw-bold py-5">
-                       <div class="image-container">
-                       <img src="/storage/${list.path}" class=" images" alt="bestitem1" />
+                       `<div class="food  m-3">
+                       <div class="pic mt-2 d-flex justify-content-center align-items-center">
+                        <img src="/storage/${list.path}" alt="">
+              
                        </div>
-                       <p class="fs-3 pt-2">${ list.product_name }</p>
-                       <p class="fs-5"><i class="fas fa-coins pe-2 coins"></i>${ list.coin } </br> <p> <i class="fa-solid fa-money-bill money text-success"></i> ${amount} MMK</p>
-                       <a href="productDetail?id=${ list.link_id }"><button type="button" class="btn detailbtns"> More Details</button></a>
-                       <a href="/signin"><button type="button" class="btn shopbtns"> Shop Now</button></a> 
-                       </div>`)
+                       <div class="detail ">
+                       <a href="productDetail?id=${ list.link_id}" class="title fw-bold ms-3 my-3 fs-4">${ list.product_name }</a>
+                       <div class="fw-bold  text-white ms-3 fs-5 ">
+                              <i class="fas fa-coins me-2 coins"></i>
+                              ${ list.coin }
+                              <br>
+                              <i class="fa-solid fa-money-bill money text-success"></i>
+                              ${amount} Ks
+                          </div>
+                          <div class="slide">
+                          </div>
+                          <div class="price fw-bolder fs-4  p-2">
+                          <a href="/signin" class="order_food">SHOP</a>
+                          </div>
+                          </div>
+                      </div>`)
                   }
                 }
 
@@ -243,12 +296,10 @@ $(document).ready(function () {
                       data: { data: formdata },
                       dataType: "json",
                       success: function(data) {
-                        //   console.log(data);
-          
-          
+                      
                       },
                       error: function(data) {
-                        //   console.log(data);
+                      
                       }
                   });
           
@@ -258,9 +309,25 @@ $(document).ready(function () {
                 console.log(data);
             }
         });
-    });
+    }
+
+
+    $('#form1').keypress(function(e){
+        if(e.keyCode == 13) {
+            sendData();
+        }
     
+        
+    });
+    $('.search').click(function(){
+            sendData();
+    });
+   
+    
+  
 });
+
+
 
 function numberWithCommas(x) {
     return x.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");

@@ -91,7 +91,7 @@
                             {{-- <img src="@isset($item->path) /storage/{{ $item->path }} @endisset" alt=""> --}}
                         </div>
                         <div class="detail ">
-                            <a href="" class="title fw-bold ms-3 my-3 fs-4">{{ $item->product_name }}</a>
+                            <a href="productDetail?id={{ $item->link_id }}" class="title fw-bold ms-3 my-3 fs-4">{{ $item->product_name }}</a>
                             <div class="fw-bold  text-white ms-3 fs-5 ">
                                 <i class="fas fa-coins me-2 coins"></i>
                                 {{ $item->coin }}
@@ -104,7 +104,7 @@
                             </div>
                             <div class="price fw-bolder fs-4  p-2">
                                 @if (session()->has('customerId'))
-                                    <button type="button" id="{{ $item->link_id }}" class=""
+                                    <button type="button" id="{{ $item->link_id }}" class="shopcart"
                                         data-bs-toggle="modal" data-bs-target="#modal">SHOP</button>
                                 @else
                                     <a href="/signin" class="order_food">SHOP</a>
