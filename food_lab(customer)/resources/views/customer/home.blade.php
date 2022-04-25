@@ -88,41 +88,7 @@
 
     {{-- Start Best Seller Item Section --}}
     <section class="best-items">
-        <div class="seller-headers" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="900">
-            <img src="{{ url('img/Best_Seller_Item1.png') }}" />
-        </div>
-
-        <div class="d-flex flex-wrap justify-content-around align-items-center text-light sellers">
-            {{-- start items --}}
-            @forelse ($sellProducts as $sellProduct)
-                <div class="d-flex flex-column justify-content-center align-items-center fw-bold my-3 py-5"
-                    id="{{ $sellProduct->product_id }}">
-                    <div class="product-imgs">
-                        <img src="/storage/{{ $sellProduct->path }}" alt="bestitem1" width="100%" />
-                    </div>
-                    <p class="fs-3 pt-2 text-uppercase">{{ $sellProduct->product_name }}</p>
-                    <p class="fs-5"><i class="fas fa-coins pe-2 coins"></i> {{ $sellProduct->coin }}</p>
-                    <p class="fs-5"><i class="fa-solid fa-money-bill money text-success"></i><span
-                            class="prices"> {{ $sellProduct->amount }}</span> Ks</p>
-                    @if (session()->has('customerId'))
-                        <button type="button" id="{{ $sellProduct->product_id }}" class="btn shopbtns shopcart"
-                            data-bs-toggle="modal" data-bs-target="#modal">{{ __('messageMK.shopnow') }}</button>
-                    @else
-                        <a href="/signin"><button type="button"
-                                class="btn shopbtns">{{ __('messageAMK.shopnow') }}</button></a>
-                    @endif
-                </div>
-            @empty
-                <div class="text-center">
-                    <p class="fs-2 fw-bolder my-3">No product</p>
-                </div>
-            @endforelse
-            {{-- end items --}}
-
-        </div>
-
-
-        <div class="bg-black menulist my-5 p-2"  data-aos="fade-up" data-aos-easing="linear" data-aos-duration="900">
+                <div class="bg-black menulist my-5 p-2"  data-aos="fade-up" data-aos-easing="linear" data-aos-duration="900">
             <div class="foods my-5">
                    <div class="img-container">
                  <img src="{{ url('img/menu.png') }}" />
@@ -169,6 +135,38 @@
             </div>
 
         </div>
+        <div class="seller-headers" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="900">
+            <img src="{{ url('img/Best_Seller_Item1.png') }}" />
+        </div>
+
+        <div class="d-flex flex-wrap justify-content-around align-items-center text-light sellers">
+            {{-- start items --}}
+            @forelse ($sellProducts as $sellProduct)
+                <div class="d-flex flex-column justify-content-center align-items-center fw-bold my-3 py-5"
+                    id="{{ $sellProduct->product_id }}">
+                    <div class="product-imgs">
+                        <img src="/storage/{{ $sellProduct->path }}" alt="bestitem1" width="100%" />
+                    </div>
+                    <p class="fs-3 pt-2 text-uppercase">{{ $sellProduct->product_name }}</p>
+                    <p class="fs-5"><i class="fas fa-coins pe-2 coins"></i> {{ $sellProduct->coin }}</p>
+                    <p class="fs-5"><i class="fa-solid fa-money-bill money text-success"></i><span
+                            class="prices"> {{ $sellProduct->amount }}</span> Ks</p>
+                    @if (session()->has('customerId'))
+                        <button type="button" id="{{ $sellProduct->product_id }}" class="btn shopbtns shopcart"
+                            data-bs-toggle="modal" data-bs-target="#modal">{{ __('messageMK.shopnow') }}</button>
+                    @else
+                        <a href="/signin"><button type="button"
+                                class="btn shopbtns">{{ __('messageAMK.shopnow') }}</button></a>
+                    @endif
+                </div>
+            @empty
+                <div class="text-center">
+                    <p class="fs-2 fw-bolder my-3">No product</p>
+                </div>
+            @endforelse
+            {{-- end items --}}
+
+        </div>
     </section>
     {{-- End Best Seller Item Section --}}
 
@@ -178,7 +176,7 @@
             <div class="seller-headers" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="900">
                 <img src="{{ url('img/recommand_item.png') }}" />
             </div>
-            <div class="d-flex flex-wrap justify-content-around align-items-center border border-3 text-light recommands"
+            <div class="d-flex flex-wrap justify-content-around align-items-center text-light recommands"
                 data-aos="fade-up" data-aos-easing="linear" data-aos-duration="900">
                 {{-- start items --}}
                 @foreach ($recomProducts as $recomProduct)
@@ -202,11 +200,40 @@
         </section>
     @endif
     {{-- End Recommand Item Section --}}
-
+    {{-- Start Delivery Section --}}
+    <section class="deliverys">
+        <div class="text-center delivery-headers" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="900">
+            <img src="{{ url('img/delivery.png') }}" />
+        </div>
+        <div class="row" data-aos="fade-up" data-aos-easing="linear" data-aos-duration="900">
+            {{-- start delivery Informaiton --}}
+            <div class="col-12 township-infos">
+                <div class="row justify-content-center align-items-center text-center text-white">
+                    <p class="col-5 fw-bolder del-headers">{{ __('messageMK.townships') }}</p>
+                    <p class="col-2 pt-2"><i class="fas fa-arrow-right"></i></p>
+                    <p class="col-5 fw-bolder del-headers">{{ __('messageMK.prices') }}</p>
+                </div>
+                @foreach ($townships as $township)
+                    <div class="row justify-content-center align-items-center text-center text-white">
+                        <p class="col-5 townships">{{ $township->township_name }}</p>
+                        <p class="col-2 pt-2"><i class="fas fa-arrow-right"></i></p>
+                        @if ($township->delivery_price == 0)
+                            <p class="col-5"><span class="prices">Free</span></p>
+                        @else
+                            <p class="col-5"><span class="prices">{{ $township->delivery_price }}</span>
+                                Ks</p>
+                        @endif
+                    </div>
+                @endforeach
+            </div>
+            {{-- end delivery Informaiton --}}
+        </div>
+    </section>
+    {{-- End Delivery Section --}}
     {{-- Start Contact Section --}}
     <section>
         <div class="d-flex flex-row justify-content-center align-items-center my-5 contacts">
-            <div class="d-flex flex-column justify-content-center align-items-center ms-5">
+            <div class="d-flex  justify-content-center align-items-center p-5">
                 <div class="company-infos">
                     <p class="fw-bolder mb-5" data-aos="fade-right" data-aos-easing="linear" data-aos-duration="900">
                         {{ __('messageMK.getcontact') }}</p>
@@ -248,42 +275,15 @@
                         </div>
                     </div>
                 </div>
+                  <div class="text-center contact_img" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="900">
+            <img src="{{ url('img/contact.png') }}" />
+        </div>
             </div>
+       
+
         </div>
     </section>
     {{-- End Contact Section --}}
-
-    {{-- Start Delivery Section --}}
-    <section class="deliverys">
-        <div class="text-center delivery-headers" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="900">
-            <img src="{{ url('img/delivery.png') }}" />
-        </div>
-        <div class="row" data-aos="fade-up" data-aos-easing="linear" data-aos-duration="900">
-            {{-- start delivery Informaiton --}}
-            <div class="col-12 township-infos">
-                <div class="row justify-content-center align-items-center text-center text-white">
-                    <p class="col-5 fw-bolder del-headers">{{ __('messageMK.townships') }}</p>
-                    <p class="col-2 pt-2"><i class="fas fa-arrow-right"></i></p>
-                    <p class="col-5 fw-bolder del-headers">{{ __('messageMK.prices') }}</p>
-                </div>
-                @foreach ($townships as $township)
-                    <div class="row justify-content-center align-items-center text-center text-white">
-                        <p class="col-5 townships">{{ $township->township_name }}</p>
-                        <p class="col-2 pt-2"><i class="fas fa-arrow-right"></i></p>
-                        @if ($township->delivery_price == 0)
-                            <p class="col-5"><span class="prices">Free</span></p>
-                        @else
-                            <p class="col-5"><span class="prices">{{ $township->delivery_price }}</span>
-                                Ks</p>
-                        @endif
-                    </div>
-                @endforeach
-            </div>
-            {{-- end delivery Informaiton --}}
-        </div>
-    </section>
-    {{-- End Delivery Section --}}
-
     {{-- Start Footer Section --}}
     <footer>
         <div class="pt-5 ps-3 footer-infos">

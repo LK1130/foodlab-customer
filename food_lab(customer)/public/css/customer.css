@@ -166,8 +166,8 @@
 
 .recommands {
     min-width: 95%;
-    background: linear-gradient( 120deg, rgba(245, 0, 0, 0.5) 30%, rgba(0, 0, 0, 1) 60%);
-    border-radius: 20px;
+    /* background: linear-gradient( 120deg, rgba(245, 0, 0, 0.5) 30%, rgba(0, 0, 0, 1) 60%); */
+    /* border-radius: 20px; */
 }
 
 .coins {
@@ -194,7 +194,7 @@
 /*Start Delivery Section*/
 
 .deliverys {
-    min-height: 80vh;
+    /* min-height: 50vh; */
     /* background: linear-gradient( 360deg, rgba(0, 0, 0, 0.7) 10%, rgba(0, 0, 0, 0.7) 90%), url("/img/bg3.png"); */
     background-size: cover;
     background-position: center;
@@ -246,6 +246,10 @@
 
 .company-infos p.fw-bolder {
     font-size: 2.5rem;
+}
+
+.company-infos{
+    width: 50%;
 }
 
 .company-details {
@@ -945,7 +949,7 @@ text-align: center;
 }
 
 .slidertx{
-    background-color: rgba(45, 45, 45, 0.7);
+    background-color: rgba(45, 45, 45, 0.4);
     border-radius: 12px;
 }
 
@@ -954,3 +958,10 @@ text-align: center;
     height: 5px  !important;
 }
 
+.contact_img{
+    width: 30%;
+}
+
+.contact_img img{
+    width: 100%;
+}
