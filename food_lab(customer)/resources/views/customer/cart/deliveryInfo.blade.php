@@ -15,7 +15,7 @@
 
 @section('body')
 <section>
-    <p class="fs-1 text-white fw-bold text-uppercase text-center pt-4"><img src="/storage/siteLogo/{{ $name->site_logo }}" class="me-4" width="50px" alt="Logo">{{ $name->site_name }}</p>
+    <p class="fs-1 text-white fw-bold text-uppercase text-center pt-4"><img src="{{ $name->site_logo }}" class="me-4" width="50px" alt="Logo">{{ $name->site_name }}</p>
     <div class="d-flex ps-5 py-4">
         <div class="me-4">
             <a href="/cart"><i class="fas fa-arrow-left text-white arrows"></i></a>

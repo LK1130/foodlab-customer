@@ -145,7 +145,7 @@
                 <div class="d-flex flex-column justify-content-center align-items-center fw-bold my-3 py-5"
                     id="{{ $sellProduct->product_id }}">
                     <div class="product-imgs">
-                        <img src="/storage/{{ $sellProduct->path }}" alt="bestitem1" width="100%" />
+                        <img src="{{ $sellProduct->path }}" alt="bestitem1" width="100%" />
                     </div>
                     <p class="fs-3 pt-2 text-uppercase">{{ $sellProduct->product_name }}</p>
                     <p class="fs-5"><i class="fas fa-coins pe-2 coins"></i> {{ $sellProduct->coin }}</p>
@@ -184,7 +184,7 @@
                         <div class="d-flex flex-column justify-content-center align-items-center fw-bold my-3 py-5"
                             id="{{ $product->id }}">
                             <div class="product-imgs">
-                                <img src="/storage/{{ $product->path }}" width="100%" alt="bestitem1" />
+                                <img src="{{ $product->path }}" width="100%" alt="bestitem1" />
                             </div>
                             <p class="fs-3 pt-2">{{ $product->product_name }}</p>
                             <p class="fs-5"><i class="fas fa-coins me-2 coins"></i>{{ $product->coin }}</p>
@@ -288,7 +288,7 @@
     <footer>
         <div class="pt-5 ps-3 footer-infos">
             <div class="d-flex align-items-center footer-logos">
-                <img src="/storage/siteLogo/{{ $name->site_logo }}" width="80px" />
+                <img src="{{ $name->site_logo }}" width="80px" />
                 <p class="fw-bolder text-uppercase ms-2 footer-names">{{ $name->site_name }}</p>
             </div>
             <div class="d-flex flex-wrap justify-content-around align-items-start mt-5 pb-3 footer-details">

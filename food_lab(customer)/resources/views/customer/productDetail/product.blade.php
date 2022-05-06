@@ -87,8 +87,8 @@
                         </div>
                         <p class="p-1">SPICY</p>
                         <div class="pic mt-2 d-flex justify-content-center align-items-center">
-                            <img src="{{ url('img/menu4.png') }}" />
-                            {{-- <img src="@isset($item->path) /storage/{{ $item->path }} @endisset" alt=""> --}}
+                            {{-- <img src="{{ url('img/menu4.png') }}" /> --}}
+                            <img src="@isset($item->path){{ $item->path }} @endisset" alt="">
                         </div>
                         <div class="detail ">
                             <a href="productDetail?id={{ $item->link_id }}" class="title fw-bold ms-3 my-3 fs-4">{{ $item->product_name }}</a>

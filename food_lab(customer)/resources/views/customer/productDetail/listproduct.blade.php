@@ -39,7 +39,7 @@
                    <div class="col-md-10 col-sm-10 m-auto">
                     <div class="d-flex justify-content-between p-1 mb-3 productblog">
                        <div class="image-container ">
-                        <img src="/storage/{{ $item->path }}" class="img-fluid" alt="">
+                        <img src="{{ $item->path }}" class="img-fluid" alt="">
                        </div>
                        <div class="d-flex flex-column px-3 py-3 doxxes">
                            <p class="productName">{{ $item->product_name }}</p>

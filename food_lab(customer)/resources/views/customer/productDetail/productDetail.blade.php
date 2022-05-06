@@ -43,7 +43,7 @@
 
                         <div class="col-sm-10 mb-3 m-auto text-center">
                             <div class="m-auto mainblocks">
-                                    <img src="@isset($photos[0]->path)/storage/{{ $photos[0]->path }}@endisset" id="mainimg"
+                                    <img src="@isset($photos[0]->path){{ $photos[0]->path }}@endisset" id="mainimg"
                                     class="img-fluid mainimgs" alt="">
 
                                 </div>
@@ -52,23 +52,23 @@
                             <div class="col-md-12 col-sm-12  p-2 ">
                                 <div class="d-flex col-md-12 col-sm-12   blocks">
                                     <div class="d-flex justify-content-center  customBlock border">
-                                        <img src="@isset($photos[1]->path)/storage/{{ $photos[1]->path }}@endisset"
+                                        <img src="@isset($photos[1]->path){{ $photos[1]->path }}@endisset"
                                                 class="img-fluid images" onclick="changeImage(this)">
                                         </div>
                                         <div class="d-flex justify-content-center customBlock border">
-                                            <img src="@isset($photos[2]->path)/storage/{{ $photos[2]->path }}@endisset"
+                                            <img src="@isset($photos[2]->path){{ $photos[2]->path }}@endisset"
                                                     class="img-fluid  images" onclick="changeImage(this)" alt="">
                                             </div>
                                             <div class="d-flex justify-content-center   customBlock border">
-                                                <img src="@isset($photos[3]->path)/storage/{{ $photos[3]->path }}@endisset"
+                                                <img src="@isset($photos[3]->path){{ $photos[3]->path }}@endisset"
                                                         class="img-fluid  images" onclick="changeImage(this)" alt="">
                                                 </div>
                                                 <div class="d-flex justify-content-center   customBlock border">
-                                                    <img src="@isset($photos[4]->path)/storage/{{ $photos[4]->path }}@endisset"
+                                                    <img src="@isset($photos[4]->path){{ $photos[4]->path }}@endisset"
                                                             class="img-fluid  images" onclick="changeImage(this)" alt="">
                                                     </div>
                                                     <div class="d-flex justify-content-center   customBlock border">
-                                                        <img src="@isset($photos[5]->path)/storage/{{ $photos[5]->path }}@endisset"
+                                                        <img src="@isset($photos[5]->path){{ $photos[5]->path }}@endisset"
                                                                 class="img-fluid images" onclick="changeImage(this)" alt="">
                                                         </div>
                                                     </div>

@@ -97,7 +97,7 @@ $(document).ready(function () {
                             $(".forNews").append(
                                 `
                             <div class="news nocursor d-flex flex-row justify-content-center align-items-center mb-3">
-                                    <img src="/storage/newsImage/${news.source}" class="my-3 ms-2 imageNews rounded" width="20px" alt="">
+                                    <img src="${news.source}" class="my-3 ms-2 imageNews rounded" width="20px" alt="">
                                     <div class=" d-flex flex-column  me-auto ms-3 text-truncate w-75">
                                     <p class="me-auto ms-3 text-truncate fs-5"  style="max-width: 80%; min-width:12vw;">${news.title}
                                         </p>
@@ -114,7 +114,7 @@ $(document).ready(function () {
                                 `
                             <div class="news nocursor d-flex flex-row justify-content-center align-items-center mb-3">
                             
-                                    <img src="/storage/newsImage/${news.source}" class="my-3 ms-2 imageNews rounded"  alt="">
+                                    <img src="${news.source}" class="my-3 ms-2 imageNews rounded"  alt="">
                                     <div class=" d-flex flex-column  me-auto ms-3 text-truncate w-75">
                                     <p class="me-auto ms-3 text-truncate fs-5 "  style="max-width: 80%; min-width:12vw;">${news.title}
                                         </p>
@@ -557,7 +557,7 @@ $(document).ready(function () {
                             $(".forNews").append(
                                 `
                             <div class="news nocursor d-flex flex-row justify-content-center align-items-center mb-3">
-                            <img src="/storage/newsImage/${news.source}" class="my-3 ms-2 imageNews rounded"  alt="">
+                            <img src="${news.source}" class="my-3 ms-2 imageNews rounded"  alt="">
                             <div class=" d-flex flex-column  me-auto ms-3 text-truncate w-75">
                             <p class="me-auto ms-3 text-truncate fs-5"  style="max-width: 80%; min-width:12vw;">${news.title}
                                 </p>
@@ -574,7 +574,7 @@ $(document).ready(function () {
                                 `
                                 <div class="news nocursor d-flex flex-row justify-content-center align-items-center mb-3">
                             
-                                    <img src="/storage/newsImage/${news.source}" class="my-3 ms-2 imageNews rounded"  alt="">
+                                    <img src="${news.source}" class="my-3 ms-2 imageNews rounded"  alt="">
                                     <div class=" d-flex flex-column  me-auto ms-3 text-truncate w-75">
                                     <p class="me-auto ms-3 text-truncate fs-5 "  style="max-width: 80%; min-width:12vw;">${news.title}
                                         </p>

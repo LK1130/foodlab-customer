@@ -67,7 +67,7 @@
                             <ion-icon name="close-sharp" class="fs-1 delete" data-bs-toggle="modal" data-bs-target="#modal1" id="{{ $i++ }}"></ion-icon>
                         </div>
                         <div class="col-3 mb-3 product-img">
-                            <img src="/storage/{{ $product['path'] }}" alt = "{{ $product['product_name'] }}"/>
+                            <img src="{{ $product['path'] }}" alt = "{{ $product['product_name'] }}"/>
                         </div>
                         <div class="col-2">
                             <p class="fw-bold text-uppercase" id="pname">{{ $product['product_name'] }}</p>

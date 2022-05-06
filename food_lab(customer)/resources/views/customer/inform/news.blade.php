@@ -23,7 +23,7 @@
             <a href="/"><i class="fas fa-arrow-left text-white arrows"></i></a>
         </div>
         <div>
-            <img src="/storage/siteLogo/{{ $name->site_logo }}" width="50px" />
+            <img src="{{ $name->site_logo }}" width="50px" />
         </div>
     </div>
     <h1 class=" fw-bold text-center heading">{{ __('messageZY.news') }}</h1>
@@ -43,7 +43,7 @@
                 @endphp
                 @if ($diff < 3)
                     <div class="  newsA d-flex flex-row  justify-content-between align-items-center">
-                        <img src="/storage/newsImage/{{ $allnew->source }}" alt="" class="ms-3 rounded" width="60vw">
+                        <img src="{{ $allnew->source }}" alt="" class="ms-3 rounded" width="60vw">
                         <div class="titleDateBox">
                             <div class="d-flex flex-row mt-2">
                                 <p class=" fs-5 fw-bolder Wtruncate">{{ $allnew->title }}
@@ -63,7 +63,7 @@
                     </div>
                 @else
                     <div class="  newsA d-flex flex-row  justify-content-between align-items-center">
-                        <img src="/storage/newsImage/{{ $allnew->source }}" alt="" class="ms-3 mb-4 rounded" width="60vw">
+                        <img src="{{ $allnew->source }}" alt="" class="ms-3 mb-4 rounded" width="60vw">
                         <div class="titleDateBox">
                             <div class="d-flex flex-row mt-2  ">
                                 <p class=" fs-5 fw-bolder  Wtruncate ">{{ $allnew->title }}

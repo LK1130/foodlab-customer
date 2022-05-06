@@ -16,7 +16,7 @@
                 <a href="/home"><i class="fas fa-arrow-left text-white arrows"></i></a>
             </div>
             <div style="width: 50px">
-                <img src="/storage/siteLogo/{{ $name->site_logo }}" width="100%" alt="logo"/>
+                <img src="{{ $name->site_logo }}" width="100%" alt="logo"/>
             </div>
         </div>
 

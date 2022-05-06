@@ -21,7 +21,7 @@
             <a href="/"><i class="fas fa-arrow-left text-white arrows"></i></a>
         </div>
         <div>
-            <img src="/storage/siteLogo/{{ $name->site_logo }}" width="50px" />
+            <img src="{{ $name->site_logo }}" width="50px" />
         </div>
     </div>
     <h1 class=" fw-bold text-center heading">{{ __('messageZY.trackDetail') }}</h1>

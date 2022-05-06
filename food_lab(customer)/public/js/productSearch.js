@@ -102,7 +102,7 @@ $(document).ready(function () {
                      $('#byCategory').append(
                          `<div class="food  m-3">
                          <div class="pic mt-2 d-flex justify-content-center align-items-center">
-                          <img src="/storage/${list.path}" alt="">
+                          <img src="${list.path}" alt="">
                 
                          </div>
                          <div class="detail ">
@@ -127,7 +127,7 @@ $(document).ready(function () {
                      $('#byCategory').append(
                          `<div class="food  m-3">
                          <div class="pic mt-2 d-flex justify-content-center align-items-center">
-                          <img src="/storage/${list.path}" alt="">
+                          <img src="${list.path}" alt="">
                 
                          </div>
                          <div class="detail ">
@@ -231,7 +231,7 @@ $(document).ready(function () {
                    $('#byCategory').append(
                        `<div class="food  m-3">
                        <div class="pic mt-2 d-flex justify-content-center align-items-center">
-                        <img src="/storage/${list.path}" alt="">
+                        <img src="${list.path}" alt="">
               
                        </div>
                        <div class="detail ">
@@ -255,7 +255,7 @@ $(document).ready(function () {
                    $('#byCategory').append(
                        `<div class="food  m-3">
                        <div class="pic mt-2 d-flex justify-content-center align-items-center">
-                        <img src="/storage/${list.path}" alt="">
+                        <img src="${list.path}" alt="">
               
                        </div>
                        <div class="detail ">

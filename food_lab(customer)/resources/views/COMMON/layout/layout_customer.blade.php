@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="icon" type="image/x-icon" href="/storage/siteLogo/{{ $name->site_logo }}">
+    <link rel="icon" type="image/x-icon" href="{{ $name->site_logo }}">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link href="{{ url('css/commonCustomer.css') }}" rel="stylesheet" type="text/css" />
     <script src="{{ url('js/commonCustomer.js') }}" type="text/javascript" defer></script>
@@ -33,7 +33,7 @@
     <marquee class="mt-3">
         @foreach ($news as $new)
             <p class="d-inline mx-5 importantnews p-3 fs-5" id="{{ $new->category }}"><img
-                    src="/storage/siteLogo/{{ $new->source }}" class="me-2" width="50px"
+                    src="{{ $new->source }}" class="me-2" width="50px"
                     alt="{{ $new->source }}" />{{ $new->title }}</p>
         @endforeach
     </marquee>
@@ -45,7 +45,7 @@
         <nav class="navbar navbar-expand-lg container-fluid py-3 nav-containers">
 
             <a href="/" class="navbar-brand d-lg-none">
-                <img src="/storage/siteLogo/{{ $name->site_logo }}" width="80px" class="pe-2" />
+                <img src="{{ $name->site_logo }}" width="80px" class="pe-2" />
                 <span class="text-uppercase comapanynames">{{ $name->site_name }}</span>
             </a>
 
@@ -129,7 +129,7 @@
                     @endif
                     <li class="nav-item companys">
                         <a href="/" class="navbar-brand d-lg-inline">
-                            <img src="/storage/siteLogo/{{ $name->site_logo }}" width="80px"
+                            <img src="{{ $name->site_logo }}" width="80px"
                                 class="pe-2" />
                             <span class="comapanynames">{{ $name->site_name }}</span>
                         </a>
