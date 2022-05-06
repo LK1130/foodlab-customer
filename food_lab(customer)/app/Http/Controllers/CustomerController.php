@@ -85,6 +85,7 @@ class CustomerController extends Controller
             'End foodlab'
         ]);
 
+    
         return view('customer.home', [
             'sliderInfos' => $sliderInfo,
             'townships' => $townshipnames,

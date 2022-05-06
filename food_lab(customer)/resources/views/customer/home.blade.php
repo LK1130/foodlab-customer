@@ -34,7 +34,7 @@
         </div>
         <div class="carousel-inner">
             @forelse($sliderInfos as $sliderInfo)
-                <div class="carousel-item @if ($sliderInfo->id == 1) active @endif" style="background-image:url('img/bg5.png');background-size:cover">
+                <div class="carousel-item @if ($loop->first) active @endif" style="background-image:url('{{ $sliderInfo->image }}');background-size:cover">
                     <div class="row align-items-center items ms-2 justify-content-center">
                         <div class="col-9  flex-column slidertx p-4 text-center">
                             <h1 class="fw-bolder  tastes text-uppercase">{{ $sliderInfo->banner_title }}</h1>
