@@ -58,6 +58,7 @@ class M_Product extends Model
         $product = DB::table('m_product')
             ->select(['*'], DB::raw('m_product.id'))
             ->join('t_ad_photo', 't_ad_photo.link_id', '=', 'm_product.id')
+            ->join('m_taste','m_taste.id','=','m_product.product_taste')
             ->where('m_product.avaliable', 1)
             ->where('t_ad_photo.order_id', 1)
             ->where('t_ad_photo.del_flg', 0)

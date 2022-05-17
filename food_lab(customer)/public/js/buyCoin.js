@@ -103,12 +103,12 @@ $('#coinchargeform').on('submit',function(e){
           
             let errors = request.responseJSON.errors;
             
-            if(errors['coinput'].length > 0){
+            if(typeof errors['coinput'] != "undefined"){
                 let   err = ` <p class="text-danger" >${errors['coinput']}</p>`;
                 $('#coindiv').append(err);   
             }
          
-            if(errors['fileimage'].length > 0){
+            if(typeof errors['fileimage'] != "undefined"){
                 let image = errors['fileimage'].toString();
                      let  err2 = `<p class="text-danger">${image}</p>`;
                 $('#imagediv').append(err2);

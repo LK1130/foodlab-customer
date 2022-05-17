@@ -84,6 +84,7 @@ $(document).ready(function () {
                 success: function(data){
                     $('#form1').blur();
                     $('.loading').hide('slow');
+        
                   $("#byCategory").empty();
                  
                   $('#byCategory').show('slow');
@@ -95,57 +96,45 @@ $(document).ready(function () {
                         </div>
                     `);
                 }
+                console.log(data);
                   for (const list of data) {
                     let amount = numberWithCommas(list.amount);
                     if(customerId){
                         
-                     $('#byCategory').append(
-                         `<div class="food  m-3">
-                         <div class="pic mt-2 d-flex justify-content-center align-items-center">
-                          <img src="${list.path}" alt="">
-                
-                         </div>
-                         <div class="detail ">
-                         <a href="productDetail?id=${ list.link_id}" class="title fw-bold ms-3 my-3 fs-4">${ list.product_name }</a>
-                         <div class="fw-bold  text-white ms-3 fs-5 ">
-                                <i class="fas fa-coins me-2 coins"></i>
-                                ${ list.coin }
-                                <br>
-                                <i class="fa-solid fa-money-bill money text-success"></i>
-                                ${amount} Ks
-                            </div>
-                            <div class="slide">
-                            </div>
-                            <div class="price fw-bolder fs-4  p-2">
-                            <button type="button" id="${list.link_id}" class="shopcart"
-                            data-bs-toggle="modal" data-bs-target="#modal">SHOP</button>
-                            </div>
-                            </div>
-                        </div>
-                         `)
+                        switch (list.product_taste) {
+                            case 1:
+                                appendCustomerIdData(list,amount);
+                                break;
+                            case 2:
+                                appendCustomerIdData(list,amount);
+                                break;
+                            case 3:
+                                appendCustomerIdData(list,amount);
+                                break;
+                            case 4:
+                                appendCustomerIdData(list,amount);
+                                break;     
+                            default:
+                                break;
+                        }
+                        
                     }else{
-                     $('#byCategory').append(
-                         `<div class="food  m-3">
-                         <div class="pic mt-2 d-flex justify-content-center align-items-center">
-                          <img src="${list.path}" alt="">
-                
-                         </div>
-                         <div class="detail ">
-                         <a href="productDetail?id=${ list.link_id}" class="title fw-bold ms-3 my-3 fs-4">${ list.product_name }</a>
-                         <div class="fw-bold  text-white ms-3 fs-5 ">
-                                <i class="fas fa-coins me-2 coins"></i>
-                                ${ list.coin }
-                                <br>
-                                <i class="fa-solid fa-money-bill money text-success"></i>
-                                ${amount} Ks
-                            </div>
-                            <div class="slide">
-                            </div>
-                            <div class="price fw-bolder fs-4  p-2">
-                            <a href="/signin" class="order_food">SHOP</a>
-                            </div>
-                            </div>
-                        </div>`)
+                        switch (list.product_taste) {
+                            case 1:
+                                appendNoCustomerIdData(list,amount);
+                                break;
+                            case 2:
+                                appendNoCustomerIdData(list,amount);
+                                break;
+                            case 3:
+                                appendNoCustomerIdData(list,amount);
+                                break;
+                            case 4:
+                                appendNoCustomerIdData(list,amount);
+                                break;     
+                            default:
+                                break;
+                        }
                     }
                   }
 
@@ -186,6 +175,7 @@ $(document).ready(function () {
             });
         }
     });
+
     function sendData(){
 
         $.ajaxSetup({
@@ -228,52 +218,39 @@ $(document).ready(function () {
                 for (const list of data) {
                   let amount = numberWithCommas(list.amount);
                   if(customerId){
-                   $('#byCategory').append(
-                       `<div class="food  m-3">
-                       <div class="pic mt-2 d-flex justify-content-center align-items-center">
-                        <img src="${list.path}" alt="">
-              
-                       </div>
-                       <div class="detail ">
-                       <a href="productDetail?id=${ list.link_id}" class="title fw-bold ms-3 my-3 fs-4">${ list.product_name }</a>
-                       <div class="fw-bold  text-white ms-3 fs-5 ">
-                              <i class="fas fa-coins me-2 coins"></i>
-                              ${ list.coin }
-                              <br>
-                              <i class="fa-solid fa-money-bill money text-success"></i>
-                              ${amount} Ks
-                          </div>
-                          <div class="slide">
-                          </div>
-                          <div class="price fw-bolder fs-4  p-2">
-                          <button type="button" id="${list.link_id}" class="shopcart"
-                          data-bs-toggle="modal" data-bs-target="#modal">SHOP</button>
-                          </div>
-                          </div>
-                      </div>`)
+                    switch (list.product_taste) {
+                        case 1:
+                            appendCustomerIdData(list,amount);
+                            break;
+                        case 2:
+                            appendCustomerIdData(list,amount);
+                            break;
+                        case 3:
+                            appendCustomerIdData(list,amount);
+                            break;
+                        case 4:
+                            appendCustomerIdData(list,amount);
+                            break;     
+                        default:
+                            break;
+                    }
                   }else{
-                   $('#byCategory').append(
-                       `<div class="food  m-3">
-                       <div class="pic mt-2 d-flex justify-content-center align-items-center">
-                        <img src="${list.path}" alt="">
-              
-                       </div>
-                       <div class="detail ">
-                       <a href="productDetail?id=${ list.link_id}" class="title fw-bold ms-3 my-3 fs-4">${ list.product_name }</a>
-                       <div class="fw-bold  text-white ms-3 fs-5 ">
-                              <i class="fas fa-coins me-2 coins"></i>
-                              ${ list.coin }
-                              <br>
-                              <i class="fa-solid fa-money-bill money text-success"></i>
-                              ${amount} Ks
-                          </div>
-                          <div class="slide">
-                          </div>
-                          <div class="price fw-bolder fs-4  p-2">
-                          <a href="/signin" class="order_food">SHOP</a>
-                          </div>
-                          </div>
-                      </div>`)
+                    switch (list.product_taste) {
+                        case 1:
+                            appendNoCustomerIdData(list,amount);
+                            break;
+                        case 2:
+                            appendNoCustomerIdData(list,amount);
+                            break;
+                        case 3:
+                            appendNoCustomerIdData(list,amount);
+                            break;
+                        case 4:
+                            appendNoCustomerIdData(list,amount);
+                            break;     
+                        default:
+                            break;
+                    }
                   }
                 }
 
@@ -326,6 +303,83 @@ $(document).ready(function () {
     
   
 });
+
+
+/*
+ * Create : Aung Min Khant(17/5/2022)
+ * Update :
+ * Explain of function : To append data when customer id 
+ * Prarameter : list for specific data and amount to count comma
+ * return : append data
+ */
+function appendCustomerIdData(list,amount){
+
+    $('#byCategory').append(
+        `<div class="food  m-3">
+        <div class="slide">           
+        </div>
+        <p class="p-1">${(list.taste).toUpperCase()}</p>
+        <div class="pic mt-2 d-flex justify-content-center align-items-center">
+         <img src="${list.path}" alt="">
+
+        </div>
+        <div class="detail ">
+        <a href="productDetail?id=${ list.link_id}" class="title fw-bold ms-3 my-3 fs-4">${ list.product_name }</a>
+        <div class="fw-bold  text-white ms-3 fs-5 ">
+               <i class="fas fa-coins me-2 coins"></i>
+               ${ list.coin }
+               <br>
+               <i class="fa-solid fa-money-bill money text-success"></i>
+               ${amount} Ks
+           </div>
+           <div class="slide">
+           </div>
+           <div class="price fw-bolder fs-4  p-2">
+           <button type="button" id="${list.link_id}" class="shopcart"
+           data-bs-toggle="modal" data-bs-target="#modal">SHOP</button>
+           </div>
+           </div>
+       </div>`)
+   
+}
+
+
+/*
+ * Create : Aung Min Khant(17/5/2022)
+ * Update :
+ * Explain of function : To append data when no customer id 
+ * Prarameter : list for specific data and amount to count comma
+ * return : append data
+ */
+function appendNoCustomerIdData(list,amount){
+
+    console.log(list.taste);
+    $('#byCategory').append(
+        `<div class="food  m-3">
+        <div class="slide">           
+        </div>
+        <p class="p-1">${(list.taste).toUpperCase()}</p>
+        <div class="pic mt-2 d-flex justify-content-center align-items-center">
+         <img src="${list.path}" alt="">
+
+        </div>
+        <div class="detail ">
+        <a href="productDetail?id=${ list.link_id}" class="title fw-bold ms-3 my-3 fs-4">${ list.product_name }</a>
+        <div class="fw-bold  text-white ms-3 fs-5 ">
+               <i class="fas fa-coins me-2 coins"></i>
+               ${ list.coin }
+               <br>
+               <i class="fa-solid fa-money-bill money text-success"></i>
+               ${amount} Ks
+           </div>
+           <div class="slide">
+           </div>
+           <div class="price fw-bolder fs-4  p-2">
+           <a href="/signin" class="order_food">SHOP</a>
+           </div>
+           </div>
+       </div>`)
+}
 
 
 

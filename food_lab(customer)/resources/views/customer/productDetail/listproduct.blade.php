@@ -32,7 +32,7 @@
            <div class="row">
                <div class="col-md-10 col-sm-10  m-auto ">
                 <div class="bgproduct">
-                <div class="headerproduct p-3">Products</div>
+                <div class="headerproduct p-3">{{ __('messageAMK.products') }}</div>
                 <div class="row">
                    @forelse ($products as $item)
 
@@ -54,7 +54,7 @@
                           @if (session()->has('customerId'))
                           <a href=""><button type="button" id="{{ $item->link_id }}" class="btn border-warning shopbtns shopcart" data-bs-toggle="modal" data-bs-target="#modal" >{{ __('messageMK.shopnow') }}</button></a>
                           @else
-                          <a href="/signin"><button type="button" class="btn  shopbtns"> Shop Now </button></a>
+                          <a href="/signin"><button type="button" class="btn  shopbtns">{{ __('messageAMK.shopnow') }} </button></a>
                           @endif
                        </div>
                     </div>

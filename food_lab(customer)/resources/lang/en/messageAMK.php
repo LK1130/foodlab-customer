@@ -28,5 +28,6 @@ return [
     'Amount' => 'Amount',
     'Avaliable' => 'Avaliable',
     'Edit' =>'Edit',
-    'shopnow' => 'Shop Now'
+    'shopnow' => 'Shop Now',
+    'products' => 'Products'
 ];

@@ -85,7 +85,28 @@
                     <div class="food  m-3">
                         <div class="slide">
                         </div>
-                        <p class="p-1">SPICY</p>
+                        @switch($item->product_taste)
+                            @case(1)
+                            <p class="p-1">{{ Str::upper($item->taste) }}</p>
+                                @break
+                            @case(2)
+                            <p class="p-1">{{ Str::upper($item->taste) }}</p>
+                                @break
+                            
+                            @case(3)
+                            <p class="p-1">{{ Str::upper($item->taste) }}</p>
+                                @break
+                            @case(4)
+                            <p class="p-1">{{ Str::upper($item->taste) }}</p>
+                                @break
+                            @case(5)
+                            <p class="p-1">{{ Str::upper($item->taste) }}</p>
+                                @break
+                            @default
+                                
+                        @endswitch
+                        
+
                         <div class="pic mt-2 d-flex justify-content-center align-items-center">
                             {{-- <img src="{{ url('img/menu4.png') }}" /> --}}
                             <img src="@isset($item->path){{ $item->path }} @endisset" alt="">
